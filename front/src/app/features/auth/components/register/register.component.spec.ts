@@ -66,7 +66,7 @@ describe('RegisterComponent', () => {
   });
 
   // Test d'Initialisation du Composant
-  it('should initialize form with empty fields', () => {
+  it('should initialize form with empty fields and no error', () => {
     const form = component.form;
     const errorMessageElement: HTMLElement | null = fixture.nativeElement.querySelector('.error');
 
@@ -149,7 +149,7 @@ describe('RegisterComponent', () => {
   // Test de Validation du Formulaire (Success)
   it('should validate the form when all fields are filled', () => {
     const form = component.form;
-    form.get('email')!.setValue('test@example.com');
+    form.get('email')!.setValue('example@test.com');
     form.get('firstName')!.setValue('John');
     form.get('lastName')!.setValue('Doe');
     form.get('password')!.setValue('password123');
@@ -161,7 +161,7 @@ describe('RegisterComponent', () => {
     const form = component.form;
 
     // Remplit le formulaire avec des valeurs de test
-    form.get('email')!.setValue('test@example.com');
+    form.get('email')!.setValue('example@test.com');
     form.get('firstName')!.setValue('John');
     form.get('lastName')!.setValue('Doe');
     form.get('password')!.setValue('password123');
@@ -174,7 +174,7 @@ describe('RegisterComponent', () => {
   
     // Vérifie que register a été appelé avec les bonnes valeurs.
     expect(registerSpy).toHaveBeenCalledWith({
-      email: 'test@example.com',
+      email: 'example@test.com',
       firstName: 'John',
       lastName: 'Doe',
       password: 'password123'
@@ -186,7 +186,7 @@ describe('RegisterComponent', () => {
     jest.spyOn(authService, 'register').mockReturnValue(of(undefined));
   
     const form = component.form;
-    form.get('email')!.setValue('test@example.com');
+    form.get('email')!.setValue('example@test.com');
     form.get('firstName')!.setValue('John');
     form.get('lastName')!.setValue('Doe');
     form.get('password')!.setValue('password123');
