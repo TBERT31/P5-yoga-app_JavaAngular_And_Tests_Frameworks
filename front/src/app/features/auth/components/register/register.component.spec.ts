@@ -68,11 +68,15 @@ describe('RegisterComponent', () => {
   // Test d'Initialisation du Composant
   it('should initialize form with empty fields', () => {
     const form = component.form;
+    const errorMessageElement: HTMLElement | null = fixture.nativeElement.querySelector('.error');
+
     expect(form).toBeDefined();
     expect(form.get('email')!.value).toBe(''); // "Object is possibly 'null'" -> On utilise le '!' pour indiquer au compilateur que nous sommes sûr que le résultat ne sera pas null.
     expect(form.get('firstName')!.value).toBe('');
     expect(form.get('lastName')!.value).toBe('');
     expect(form.get('password')!.value).toBe('');
+
+    expect(errorMessageElement).toBeNull();
   });
 
 
@@ -102,7 +106,7 @@ describe('RegisterComponent', () => {
     expect(email!.invalid).toBeTruthy();
     email!.setValue('invalid-email');
     expect(email!.invalid).toBeTruthy();
-    email!.setValue('test@example.com');
+    email!.setValue('example@test.com');
     expect(email!.valid).toBeTruthy();
   });
 
@@ -111,6 +115,8 @@ describe('RegisterComponent', () => {
     firstName!.setValue('');
     expect(firstName!.invalid).toBeTruthy();
     firstName!.setValue('Jo');
+    expect(firstName!.invalid).toBeTruthy();
+    firstName!.setValue('Joooooooooooooooooooo');
     expect(firstName!.invalid).toBeTruthy();
     firstName!.setValue('John');
     expect(firstName!.valid).toBeTruthy();
@@ -122,6 +128,8 @@ describe('RegisterComponent', () => {
     expect(lastName!.invalid).toBeTruthy();
     lastName!.setValue('Do');
     expect(lastName!.invalid).toBeTruthy();
+    lastName!.setValue('Doooooooooooooooooooo');
+    expect(lastName!.invalid).toBeTruthy();
     lastName!.setValue('Doe');
     expect(lastName!.valid).toBeTruthy();
   });
@@ -131,6 +139,8 @@ describe('RegisterComponent', () => {
     password!.setValue('');
     expect(password!.invalid).toBeTruthy();
     password!.setValue('12');
+    expect(password!.invalid).toBeTruthy();
+    password!.setValue('120000000000000000000120000000000000000000');
     expect(password!.invalid).toBeTruthy();
     password!.setValue('123');
     expect(password!.valid).toBeTruthy();
@@ -186,8 +196,8 @@ describe('RegisterComponent', () => {
     expect(router.navigate).toHaveBeenCalledWith(['/login']);
   });
   
-  // Test de Soumissions du Formulaire (Failure)
-  it('should set onError to true on registration error', () => {
+  it('should set onError to true on registration error and show error message', () => {
+    // Simuler une erreur lors de l'appel à authService.register
     jest.spyOn(authService, 'register').mockReturnValue(throwError(() => new Error('An error occurred')));
   
     const form = component.form;
@@ -196,9 +206,16 @@ describe('RegisterComponent', () => {
     form.get('lastName')!.setValue('Doe');
     form.get('password')!.setValue('password123');
   
+    // Appeler la méthode submit qui déclenchera l'erreur
     component.submit();
   
+    // Vérifier que la propriété onError est définie à true
     expect(component.onError).toBe(true);
+  
+    // Vérifier que le message d'erreur est affiché dans le template
+    fixture.detectChanges(); // Mettre à jour la vue pour refléter les changements
+    const errorMessageElement: HTMLElement | null = fixture.nativeElement.querySelector('.error');
+    expect(errorMessageElement).not.toBeNull(); // Vérifier que l'élément contenant le message d'erreur est rendu
   });
   
 });
