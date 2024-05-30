@@ -19,4 +19,20 @@ describe('TeacherService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should get all teachers', () => {
+    service.all().subscribe(teachers => {
+      expect(teachers).toBeDefined();
+      expect(Array.isArray(teachers)).toBeTruthy();
+      expect(teachers.length).toBeGreaterThan(0);
+    });
+  });
+
+  it('should get teacher detail', () => {
+    const teacherId = '1'; 
+    service.detail(teacherId).subscribe(teacher => {
+      expect(teacher).toBeDefined();
+    });
+  });
+  
 });

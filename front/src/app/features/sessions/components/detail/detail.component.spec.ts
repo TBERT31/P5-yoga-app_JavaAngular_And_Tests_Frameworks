@@ -43,4 +43,3 @@ describe('DetailComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-

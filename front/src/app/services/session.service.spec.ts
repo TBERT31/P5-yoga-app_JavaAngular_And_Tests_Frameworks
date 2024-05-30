@@ -14,4 +14,40 @@ describe('SessionService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should log in', () => {
+    const user = {
+      token: 'someToken',
+      type: 'user',
+      id: 1,
+      username: 'testuser',
+      firstName: 'John',
+      lastName: 'Doe',
+      admin: false
+    };
+    service.logIn(user);
+    expect(service.sessionInformation).toEqual(user);
+    service.$isLogged().subscribe(isLogged => {
+      expect(isLogged).toBeTruthy();
+    });
+  });
+
+  it('should log out', () => {
+    const user = {
+      token: 'someToken',
+      type: 'user',
+      id: 1,
+      username: 'testuser',
+      firstName: 'John',
+      lastName: 'Doe',
+      admin: false
+    };
+    service.logIn(user);
+    service.logOut();
+    expect(service.sessionInformation).toBeUndefined();
+    service.$isLogged().subscribe(isLogged => {
+      expect(isLogged).toBeFalsy();
+    });
+  });
+  
 });
