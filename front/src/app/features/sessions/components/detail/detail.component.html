@@ -9,20 +9,19 @@
           <h1>{{session.name | titlecase}}</h1>
         </div>
         <div>
-          <button *ngIf="isAdmin" mat-raised-button color="warn" (click)="delete()">
+          <button class="btn-delete" *ngIf="isAdmin" mat-raised-button color="warn" (click)="delete()">
             <mat-icon>delete</mat-icon>
             <span class="ml1">Delete</span>
           </button>
           <div *ngIf="!isAdmin">
-            <button *ngIf="!isParticipate" mat-raised-button color="primary" (click)="participate()">
+            <button class="btn-participate" *ngIf="!isParticipate" mat-raised-button color="primary" (click)="participate()">
               <mat-icon>person_add</mat-icon>
               <span class="ml1">Participate</span>
             </button>
-            <button *ngIf="isParticipate" mat-raised-button color="warn" (click)="unParticipate()">
+            <button class="btn-unparticipate" *ngIf="isParticipate" mat-raised-button color="warn" (click)="unParticipate()">
               <mat-icon>person_remove</mat-icon>
               <span class="ml1">Do not participate</span>
             </button>
-
           </div>
 
 
@@ -34,7 +33,7 @@
         <mat-icon>
           people
         </mat-icon>
-        <span class="ml1">{{ teacher.firstName }} {{ teacher.lastName | uppercase }}</span>
+        <span class="ml1 teacher-name">{{ teacher.firstName }} {{ teacher.lastName | uppercase }}</span>
       </div>
     </mat-card-subtitle>
     <div mat-card-image fxLayoutAlign="center center">
@@ -52,7 +51,7 @@
           <mat-icon>
             calendar_month
           </mat-icon>
-          <span class="ml1">{{ session.date | date: 'longDate'}}</span>
+          <span class="ml1 session-date">{{ session.date | date: 'longDate'}}</span>
         </div>
       </div>
       <div class="description">

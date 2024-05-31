@@ -10,14 +10,19 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 import { expect } from '@jest/globals';
+import { Router, ActivatedRoute } from '@angular/router';
 import { SessionService } from 'src/app/services/session.service';
 import { SessionApiService } from '../../services/session-api.service';
+import { NgZone } from '@angular/core';
 
 import { FormComponent } from './form.component';
+import { ListComponent } from '../list/list.component';
 
 describe('FormComponent', () => {
   let component: FormComponent;
   let fixture: ComponentFixture<FormComponent>;
+  let router: Router;
+  let ngZone: NgZone;
 
   const mockSessionService = {
     sessionInformation: {
@@ -29,7 +34,9 @@ describe('FormComponent', () => {
     await TestBed.configureTestingModule({
 
       imports: [
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([
+          { path: 'sessions', component: ListComponent } 
+        ]),
         HttpClientModule,
         MatCardModule,
         MatIconModule,
@@ -44,11 +51,13 @@ describe('FormComponent', () => {
         { provide: SessionService, useValue: mockSessionService },
         SessionApiService
       ],
-      declarations: [FormComponent]
+      declarations: [FormComponent, ListComponent]
     })
       .compileComponents();
 
     fixture = TestBed.createComponent(FormComponent);
+    router = TestBed.inject(Router);
+    ngZone = TestBed.inject(NgZone);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -56,4 +65,16 @@ describe('FormComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should redirect to sessions if not admin', () => {
+    mockSessionService.sessionInformation.admin = false; 
+    const routerSpy = jest.spyOn(router, 'navigate');
+    
+    ngZone.run(() => { 
+      component.ngOnInit();
+    });
+
+    expect(routerSpy).toHaveBeenCalledWith(['/sessions']);
+  });
+
 });
