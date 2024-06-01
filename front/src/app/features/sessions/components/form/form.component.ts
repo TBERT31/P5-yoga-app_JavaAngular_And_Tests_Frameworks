@@ -60,7 +60,7 @@ export class FormComponent implements OnInit {
     }
   }
 
-  private initForm(session?: Session): void {
+  public initForm(session?: Session): void {
     this.sessionForm = this.fb.group({
       name: [
         session ? session.name : '',
@@ -84,7 +84,7 @@ export class FormComponent implements OnInit {
     });
   }
 
-  private exitPage(message: string): void {
+  public exitPage(message: string): void {
     this.matSnackBar.open(message, 'Close', { duration: 3000 });
     this.router.navigate(['sessions']);
   }
