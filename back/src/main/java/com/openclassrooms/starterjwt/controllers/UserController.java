@@ -28,6 +28,7 @@ public class UserController {
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable("id") String id) {
         try {
+
             User user = this.userService.findById(Long.valueOf(id));
 
             if (user == null) {
