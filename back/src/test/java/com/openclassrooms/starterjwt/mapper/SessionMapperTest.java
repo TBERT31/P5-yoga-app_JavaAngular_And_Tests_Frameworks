@@ -1,6 +1,8 @@
 package com.openclassrooms.starterjwt.mapper;
 
 import com.openclassrooms.starterjwt.dto.SessionDto;
+import com.openclassrooms.starterjwt.dto.TeacherDto;
+import com.openclassrooms.starterjwt.dto.UserDto;
 import com.openclassrooms.starterjwt.models.Session;
 import com.openclassrooms.starterjwt.models.Teacher;
 import com.openclassrooms.starterjwt.models.User;
@@ -18,17 +20,23 @@ import java.util.Date;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 class SessionMapperTest {
 
-    @MockBean
+    @Mock
     private TeacherService teacherService;
 
-    @MockBean
+    @Mock
+    private TeacherMapper teacherMapper;
+
+    @Mock
     private UserService userService;
 
-    @Autowired
+    @Mock
+    private UserMapper userMapper;
+
     private SessionMapper sessionMapper;
 
     @BeforeEach
@@ -47,6 +55,32 @@ class SessionMapperTest {
         when(teacherService.findById(1L)).thenReturn(teacher);
         when(userService.findById(1L)).thenReturn(user1);
         when(userService.findById(2L)).thenReturn(user2);
+
+        // Configure mock mapper behavior
+        when(userMapper.toDto(any(User.class)))
+                .thenReturn(
+                        new UserDto(
+                                user1.getId(),
+                                user1.getEmail(),
+                                user1.getLastName(),
+                                user1.getFirstName(),
+                                user1.isAdmin(),
+                                user1.getPassword(),
+                                user1.getCreatedAt(),
+                                user1.getUpdatedAt()
+                        )
+                );
+
+        when(teacherMapper.toDto(any(Teacher.class)))
+                .thenReturn(
+                        new TeacherDto(
+                                teacher.getId(),
+                                teacher.getLastName(),
+                                teacher.getFirstName(),
+                                teacher.getCreatedAt(),
+                                teacher.getUpdatedAt()
+                        )
+                );
 
         Session session = sessionMapper.toEntity(sessionDto);
 
