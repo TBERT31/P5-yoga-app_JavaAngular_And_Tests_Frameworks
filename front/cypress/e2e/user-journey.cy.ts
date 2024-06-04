@@ -11,7 +11,7 @@ describe('User Journey', () => {
             lastName: 'Doe',
             admin: false 
         };
-        
+
         cy.intercept('POST', '/api/auth/login', {
             statusCode: 200,
             body: sessionInformation
@@ -71,7 +71,7 @@ describe('User Journey', () => {
             statusCode: 200,
             body: {
                 id: 1,
-                username: 'john.doe',
+                username: 'john.doe@example.com',
                 firstName: 'John',
                 lastName: 'Doe',
                 admin: false,
