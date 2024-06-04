@@ -1,181 +1,129 @@
 package com.openclassrooms.starterjwt.controllers;
 
-import com.openclassrooms.starterjwt.dto.UserDto;
-import com.openclassrooms.starterjwt.mapper.UserMapper;
 import com.openclassrooms.starterjwt.models.User;
-import com.openclassrooms.starterjwt.security.services.UserDetailsImpl;
-import com.openclassrooms.starterjwt.services.UserService;
+import com.openclassrooms.starterjwt.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-
-import java.time.LocalDateTime;
-
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.test.context.TestPropertySource;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
 
-class UserControllerTest {
+import java.util.Optional;
 
-    @Mock
-    private UserService userService;
+import static org.hamcrest.Matchers.is;
+import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-    @Mock
-    private UserMapper userMapper;
+@ExtendWith(SpringExtension.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
+@AutoConfigureMockMvc
+@TestPropertySource(locations = "classpath:application-integrationtest.properties")
+public class UserControllerTest {
 
-    @InjectMocks
-    private UserController userController;
+    @Autowired
+    private MockMvc mvc;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private WebApplicationContext context;
 
     @BeforeEach
-    void setUp() {
-        MockitoAnnotations.openMocks(this);
+    public void setup() {
+        mvc = MockMvcBuilders
+                .webAppContextSetup(context)
+                .apply(springSecurity())
+                .build();
     }
 
     @Test
-    void testFindById_UserExists() {
-        // Given
+    @WithMockUser(username = "user1@example.com", roles = "USER")
+    public void givenUser_whenFindById_thenStatus200() throws Exception {
         User user = new User(
-                1L,
-                "test@example.com",
+                "user1@example.com",
                 "Doe",
                 "John",
                 "password",
-                true,
-                LocalDateTime.now(),
-                LocalDateTime.now()
+                false
         );
 
-        // Configure mock mapper behavior
-        when(userMapper.toDto(any(User.class)))
-                .thenReturn(
-                        new UserDto(
-                                user.getId(),
-                                user.getEmail(),
-                                user.getLastName(),
-                                user.getFirstName(),
-                                user.isAdmin(),
-                                user.getPassword(),
-                                user.getCreatedAt(),
-                                user.getUpdatedAt()
-                        )
-                );
+        userRepository.save(user);
 
-        // Configure mock userService to return the user when findById is called with ID 1L
-        when(userService.findById(1L)).thenReturn(user);
-
-        // When
-        ResponseEntity<?> responseEntity = userController.findById("1");
-
-        // Then
-        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
-        assertThat(responseEntity.getBody()).isInstanceOf(UserDto.class);
-        UserDto userDto = (UserDto) responseEntity.getBody();
-        assertThat(userDto.getId()).isEqualTo(1L);
-        assertThat(userDto.getEmail()).isEqualTo("test@example.com");
-        assertThat(userDto.getLastName()).isEqualTo("Doe");
-        assertThat(userDto.getFirstName()).isEqualTo("John");
+        mvc.perform(get("/api/user/" + user.getId())
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.email", is(user.getEmail())))
+                .andExpect(jsonPath("$.lastName", is(user.getLastName())))
+                .andExpect(jsonPath("$.firstName", is(user.getFirstName())));
     }
 
     @Test
-    void testFindById_UserDoesNotExist() {
-        // Given
-        when(userService.findById(1L)).thenReturn(null);
-
-        // When
-        ResponseEntity<?> responseEntity = userController.findById("1");
-
-        // Then
-        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
-        assertThat(responseEntity.getBody()).isNull();
-    }
-
-    @Test
-    void testDelete_Success() {
-        // Given
-        User user = new User(1L,
-                "test@example.com",
+    @WithMockUser(username = "user2@example.com", roles = "USER")
+    public void givenUser_whenDelete_thenStatus200() throws Exception {
+        User user = new User(
+                "user2@example.com",
                 "Doe",
-                "John",
-                "password",
-                false,
-                LocalDateTime.now(),
-                LocalDateTime.now()
+                "Jane",
+                "password123",
+                false
         );
 
-        when(userService.findById(1L)).thenReturn(user);
+        userRepository.save(user);
 
-        // Create UserDetailsImpl object
-        UserDetailsImpl userDetails = UserDetailsImpl.builder()
-                .id(user.getId())
-                .username(user.getEmail())
-                .firstName(user.getFirstName())
-                .lastName(user.getLastName())
-                .password(user.getPassword())
-                .admin(false)
-                .build();
+        mvc.perform(delete("/api/user/" + user.getId())
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
 
-        // Mock authentication
-        Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails, userDetails.getPassword(), userDetails.getAuthorities());
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-
-        // When
-        ResponseEntity<?> responseEntity = userController.save("1");
-
-        // Then
-        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
-        verify(userService, times(1)).delete(1L);
+        Optional<User> deletedUser = userRepository.findById(user.getId());
+        assertThat(deletedUser).isEmpty();
     }
 
     @Test
-    void testDelete_UserNotFound() {
-        // Given
-        when(userService.findById(1L)).thenReturn(null);
+    @WithMockUser(username = "wronguser@example.com", roles = "USER")
+    public void givenWrongUser_whenDelete_thenStatus401() throws Exception {
+        User user = new User(
+                "user3@example.com",
+                "Smith",
+                "John",
+                "password123",
+                false
+        );
 
-        // When
-        ResponseEntity<?> responseEntity = userController.save("1");
+        userRepository.save(user);
 
-        // Then
-        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
-        verify(userService, never()).delete(any());
+        mvc.perform(delete("/api/user/" + user.getId())
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isUnauthorized());
     }
 
     @Test
-    void testDelete_Unauthorized() {
-        // Given
-        User user = new User(1L,
-                "test@example.com",
-                "Doe",
-                "John",
-                "password",
-                false,
-                LocalDateTime.now(),
-                LocalDateTime.now()
-        );
+    @WithMockUser(username = "user1@example.com", roles = "USER")
+    public void givenNonExistentUser_whenFindById_thenStatus404() throws Exception {
+        mvc.perform(get("/api/user/999999")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound());
+    }
 
-        when(userService.findById(1L)).thenReturn(user);
-
-        // Create UserDetailsImpl object for another user
-        UserDetailsImpl anotherUserDetails = UserDetailsImpl.builder()
-                .username("another_user@example.com")
-                .password("password")
-                .build();
-
-        // Mock authentication
-        Authentication authentication = new UsernamePasswordAuthenticationToken(anotherUserDetails, anotherUserDetails.getPassword(), anotherUserDetails.getAuthorities());
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-
-        // When
-        ResponseEntity<?> responseEntity = userController.save("1");
-
-        // Then
-        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.UNAUTHORIZED);
-        verify(userService, never()).delete(any());
+    @Test
+    @WithMockUser(username = "user1@example.com", roles = "USER")
+    public void givenNonExistentUser_whenDelete_thenStatus404() throws Exception {
+        mvc.perform(delete("/api/user/999999")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound());
     }
 }
