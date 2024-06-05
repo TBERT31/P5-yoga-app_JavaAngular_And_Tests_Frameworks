@@ -2,6 +2,7 @@ package com.openclassrooms.starterjwt.controllers;
 
 import com.openclassrooms.starterjwt.models.Teacher;
 import com.openclassrooms.starterjwt.repository.TeacherRepository;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -10,10 +11,12 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 
 import java.time.LocalDateTime;
@@ -30,6 +33,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
 @AutoConfigureMockMvc
 @TestPropertySource(locations = "classpath:application-integrationtest.properties")
+@Rollback
 public class TeacherControllerTest {
 
     @Autowired
@@ -47,6 +51,11 @@ public class TeacherControllerTest {
                 .webAppContextSetup(context)
                 .apply(springSecurity())
                 .build();
+    }
+
+    @AfterEach
+    public void tearDown() {
+        teacherRepository.deleteAll();
     }
 
     @Test
@@ -68,21 +77,22 @@ public class TeacherControllerTest {
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.lastName", is(teacher.getLastName())))
                 .andExpect(jsonPath("$.firstName", is(teacher.getFirstName())));
+
     }
 
     @Test
     @WithMockUser(roles = "USER")
     public void givenTeachers_whenFindAll_thenStatus200() throws Exception {
         Teacher teacher1 = new Teacher(
-                1L,
-                "Doe",
+                2L,
+                "Smith",
                 "John",
                 LocalDateTime.now(),
                 LocalDateTime.now()
         );
 
         Teacher teacher2 = new Teacher(
-                2L,
+                3L,
                 "Smith",
                 "Jane",
                 LocalDateTime.now(),
@@ -100,6 +110,7 @@ public class TeacherControllerTest {
                 .andExpect(jsonPath("$[0].firstName", is(teacher1.getFirstName())))
                 .andExpect(jsonPath("$[1].lastName", is(teacher2.getLastName())))
                 .andExpect(jsonPath("$[1].firstName", is(teacher2.getFirstName())));
+
     }
 
     @Test

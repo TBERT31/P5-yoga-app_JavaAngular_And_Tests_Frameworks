@@ -2,6 +2,7 @@ package com.openclassrooms.starterjwt.controllers;
 
 import com.openclassrooms.starterjwt.models.User;
 import com.openclassrooms.starterjwt.repository.UserRepository;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -10,10 +11,12 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -31,6 +34,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
 @AutoConfigureMockMvc
 @TestPropertySource(locations = "classpath:application-integrationtest.properties")
+@Rollback
 public class UserControllerTest {
 
     @Autowired
@@ -49,6 +53,11 @@ public class UserControllerTest {
                 .apply(springSecurity())
                 .build();
     }
+    @AfterEach
+    public void tearDown() {
+        userRepository.deleteAll();
+    }
+
 
     @Test
     @WithMockUser(username = "user1@example.com", roles = "USER")
@@ -70,6 +79,7 @@ public class UserControllerTest {
                 .andExpect(jsonPath("$.email", is(user.getEmail())))
                 .andExpect(jsonPath("$.lastName", is(user.getLastName())))
                 .andExpect(jsonPath("$.firstName", is(user.getFirstName())));
+
     }
 
     @Test
@@ -91,6 +101,7 @@ public class UserControllerTest {
 
         Optional<User> deletedUser = userRepository.findById(user.getId());
         assertThat(deletedUser).isEmpty();
+
     }
 
     @Test
@@ -109,6 +120,7 @@ public class UserControllerTest {
         mvc.perform(delete("/api/user/" + user.getId())
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isUnauthorized());
+
     }
 
     @Test
