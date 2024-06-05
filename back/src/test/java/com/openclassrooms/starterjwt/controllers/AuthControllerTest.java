@@ -59,10 +59,10 @@ public class AuthControllerTest {
                 .build();
     }
 
-//    @AfterEach
-//    public void tearDown() {
-//        userRepository.deleteAll();
-//    }
+    @AfterEach
+    public void tearDown() {
+        userRepository.deleteAll();
+    }
 
     @Test
     @WithMockUser(roles = "USER")
@@ -91,7 +91,7 @@ public class AuthControllerTest {
     @WithMockUser(roles = "USER")
     public void givenValidUser_whenRegister_thenStatus200() throws Exception {
         SignupRequest signupRequest = new SignupRequest();
-        signupRequest.setEmail("user5@example.com");
+        signupRequest.setEmail("user555@example.com");
         signupRequest.setFirstName("Janny");
         signupRequest.setLastName("Doey");
         signupRequest.setPassword("password123");
