@@ -1,268 +1,401 @@
 package com.openclassrooms.starterjwt.controllers;
 
-import com.openclassrooms.starterjwt.controllers.SessionController;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.openclassrooms.starterjwt.dto.SessionDto;
 import com.openclassrooms.starterjwt.mapper.SessionMapper;
 import com.openclassrooms.starterjwt.models.Session;
-import com.openclassrooms.starterjwt.services.SessionService;
+import com.openclassrooms.starterjwt.models.Teacher;
+import com.openclassrooms.starterjwt.models.User;
+import com.openclassrooms.starterjwt.repository.SessionRepository;
+import com.openclassrooms.starterjwt.repository.TeacherRepository;
+import com.openclassrooms.starterjwt.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.TestPropertySource;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.context.WebApplicationContext;
+import org.junit.jupiter.api.AfterEach;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
+import java.util.Optional;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
 
-class SessionControllerTest {
+import static org.hamcrest.Matchers.is;
+import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-    @Mock
-    private SessionService sessionService;
+@ExtendWith(SpringExtension.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
+@AutoConfigureMockMvc
+@TestPropertySource(locations = "classpath:application-integrationtest.properties")
+@Rollback
+public class SessionControllerTest {
 
-    @Mock
+    @Autowired
+    private MockMvc mvc;
+
+    @Autowired
+    private SessionRepository sessionRepository;
+
+    @Autowired
     private SessionMapper sessionMapper;
 
-    @InjectMocks
-    private SessionController sessionController;
+    @Autowired
+    private TeacherRepository teacherRepository;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private WebApplicationContext context;
 
     @BeforeEach
-    void setUp() {
-        MockitoAnnotations.openMocks(this);
+    public void setup() {
+        mvc = MockMvcBuilders
+                .webAppContextSetup(context)
+                .apply(springSecurity())
+                .build();
+    }
+
+
+
+    @AfterEach
+    public void tearDown() {
+        sessionRepository.deleteAll();
+        teacherRepository.deleteAll();
+        userRepository.deleteAll();
     }
 
     @Test
-    void testFindById_SessionExists() {
-        // Given
+    @WithMockUser(roles = "USER")
+    public void givenSession_whenFindById_thenStatus200() throws Exception {
+        Teacher teacher = new Teacher(
+                1L,
+                "Doe",
+                "John",
+                LocalDateTime.now(),
+                LocalDateTime.now()
+        );
+
+        teacherRepository.save(teacher);
+
+        Optional<Teacher> teacherWithGoodId = teacherRepository.findByFirstName("John");
+
         Session session = new Session(
                 1L,
                 "Session 1",
                 new Date(),
-                "Description of session 1",
-                null,
-                null,
-                LocalDateTime.now(),
-                LocalDateTime.now()
-        );
-
-        SessionDto sessionDto = new SessionDto(
-                1L,
-                "Session 1",
-                new Date(),
-                null,
-                "Description of session 1",
+                "Description",
+                teacherWithGoodId.get(),
                 null,
                 LocalDateTime.now(),
                 LocalDateTime.now()
         );
 
-        // Configure mock service and mapper
-        when(sessionService.getById(1L)).thenReturn(session);
-        when(sessionMapper.toDto(any(Session.class))).thenReturn(sessionDto);
+        sessionRepository.save(session);
 
-        // When
-        ResponseEntity<?> responseEntity = sessionController.findById("1");
+        Optional<Session> sessionWithGoodId = sessionRepository.findByName("Session 1");
 
-        // Then
-        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
-        assertThat(responseEntity.getBody()).isInstanceOf(SessionDto.class);
-        SessionDto responseDto = (SessionDto) responseEntity.getBody();
-        assertThat(responseDto.getId()).isEqualTo(1L);
-        assertThat(responseDto.getName()).isEqualTo("Session 1");
-        assertThat(responseDto.getDescription()).isEqualTo("Description of session 1");
+        mvc.perform(get("/api/session/" + sessionWithGoodId.get().getId())
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.name", is(session.getName())))
+                .andExpect(jsonPath("$.description", is(session.getDescription())));
+
     }
 
     @Test
-    void testFindById_SessionDoesNotExist() {
-        // Given
-        when(sessionService.getById(1L)).thenReturn(null);
-
-        // When
-        ResponseEntity<?> responseEntity = sessionController.findById("1");
-
-        // Then
-        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
-        assertThat(responseEntity.getBody()).isNull();
-    }
-
-    @Test
-    void testFindAll() {
-        // Given
-        Session session1 = new Session(1L, "Session 1", new Date(), "Description of session 1", null, null, LocalDateTime.now(), LocalDateTime.now());
-        Session session2 = new Session(2L, "Session 2", new Date(), "Description of session 2", null, null, LocalDateTime.now(), LocalDateTime.now());
-
-        List<Session> sessions = Arrays.asList(session1, session2);
-        SessionDto sessionDto1 = new SessionDto(1L, "Session 1", new Date(), null, "Description of session 1", null, LocalDateTime.now(), LocalDateTime.now());
-        SessionDto sessionDto2 = new SessionDto(2L, "Session 2", new Date(), null, "Description of session 2", null, LocalDateTime.now(), LocalDateTime.now());
-        List<SessionDto> sessionDtos = Arrays.asList(sessionDto1, sessionDto2);
-
-        // Configure mock service and mapper
-        when(sessionService.findAll()).thenReturn(sessions);
-        when(sessionMapper.toDto(sessions)).thenReturn(sessionDtos);
-
-        // When
-        ResponseEntity<?> responseEntity = sessionController.findAll();
-
-        // Then
-        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
-        assertThat(responseEntity.getBody()).isInstanceOf(List.class);
-        List<SessionDto> responseDtos = (List<SessionDto>) responseEntity.getBody();
-        assertThat(responseDtos.size()).isEqualTo(2);
-        assertThat(responseDtos.get(0).getId()).isEqualTo(1L);
-        assertThat(responseDtos.get(0).getName()).isEqualTo("Session 1");
-        assertThat(responseDtos.get(0).getDescription()).isEqualTo("Description of session 1");
-        assertThat(responseDtos.get(1).getId()).isEqualTo(2L);
-        assertThat(responseDtos.get(1).getName()).isEqualTo("Session 2");
-        assertThat(responseDtos.get(1).getDescription()).isEqualTo("Description of session 2");
-    }
-
-    @Test
-    void testCreate() {
-        // Given
-        SessionDto sessionDto = new SessionDto(null, "New Session", new Date(), null, "Description of new session", null, null, null);
-        Session session = new Session(null, "New Session", new Date(), "Description of new session", null, null, null, null);
-        Session createdSession = new Session(1L, "New Session", new Date(), "Description of new session", null, null, null, null);
-        SessionDto createdSessionDto = new SessionDto(1L, "New Session", new Date(), null, "Description of new session", null, null, null);
-
-        // Configure mock service and mapper
-        when(sessionMapper.toEntity(sessionDto)).thenReturn(session);
-        when(sessionService.create(session)).thenReturn(createdSession);
-        when(sessionMapper.toDto(createdSession)).thenReturn(createdSessionDto);
-
-        // When
-        ResponseEntity<?> responseEntity = sessionController.create(sessionDto);
-
-        // Then
-        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
-        assertThat(responseEntity.getBody()).isInstanceOf(SessionDto.class);
-        SessionDto responseDto = (SessionDto) responseEntity.getBody();
-        assertThat(responseDto.getId()).isEqualTo(1L);
-        assertThat(responseDto.getName()).isEqualTo("New Session");
-        assertThat(responseDto.getDescription()).isEqualTo("Description of new session");
-    }
-
-    @Test
-    void testUpdate_SessionExists() {
-        // Given
-        SessionDto sessionDto = new SessionDto(1L, "Updated Session", new Date(), null, "Updated description", null, LocalDateTime.now(), LocalDateTime.now());
-        Session session = new Session(1L, "Session", new Date(), "Description", null, null, LocalDateTime.now(), LocalDateTime.now());
-        Session updatedSession = new Session(1L, "Updated Session", new Date(), "Updated description", null, null, LocalDateTime.now(), LocalDateTime.now());
-        SessionDto updatedSessionDto = new SessionDto(1L, "Updated Session", new Date(), null, "Updated description", null, LocalDateTime.now(), LocalDateTime.now());
-
-        // Configure mock service and mapper
-        when(sessionMapper.toEntity(sessionDto)).thenReturn(session);
-        when(sessionService.update(1L, session)).thenReturn(updatedSession);
-        when(sessionMapper.toDto(updatedSession)).thenReturn(updatedSessionDto);
-
-        // When
-        ResponseEntity<?> responseEntity = sessionController.update("1", sessionDto);
-
-        // Then
-        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
-        assertThat(responseEntity.getBody()).isInstanceOf(SessionDto.class);
-        SessionDto responseDto = (SessionDto) responseEntity.getBody();
-        assertThat(responseDto.getId()).isEqualTo(1L);
-        assertThat(responseDto.getName()).isEqualTo("Updated Session");
-        assertThat(responseDto.getDescription()).isEqualTo("Updated description");
-    }
-
-    @Test
-    void testUpdate_SessionDoesNotExist() {
-        // Given
-        SessionDto sessionDto = new SessionDto(
+    @WithMockUser(roles = "USER")
+    public void givenSessions_whenFindAll_thenStatus200() throws Exception {
+        Teacher teacher = new Teacher(
                 1L,
-                "Updated Session",
-                new Date(),
-                null,
-                "Updated description",
-                null,
-                null,
-                null
+                "Doe",
+                "John",
+                LocalDateTime.now(),
+                LocalDateTime.now()
         );
 
+        teacherRepository.save(teacher);
 
-        // Configure mock service and mapper
-        when(sessionMapper.toEntity(sessionDto)).thenReturn(null);
-        when(sessionService.update(
+        Optional<Teacher> teacherWithGoodId = teacherRepository.findByFirstName("John");
+
+        Session session1 = new Session(
+                2L,
+                "Session 2",
+                new Date(),
+                "Description 2",
+                teacherWithGoodId.get(),
+                null,
+                LocalDateTime.now(),
+                LocalDateTime.now()
+        );
+
+        Session session2 = new Session(
+                3L,
+                "Session 3",
+                new Date(),
+                "Description 3",
+                teacherWithGoodId.get(),
+                null,
+                LocalDateTime.now(),
+                LocalDateTime.now()
+        );
+
+        sessionRepository.saveAll(Arrays.asList(session1, session2));
+
+        mvc.perform(get("/api/session/")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.length()", is(2)))
+                .andExpect(jsonPath("$[0].name", is(session1.getName())))
+                .andExpect(jsonPath("$[0].description", is(session1.getDescription())))
+                .andExpect(jsonPath("$[1].name", is(session2.getName())))
+                .andExpect(jsonPath("$[1].description", is(session2.getDescription())));
+
+    }
+
+    @Test
+    @WithMockUser(roles = "ADMIN")
+    public void givenSession_whenCreate_thenStatus200() throws Exception {
+        Teacher teacher = new Teacher(
                 1L,
-                new Session(
-                        1L,
-                        "Updated Session",
-                        new Date(),
-                        "Updated description",
-                        null,
-                        null,
-                        null,
-                        null))
-        ).thenReturn(null);
+                "Doe",
+                "John",
+                LocalDateTime.now(),
+                LocalDateTime.now()
+        );
 
-        // When
-        ResponseEntity<?> responseEntity = sessionController.update("1", sessionDto);
+        teacherRepository.save(teacher);
 
-        // Then
-//        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
-        assertThat(responseEntity.getBody()).isNull();
+        Optional<Teacher> teacherWithGoodId = teacherRepository.findByFirstName("John");
+
+        SessionDto sessionDto = new SessionDto(
+                4L,
+                "Session 4",
+                new Date(),
+                teacherWithGoodId.get().getId(),
+                "Description 4",
+                Arrays.asList(),
+                LocalDateTime.now(),
+                LocalDateTime.now()
+        );
+
+        Session session = sessionMapper.toEntity(sessionDto);
+        sessionRepository.save(session);
+
+        Gson gson = new GsonBuilder()
+                .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+                .create();
+
+        mvc.perform(post("/api/session/")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(gson.toJson(sessionMapper.toDto(session))))
+                .andExpect(status().isOk())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.name", is(sessionDto.getName())))
+                .andExpect(jsonPath("$.description", is(sessionDto.getDescription())));
+
     }
 
     @Test
-    void testDelete_SessionExists() {
-        // Given
-        Session session = new Session(1L, "Session 1", new Date(), "Description of session 1", null, null, LocalDateTime.now(), LocalDateTime.now());
+    @WithMockUser(roles = "ADMIN")
+    public void givenSession_whenUpdate_thenStatus200() throws Exception {
+        Teacher teacher = new Teacher(
+                1L,
+                "Doe",
+                "John",
+                LocalDateTime.now(),
+                LocalDateTime.now()
+        );
 
-        // Configure mock service
-        when(sessionService.getById(1L)).thenReturn(session);
+        teacherRepository.save(teacher);
 
-        // When
-        ResponseEntity<?> responseEntity = sessionController.save("1");
+        Optional<Teacher> teacherWithGoodId = teacherRepository.findByFirstName("John");
 
-        // Then
-        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
-        verify(sessionService, times(1)).delete(1L);
+        Session session = new Session(
+                5L,
+                "Session 5",
+                new Date(),
+                "Description 5",
+                teacherWithGoodId.get(),
+                null,
+                LocalDateTime.now(),
+                LocalDateTime.now()
+        );
+        sessionRepository.save(session);
+
+        SessionDto sessionDto = new SessionDto(
+                5L,
+                "Updated Session 5",
+                new Date(),
+                teacherWithGoodId.get().getId(),
+                "Updated Description 5",
+                Arrays.asList(),
+                LocalDateTime.now(),
+                LocalDateTime.now()
+        );
+
+        Gson gson = new GsonBuilder()
+                .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+                .create();
+
+        mvc.perform(put("/api/session/" + session.getId())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(gson.toJson(sessionDto)))
+                .andExpect(status().isOk())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.name", is(sessionDto.getName())))
+                .andExpect(jsonPath("$.description", is(sessionDto.getDescription())));
+
     }
 
     @Test
-    void testDelete_SessionDoesNotExist() {
-        // Given
-        when(sessionService.getById(1L)).thenReturn(null);
+    @WithMockUser(roles = "ADMIN")
+    public void givenSession_whenDelete_thenStatus200() throws Exception {
+        Teacher teacher = new Teacher(
+                1L,
+                "Doe",
+                "John",
+                LocalDateTime.now(),
+                LocalDateTime.now()
+        );
 
-        // When
-        ResponseEntity<?> responseEntity = sessionController.save("1");
+        teacherRepository.save(teacher);
 
-        // Then
-        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
-        verify(sessionService, never()).delete(any());
+        Optional<Teacher> teacherWithGoodId = teacherRepository.findByFirstName("John");
+
+        Session session = new Session(
+                6L,
+                "Session 6",
+                new Date(),
+                "Description 6",
+                teacherWithGoodId.get(),
+                null,
+                LocalDateTime.now(),
+                LocalDateTime.now()
+        );
+        sessionRepository.save(session);
+
+        Optional<Session> sessionWithGoodId = sessionRepository.findByName("Session 6");
+
+        mvc.perform(delete("/api/session/" + sessionWithGoodId.get().getId())
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+
     }
 
     @Test
-    void testParticipate() {
-        // Given
-        doNothing().when(sessionService).participate(1L, 1L);
+    @WithMockUser(roles = "USER")
+    public void givenSession_whenParticipate_thenStatus200() throws Exception {
+        Teacher teacher = new Teacher(
+                1L,
+                "Doe",
+                "John",
+                LocalDateTime.now(),
+                LocalDateTime.now()
+        );
 
-        // When
-        ResponseEntity<?> responseEntity = sessionController.participate("1", "1");
+        teacherRepository.save(teacher);
 
-        // Then
-        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
-        verify(sessionService, times(1)).participate(1L, 1L);
+        Optional<Teacher> teacherWithGoodId = teacherRepository.findByFirstName("John");
+
+        User user = new User(
+                "user@example.com",
+                "Doe",
+                "John",
+                "password",
+                false
+        );
+
+        userRepository.save(user);
+
+        Session session = new Session(
+                7L,
+                "Session 7",
+                new Date(),
+                "Description 7",
+                teacherWithGoodId.get(),
+                null,
+                LocalDateTime.now(),
+                LocalDateTime.now()
+        );
+
+        sessionRepository.save(session);
+
+        Optional<User> userWithGoodId = userRepository.findByEmail("user@example.com");
+        Optional<Session> sessionWithGoodId = sessionRepository.findByName("Session 7");
+
+        System.out.println("Session id >>>>> "+sessionWithGoodId.get().getId()  + " user id >>>> "+userWithGoodId.get().getId());
+        System.out.println("Session id >>>>> "+session.getId()  + " user id >>>> "+user.getId());
+
+        mvc.perform(post("/api/session/" + sessionWithGoodId.get().getId().toString() + "/participate/" + userWithGoodId.get().getId().toString())
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+
     }
 
     @Test
-    void testNoLongerParticipate() {
-        // Given
-        doNothing().when(sessionService).noLongerParticipate(1L, 1L);
+    @WithMockUser(roles = "USER")
+    public void givenSession_whenNoLongerParticipate_thenStatus200() throws Exception {
+        Teacher teacher = new Teacher(
+                1L,
+                "Doe",
+                "John",
+                LocalDateTime.now(),
+                LocalDateTime.now()
+        );
 
-        // When
-        ResponseEntity<?> responseEntity = sessionController.noLongerParticipate("1", "1");
+        teacherRepository.save(teacher);
 
-        // Then
-        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
-        verify(sessionService, times(1)).participate(1L, 1L);
+        Optional<Teacher> teacherWithGoodId = teacherRepository.findByFirstName("John");
+
+        User user = new User(
+                "user@example.com",
+                "Depp",
+                "Johnny",
+                "password",
+                false
+        );
+
+        userRepository.save(user);
+
+        Session session = new Session(
+                8L,
+                "Session 8",
+                new Date(),
+                "Description 8",
+                teacherWithGoodId.get(),
+                Arrays.asList(user),
+                LocalDateTime.now(),
+                LocalDateTime.now()
+        );
+
+        sessionRepository.save(session);
+
+        Optional<User> userWithGoodId = userRepository.findByEmail("user@example.com");
+        Optional<Session> sessionWithGoodId = sessionRepository.findByName("Session 8");
+
+        mvc.perform(delete("/api/session/" + sessionWithGoodId.get().getId() + "/participate/" + userWithGoodId.get().getId())
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+
     }
 }

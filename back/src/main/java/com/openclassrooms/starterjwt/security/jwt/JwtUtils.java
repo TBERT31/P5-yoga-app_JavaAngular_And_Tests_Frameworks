@@ -2,6 +2,7 @@ package com.openclassrooms.starterjwt.security.jwt;
 
 import java.util.Date;
 
+import com.google.gson.Gson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,6 +16,8 @@ import io.jsonwebtoken.*;
 @Component
 public class JwtUtils {
   private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
+
+  private final Gson gson = new Gson();
 
   @Value("${oc.app.jwtSecret}")
   private String jwtSecret;
@@ -55,5 +58,9 @@ public class JwtUtils {
     }
 
     return false;
+  }
+
+  public String toJson(Object obj) {
+    return gson.toJson(obj);
   }
 }

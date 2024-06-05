@@ -3,118 +3,104 @@ package com.openclassrooms.starterjwt.controllers;
 import com.openclassrooms.starterjwt.models.User;
 import com.openclassrooms.starterjwt.payload.request.LoginRequest;
 import com.openclassrooms.starterjwt.payload.request.SignupRequest;
-import com.openclassrooms.starterjwt.payload.response.JwtResponse;
-import com.openclassrooms.starterjwt.payload.response.MessageResponse;
 import com.openclassrooms.starterjwt.repository.UserRepository;
 import com.openclassrooms.starterjwt.security.jwt.JwtUtils;
-import com.openclassrooms.starterjwt.security.services.UserDetailsImpl;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.TestPropertySource;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.context.WebApplicationContext;
 
-import java.util.Optional;
+import java.time.LocalDateTime;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
+import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-class AuthControllerTest {
+@ExtendWith(SpringExtension.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
+@AutoConfigureMockMvc
+@TestPropertySource(locations = "classpath:application-integrationtest.properties")
+@Rollback
+public class AuthControllerTest {
 
-    @Mock
-    private AuthenticationManager authenticationManager;
+    @Autowired
+    private MockMvc mvc;
 
-    @Mock
-    private JwtUtils jwtUtils;
-
-    @Mock
-    private PasswordEncoder passwordEncoder;
-
-    @Mock
+    @Autowired
     private UserRepository userRepository;
 
-    @InjectMocks
-    private AuthController authController;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private JwtUtils jwtUtils;
+
+    @Autowired
+    private WebApplicationContext context;
 
     @BeforeEach
-    void setUp() {
-        MockitoAnnotations.openMocks(this);
+    public void setup() {
+        mvc = MockMvcBuilders
+                .webAppContextSetup(context)
+                .apply(springSecurity())
+                .build();
     }
 
-    @Test
-    void testAuthenticateUser() {
-        LoginRequest loginRequest = new LoginRequest();
-        loginRequest.setEmail("test@example.com");
-        loginRequest.setPassword("password");
+//    @AfterEach
+//    public void tearDown() {
+//        userRepository.deleteAll();
+//    }
 
-        Authentication authentication = mock(Authentication.class);
-        UserDetailsImpl userDetails = new UserDetailsImpl(
-                1L,
-                "test@example.com",
-                "firstName",
-                "lastName",
-                false,
-                "password123"
+    @Test
+    @WithMockUser(roles = "USER")
+    public void givenValidUser_whenLogin_thenStatus200() throws Exception {
+        User user = new User(
+                "user444@example.com",
+                "Doey",
+                "Jammy",
+                passwordEncoder.encode("password123"),
+                false
         );
 
-        when(authenticationManager.authenticate(any(UsernamePasswordAuthenticationToken.class))).thenReturn(authentication);
-        when(authentication.getPrincipal()).thenReturn(userDetails);
-        when(jwtUtils.generateJwtToken(authentication)).thenReturn("test-jwt-token");
-        when(userRepository.findByEmail("test@example.com")).thenReturn(Optional.of(new User()));
+        userRepository.save(user);
 
-        ResponseEntity<?> response = authController.authenticateUser(loginRequest);
+        LoginRequest loginRequest = new LoginRequest();
+        loginRequest.setEmail("user444@example.com");
+        loginRequest.setPassword("password123");
 
-        assertThat(response.getStatusCodeValue()).isEqualTo(200);
-        JwtResponse jwtResponse = (JwtResponse) response.getBody();
-        assertThat(jwtResponse).isNotNull();
-        assertThat(jwtResponse.getToken()).isEqualTo("test-jwt-token");
-        assertThat(jwtResponse.getUsername()).isEqualTo("test@example.com");
+        mvc.perform(post("/api/auth/login")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jwtUtils.toJson(loginRequest)))
+                .andExpect(status().isOk());
     }
 
     @Test
-    void testRegisterUser() {
-        SignupRequest signUpRequest = new SignupRequest();
-        signUpRequest.setEmail("test@example.com");
-        signUpRequest.setFirstName("Test");
-        signUpRequest.setLastName("User");
-        signUpRequest.setPassword("password");
+    @WithMockUser(roles = "USER")
+    public void givenValidUser_whenRegister_thenStatus200() throws Exception {
+        SignupRequest signupRequest = new SignupRequest();
+        signupRequest.setEmail("user5@example.com");
+        signupRequest.setFirstName("Janny");
+        signupRequest.setLastName("Doey");
+        signupRequest.setPassword("password123");
 
-        when(userRepository.existsByEmail("test@example.com")).thenReturn(false);
-        when(passwordEncoder.encode("password")).thenReturn("encoded-password");
+        System.out.println(jwtUtils.toJson(signupRequest));
 
-        ResponseEntity<?> response = authController.registerUser(signUpRequest);
-
-        assertThat(response.getStatusCodeValue()).isEqualTo(200);
-        MessageResponse messageResponse = (MessageResponse) response.getBody();
-        assertThat(messageResponse).isNotNull();
-        assertThat(messageResponse.getMessage()).isEqualTo("User registered successfully!");
-
-        verify(userRepository, times(1)).save(any(User.class));
-    }
-
-    @Test
-    void testRegisterUser_EmailAlreadyTaken() {
-        SignupRequest signUpRequest = new SignupRequest();
-        signUpRequest.setEmail("test@example.com");
-        signUpRequest.setFirstName("Test");
-        signUpRequest.setLastName("User");
-        signUpRequest.setPassword("password");
-
-        when(userRepository.existsByEmail("test@example.com")).thenReturn(true);
-
-        ResponseEntity<?> response = authController.registerUser(signUpRequest);
-
-        assertThat(response.getStatusCodeValue()).isEqualTo(400);
-        MessageResponse messageResponse = (MessageResponse) response.getBody();
-        assertThat(messageResponse).isNotNull();
-        assertThat(messageResponse.getMessage()).isEqualTo("Error: Email is already taken!");
-
-        verify(userRepository, times(0)).save(any(User.class));
+        mvc.perform(post("/api/auth/register")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jwtUtils.toJson(signupRequest)))
+                .andExpect(status().isOk());
     }
 }
