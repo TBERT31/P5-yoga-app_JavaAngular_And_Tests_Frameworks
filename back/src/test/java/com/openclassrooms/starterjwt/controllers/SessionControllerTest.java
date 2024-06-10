@@ -73,8 +73,6 @@ public class SessionControllerTest {
                 .build();
     }
 
-
-
     @AfterEach
     public void tearDown() {
         sessionRepository.deleteAll();

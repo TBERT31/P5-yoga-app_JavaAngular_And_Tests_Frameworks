@@ -53,6 +53,7 @@ public class UserControllerTest {
                 .apply(springSecurity())
                 .build();
     }
+
     @AfterEach
     public void tearDown() {
         userRepository.deleteAll();

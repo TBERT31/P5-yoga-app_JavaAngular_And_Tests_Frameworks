@@ -40,7 +40,7 @@ public class UserServiceTest {
 
     @Test
     public void testDeleteUser() {
-        doNothing().when(userRepository).deleteById(user.getId());
+        doNothing().when(userRepository).deleteById(anyLong());
 
         userService.delete(user.getId());
 
