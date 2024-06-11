@@ -15,6 +15,7 @@ import { AuthService } from '../../services/auth.service';
 import { RegisterComponent } from './register.component';
 import { RegisterRequest } from '../../interfaces/registerRequest.interface';
 import { NgZone } from '@angular/core';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
@@ -31,6 +32,7 @@ describe('RegisterComponent', () => {
         BrowserAnimationsModule,
         HttpClientModule,
         ReactiveFormsModule,  
+        MatSnackBarModule,
         MatCardModule,
         MatFormFieldModule,
         MatIconModule,

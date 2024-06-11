@@ -1,7 +1,9 @@
 package com.openclassrooms.starterjwt.controllers;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.openclassrooms.starterjwt.models.Teacher;
 import com.openclassrooms.starterjwt.repository.TeacherRepository;
+import org.assertj.core.groups.Tuple;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,13 +23,17 @@ import org.springframework.web.context.WebApplicationContext;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
+import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.is;
 import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
@@ -75,6 +81,7 @@ public class TeacherControllerTest {
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.id", is(teacher.getId().intValue())))
                 .andExpect(jsonPath("$.lastName", is(teacher.getLastName())))
                 .andExpect(jsonPath("$.firstName", is(teacher.getFirstName())));
 
@@ -101,16 +108,39 @@ public class TeacherControllerTest {
 
         teacherRepository.saveAll(Arrays.asList(teacher1, teacher2));
 
+//        mvc.perform(get("/api/teacher/")
+//                        .contentType(MediaType.APPLICATION_JSON))
+//                .andExpect(status().isOk())
+//                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+//                .andExpect(jsonPath("$.length()", is(2)))
+//                .andExpect(jsonPath("$[*].id", containsInAnyOrder(teacher1.getId().intValue(), teacher2.getId().intValue())))
+//                .andExpect(jsonPath("$[*].lastName", containsInAnyOrder(teacher1.getLastName(), teacher2.getLastName())))
+//                .andExpect(jsonPath("$[*].firstName", containsInAnyOrder(teacher1.getFirstName(), teacher2.getFirstName())));
+
         mvc.perform(get("/api/teacher/")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.length()", is(2)))
-                .andExpect(jsonPath("$[0].lastName", is(teacher1.getLastName())))
-                .andExpect(jsonPath("$[0].firstName", is(teacher1.getFirstName())))
-                .andExpect(jsonPath("$[1].lastName", is(teacher2.getLastName())))
-                .andExpect(jsonPath("$[1].firstName", is(teacher2.getFirstName())));
+                .andExpect(result -> {
+                    String json = result.getResponse().getContentAsString();
+                    List<Map<String, Object>> teachers = new ObjectMapper().readValue(json, List.class);
 
+                    assertThat(teachers)
+                            .hasSize(2)
+                            .extracting("id", "lastName", "firstName")
+                            .containsExactlyInAnyOrder(
+                                    Tuple.tuple(
+                                            teacher1.getId().intValue(),
+                                            teacher1.getLastName(),
+                                            teacher1.getFirstName()
+                                    ),
+                                    Tuple.tuple(
+                                            teacher2.getId().intValue(),
+                                            teacher2.getLastName(),
+                                            teacher2.getFirstName()
+                                    )
+                            );
+                });
     }
 
     @Test
@@ -119,5 +149,13 @@ public class TeacherControllerTest {
         mvc.perform(get("/api/teacher/999999")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
+    }
+
+    @Test
+    @WithMockUser(roles = "USER")
+    public void givenInvalidId_whenFindById_thenStatus400() throws Exception {
+        mvc.perform(get("/api/teacher/invalid-id")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isBadRequest());
     }
 }

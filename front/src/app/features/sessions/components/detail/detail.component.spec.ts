@@ -3,16 +3,19 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { expect } from '@jest/globals';
 import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { SessionApiService } from '../../services/session-api.service';
 import { SessionService } from '../../../../services/session.service';
 import { TeacherService } from '../../../../services/teacher.service';
 import { DetailComponent } from './detail.component';
 import { Session } from '../../interfaces/session.interface';
 import { Teacher } from '../../../../interfaces/teacher.interface';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
-describe('DetailComponent user already participate to session', () => {
+fdescribe('DetailComponent user already participate to session', () => {
   let component: DetailComponent;
   let fixture: ComponentFixture<DetailComponent>;
   let sessionApiService: SessionApiService;
@@ -20,6 +23,7 @@ describe('DetailComponent user already participate to session', () => {
   let sessionService: SessionService;
   let router: Router;
   let matSnackBar: MatSnackBar;
+  
 
   beforeEach(async () => {
     const mockSessionService = {
@@ -62,6 +66,11 @@ describe('DetailComponent user already participate to session', () => {
 
     await TestBed.configureTestingModule({
       declarations: [DetailComponent],
+      imports: [
+        MatSnackBarModule,
+        ReactiveFormsModule,
+        MatIconModule
+      ],
       providers: [
         FormBuilder,
         { provide: SessionApiService, useValue: mockSessionApiService },
@@ -89,6 +98,7 @@ describe('DetailComponent user already participate to session', () => {
     sessionService = TestBed.inject(SessionService);
     router = TestBed.inject(Router);
     matSnackBar = TestBed.inject(MatSnackBar);
+    fixture.detectChanges();
   });
 
   it('should create', () => {

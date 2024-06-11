@@ -6,6 +6,7 @@ import com.openclassrooms.starterjwt.models.Session;
 import com.openclassrooms.starterjwt.models.User;
 import com.openclassrooms.starterjwt.repository.SessionRepository;
 import com.openclassrooms.starterjwt.repository.UserRepository;
+import org.assertj.core.groups.Tuple;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -83,9 +84,19 @@ public class SessionServiceTest {
 
         List<Session> foundSessions = sessionService.findAll();
 
-        assertThat(foundSessions).isNotNull();
-        assertThat(foundSessions).hasSize(1);
-        assertThat(foundSessions.get(0).getId()).isEqualTo(session.getId());
+        assertThat(foundSessions)
+                .isNotEmpty()
+                .extracting("id", "name", "description", "users")
+                .containsExactlyInAnyOrder(
+                        Tuple.tuple(
+                                session.getId(),
+                                session.getName(),
+                                session.getDescription(),
+                                session.getUsers()
+                        )
+                        // ... We can add more tuples if we have more sessions
+                );
+
         verify(sessionRepository, times(1)).findAll();
     }
 
@@ -95,8 +106,11 @@ public class SessionServiceTest {
 
         Session foundSession = sessionService.getById(session.getId());
 
-        assertThat(foundSession).isNotNull();
-        assertThat(foundSession.getId()).isEqualTo(session.getId());
+        assertThat(foundSession)
+                .isNotNull()
+                .extracting("id", "name", "description", "users")
+                .containsExactly(foundSession.getId(), foundSession.getName(), foundSession.getDescription(), foundSession.getUsers());
+
         verify(sessionRepository, times(1)).findById(session.getId());
     }
 
@@ -116,8 +130,11 @@ public class SessionServiceTest {
 
         Session updatedSession = sessionService.update(session.getId(), session);
 
-        assertThat(updatedSession).isNotNull();
-        assertThat(updatedSession.getId()).isEqualTo(session.getId());
+        assertThat(updatedSession)
+                .isNotNull()
+                .extracting("id", "name", "description", "users")
+                .containsExactly(updatedSession.getId(), updatedSession.getName(), updatedSession.getDescription(), updatedSession.getUsers());
+
         verify(sessionRepository, times(1)).save(session);
     }
 
@@ -132,6 +149,7 @@ public class SessionServiceTest {
         sessionService.participate(session.getId(), user.getId());
 
         assertThat(session.getUsers()).contains(user);
+
         verify(sessionRepository, times(1)).findById(session.getId());
         verify(userRepository, times(1)).findById(user.getId());
         verify(sessionRepository, times(1)).save(session);
@@ -179,6 +197,7 @@ public class SessionServiceTest {
         sessionService.noLongerParticipate(session.getId(), user.getId());
 
         assertThat(session.getUsers()).doesNotContain(user);
+
         verify(sessionRepository, times(1)).findById(session.getId());
         verify(sessionRepository, times(1)).save(session);
     }

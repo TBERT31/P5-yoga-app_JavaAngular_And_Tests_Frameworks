@@ -80,7 +80,22 @@ public class UserControllerTest {
                 .andExpect(jsonPath("$.email", is(user.getEmail())))
                 .andExpect(jsonPath("$.lastName", is(user.getLastName())))
                 .andExpect(jsonPath("$.firstName", is(user.getFirstName())));
+    }
 
+    @Test
+    @WithMockUser(username = "user1@example.com", roles = "USER")
+    public void givenNonExistentUser_whenFindById_thenStatus404() throws Exception {
+        mvc.perform(get("/api/user/999999")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    @WithMockUser(username = "user1@example.com", roles = "USER")
+    public void givenNonExistentUser_whenFindById_thenStatus400() throws Exception {
+        mvc.perform(get("/api/user/invalid_id")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isBadRequest());
     }
 
     @Test
@@ -106,6 +121,22 @@ public class UserControllerTest {
     }
 
     @Test
+    @WithMockUser(username = "user1@example.com", roles = "USER")
+    public void givenNonExistentUser_whenDelete_thenStatus404() throws Exception {
+        mvc.perform(delete("/api/user/999999")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    @WithMockUser(username = "user1@example.com", roles = "USER")
+    public void givenInvalidId_whenDelete_thenStatus400() throws Exception {
+        mvc.perform(delete("/api/user/invalid-id")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
     @WithMockUser(username = "wronguser@example.com", roles = "USER")
     public void givenWrongUser_whenDelete_thenStatus401() throws Exception {
         User user = new User(
@@ -124,19 +155,5 @@ public class UserControllerTest {
 
     }
 
-    @Test
-    @WithMockUser(username = "user1@example.com", roles = "USER")
-    public void givenNonExistentUser_whenFindById_thenStatus404() throws Exception {
-        mvc.perform(get("/api/user/999999")
-                        .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isNotFound());
-    }
 
-    @Test
-    @WithMockUser(username = "user1@example.com", roles = "USER")
-    public void givenNonExistentUser_whenDelete_thenStatus404() throws Exception {
-        mvc.perform(delete("/api/user/999999")
-                        .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isNotFound());
-    }
 }

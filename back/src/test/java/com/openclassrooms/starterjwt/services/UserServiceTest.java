@@ -53,12 +53,11 @@ public class UserServiceTest {
 
         User foundUser = userService.findById(user.getId());
 
-        assertThat(foundUser).isNotNull();
-        assertThat(foundUser.getId()).isEqualTo(user.getId());
-        assertThat(foundUser.getEmail()).isEqualTo(user.getEmail());
-        assertThat(foundUser.getFirstName()).isEqualTo(user.getFirstName());
-        assertThat(foundUser.getLastName()).isEqualTo(user.getLastName());
-        assertThat(foundUser.isAdmin()).isTrue();
+        assertThat(foundUser)
+                .isNotNull()
+                .extracting("id", "email", "firstName", "lastName", "admin")
+                .containsExactly(user.getId(), user.getEmail(), user.getFirstName(), user.getLastName(), user.isAdmin());
+
         verify(userRepository, times(1)).findById(user.getId());
     }
 

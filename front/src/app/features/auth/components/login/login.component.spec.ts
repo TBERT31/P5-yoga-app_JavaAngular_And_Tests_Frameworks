@@ -15,6 +15,7 @@ import { AuthService } from '../../services/auth.service';
 import { SessionService } from 'src/app/services/session.service';
 import { LoginComponent } from './login.component';
 import { SessionInformation } from 'src/app/interfaces/sessionInformation.interface';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -38,7 +39,9 @@ describe('LoginComponent', () => {
         MatIconModule,
         MatFormFieldModule,
         MatInputModule,
-        ReactiveFormsModule]
+        ReactiveFormsModule,
+        MatSnackBarModule
+      ]
     })
       .compileComponents();
     fixture = TestBed.createComponent(LoginComponent);

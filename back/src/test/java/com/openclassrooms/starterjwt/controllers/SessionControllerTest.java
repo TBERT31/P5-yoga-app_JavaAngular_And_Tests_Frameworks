@@ -28,11 +28,13 @@ import org.springframework.web.context.WebApplicationContext;
 import org.junit.jupiter.api.AfterEach;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Optional;
 
 
+import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.is;
 import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -101,7 +103,7 @@ public class SessionControllerTest {
                 new Date(),
                 "Description",
                 teacherWithGoodId.get(),
-                null,
+                Arrays.asList(),
                 LocalDateTime.now(),
                 LocalDateTime.now()
         );
@@ -115,8 +117,26 @@ public class SessionControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.name", is(session.getName())))
-                .andExpect(jsonPath("$.description", is(session.getDescription())));
+                .andExpect(jsonPath("$.description", is(session.getDescription())))
+                .andExpect(jsonPath("$.teacher_id", is(session.getTeacher().getId().intValue())))
+                .andExpect(jsonPath("$.users", is(session.getUsers())));
 
+    }
+
+    @Test
+    @WithMockUser(roles = "USER")
+    public void givenNonExistentSession_whenFindById_thenStatus404() throws Exception {
+        mvc.perform(get("/api/session/999999")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    @WithMockUser(roles = "USER")
+    public void givenInvalidId_whenFindById_thenStatus400() throws Exception {
+        mvc.perform(get("/api/session/invalid-id")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isBadRequest());
     }
 
     @Test
@@ -140,7 +160,7 @@ public class SessionControllerTest {
                 new Date(),
                 "Description 2",
                 teacherWithGoodId.get(),
-                null,
+                Arrays.asList(),
                 LocalDateTime.now(),
                 LocalDateTime.now()
         );
@@ -151,7 +171,7 @@ public class SessionControllerTest {
                 new Date(),
                 "Description 3",
                 teacherWithGoodId.get(),
-                null,
+                Arrays.asList(),
                 LocalDateTime.now(),
                 LocalDateTime.now()
         );
@@ -163,11 +183,10 @@ public class SessionControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.length()", is(2)))
-                .andExpect(jsonPath("$[0].name", is(session1.getName())))
-                .andExpect(jsonPath("$[0].description", is(session1.getDescription())))
-                .andExpect(jsonPath("$[1].name", is(session2.getName())))
-                .andExpect(jsonPath("$[1].description", is(session2.getDescription())));
-
+                .andExpect(jsonPath("$[*].name", containsInAnyOrder(session1.getName(), session2.getName())))
+                .andExpect(jsonPath("$[*].description", containsInAnyOrder(session1.getDescription(), session2.getDescription())))
+                .andExpect(jsonPath("$[*].teacher_id", containsInAnyOrder(session1.getTeacher().getId().intValue(), session2.getTeacher().getId().intValue())))
+                .andExpect(jsonPath("$[*].users", containsInAnyOrder(session1.getUsers(), session2.getUsers())));
     }
 
     @Test
@@ -209,8 +228,9 @@ public class SessionControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.name", is(sessionDto.getName())))
-                .andExpect(jsonPath("$.description", is(sessionDto.getDescription())));
-
+                .andExpect(jsonPath("$.description", is(sessionDto.getDescription())))
+                .andExpect(jsonPath("$.teacher_id", is(sessionDto.getTeacher_id().intValue())))
+                .andExpect(jsonPath("$.users", is(sessionDto.getUsers())));
     }
 
     @Test
@@ -261,8 +281,17 @@ public class SessionControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.name", is(sessionDto.getName())))
-                .andExpect(jsonPath("$.description", is(sessionDto.getDescription())));
+                .andExpect(jsonPath("$.description", is(sessionDto.getDescription())))
+                .andExpect(jsonPath("$.teacher_id", is(sessionDto.getTeacher_id().intValue())))
+                .andExpect(jsonPath("$.users", is(sessionDto.getUsers())));
+    }
 
+    @Test
+    @WithMockUser(roles = "USER")
+    public void givenInvalidId_whenUpdate_thenStatus400() throws Exception {
+        mvc.perform(put("/api/session/invalid-id")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isBadRequest());
     }
 
     @Test
@@ -298,6 +327,23 @@ public class SessionControllerTest {
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
 
+    }
+
+
+    @Test
+    @WithMockUser(roles = "USER")
+    public void givenNonExistentSession_whenDeleteById_thenStatus404() throws Exception {
+        mvc.perform(delete("/api/session/999999999")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    @WithMockUser(roles = "USER")
+    public void givenInvalidId_whenDelete_thenStatus400() throws Exception {
+        mvc.perform(delete("/api/session/invalid-id")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isBadRequest());
     }
 
     @Test
@@ -341,13 +387,66 @@ public class SessionControllerTest {
         Optional<User> userWithGoodId = userRepository.findByEmail("user@example.com");
         Optional<Session> sessionWithGoodId = sessionRepository.findByName("Session 7");
 
-        System.out.println("Session id >>>>> "+sessionWithGoodId.get().getId()  + " user id >>>> "+userWithGoodId.get().getId());
-        System.out.println("Session id >>>>> "+session.getId()  + " user id >>>> "+user.getId());
-
         mvc.perform(post("/api/session/" + sessionWithGoodId.get().getId().toString() + "/participate/" + userWithGoodId.get().getId().toString())
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
 
+    }
+
+    @Test
+    @WithMockUser(roles = "USER")
+    public void givenInvalidId_whenParticipate_thenStatus400() throws Exception {
+        User user = new User(
+                "user@example.com",
+                "Doe",
+                "John",
+                "password",
+                false
+        );
+
+        userRepository.save(user);
+
+        Optional<User> userWithGoodId = userRepository.findByEmail("user@example.com");
+
+        mvc.perform(post("/api/session/invalid-id/participate/" + userWithGoodId.get().getId().toString())
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    @WithMockUser(roles = "USER")
+    public void givenInvalidUserId_whenParticipate_thenStatus400() throws Exception {
+        Teacher teacher = new Teacher(
+                1L,
+                "Doe",
+                "John",
+                LocalDateTime.now(),
+                LocalDateTime.now()
+        );
+
+        teacherRepository.save(teacher);
+
+        Optional<Teacher> teacherWithGoodId = teacherRepository.findByFirstName("John");
+
+
+        Session session = new Session(
+                8L,
+                "Session 8",
+                new Date(),
+                "Description 8",
+                teacherWithGoodId.get(),
+                null,
+                LocalDateTime.now(),
+                LocalDateTime.now()
+        );
+
+        sessionRepository.save(session);
+
+        Optional<Session> sessionWithGoodId = sessionRepository.findByName("Session 8");
+
+        mvc.perform(post("/api/session/" + sessionWithGoodId.get().getId().toString() + "/participate/invalid-userId")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isBadRequest());
     }
 
     @Test
@@ -376,10 +475,10 @@ public class SessionControllerTest {
         userRepository.save(user);
 
         Session session = new Session(
-                8L,
-                "Session 8",
+                9L,
+                "Session 9",
                 new Date(),
-                "Description 8",
+                "Description 9",
                 teacherWithGoodId.get(),
                 Arrays.asList(user),
                 LocalDateTime.now(),
@@ -389,7 +488,7 @@ public class SessionControllerTest {
         sessionRepository.save(session);
 
         Optional<User> userWithGoodId = userRepository.findByEmail("user@example.com");
-        Optional<Session> sessionWithGoodId = sessionRepository.findByName("Session 8");
+        Optional<Session> sessionWithGoodId = sessionRepository.findByName("Session 9");
 
         mvc.perform(delete("/api/session/" + sessionWithGoodId.get().getId() + "/participate/" + userWithGoodId.get().getId())
                         .contentType(MediaType.APPLICATION_JSON))

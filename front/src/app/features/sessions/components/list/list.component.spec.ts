@@ -9,6 +9,8 @@ import { SessionApiService } from '../../services/session-api.service';
 import { SessionService } from '../../../../services/session.service';
 import { ListComponent } from './list.component';
 import { DatePipe } from '@angular/common';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const mockSessions = [
   { id: 1, name: 'Session 1', description: 'Description 1', date: new Date(), teacher_id: 1, users: [1,2] },
@@ -30,7 +32,7 @@ describe('ListComponent for Admin', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ListComponent],
-      imports: [HttpClientTestingModule, MatCardModule, MatIconModule],
+      imports: [HttpClientTestingModule, MatCardModule, MatIconModule, MatSnackBarModule, ReactiveFormsModule],
       providers: [
         { provide: SessionService, useValue: mockAdminSessionService },
         { provide: SessionApiService, useValue: { all: jest.fn().mockReturnValue(of(mockSessions)) } }

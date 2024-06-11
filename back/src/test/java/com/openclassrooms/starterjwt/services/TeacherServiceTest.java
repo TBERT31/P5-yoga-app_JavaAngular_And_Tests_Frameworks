@@ -2,6 +2,7 @@ package com.openclassrooms.starterjwt.services;
 
 import com.openclassrooms.starterjwt.models.Teacher;
 import com.openclassrooms.starterjwt.repository.TeacherRepository;
+import org.assertj.core.groups.Tuple;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -44,11 +45,18 @@ public class TeacherServiceTest {
 
         List<Teacher> foundTeachers = teacherService.findAll();
 
-        assertThat(foundTeachers).isNotNull();
-        assertThat(foundTeachers).hasSize(1);
-        assertThat(foundTeachers.get(0).getId()).isEqualTo(teacher.getId());
-        assertThat(foundTeachers.get(0).getFirstName()).isEqualTo(teacher.getFirstName());
-        assertThat(foundTeachers.get(0).getLastName()).isEqualTo(teacher.getLastName());
+        assertThat(foundTeachers)
+                .isNotEmpty()
+                .extracting("id", "firstName", "lastName")
+                .containsExactlyInAnyOrder(
+                        Tuple.tuple(
+                                teacher.getId(),
+                                teacher.getFirstName(),
+                                teacher.getLastName()
+                        )
+                        // ... We can add more tuples if we have more teachers
+                );
+
         verify(teacherRepository, times(1)).findAll();
     }
 
@@ -58,10 +66,11 @@ public class TeacherServiceTest {
 
         Teacher foundTeacher = teacherService.findById(teacher.getId());
 
-        assertThat(foundTeacher).isNotNull();
-        assertThat(foundTeacher.getId()).isEqualTo(teacher.getId());
-        assertThat(foundTeacher.getFirstName()).isEqualTo(teacher.getFirstName());
-        assertThat(foundTeacher.getLastName()).isEqualTo(teacher.getLastName());
+        assertThat(foundTeacher)
+                .isNotNull()
+                .extracting("id", "firstName", "lastName")
+                .containsExactly(foundTeacher.getId(), foundTeacher.getFirstName(), foundTeacher.getLastName());
+
         verify(teacherRepository, times(1)).findById(teacher.getId());
     }
 
