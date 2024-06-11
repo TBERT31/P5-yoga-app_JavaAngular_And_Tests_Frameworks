@@ -1,6 +1,6 @@
 {
-  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\polyfills.ts": {
-    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\polyfills.ts",
+  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\polyfills.ts": {
+    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\polyfills.ts",
     "statementMap": {},
     "fnMap": {},
     "branchMap": {},
@@ -13,17 +13,17 @@
       "names": [],
       "sourceRoot": "",
       "sources": [
-        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\polyfills.ts"
+        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\polyfills.ts"
       ],
       "sourcesContent": [
         "/**\r\n * This file includes polyfills needed by Angular and is loaded before the app.\r\n * You can add your own extra polyfills to this file.\r\n *\r\n * This file is divided into 2 sections:\r\n *   1. Browser polyfills. These are applied before loading ZoneJS and are sorted by browsers.\r\n *   2. Application imports. Files imported after ZoneJS that should be loaded before your main\r\n *      file.\r\n *\r\n * The current setup is for so-called \"evergreen\" browsers; the last versions of browsers that\r\n * automatically update themselves. This includes recent versions of Safari, Chrome (including\r\n * Opera), Edge on the desktop, and iOS and Chrome on mobile.\r\n *\r\n * Learn more in https://angular.io/guide/browser-support\r\n */\r\n\r\n/***************************************************************************************************\r\n * BROWSER POLYFILLS\r\n */\r\n\r\n/**\r\n * By default, zone.js will patch all possible macroTask and DomEvents\r\n * user can disable parts of macroTask/DomEvents patch by setting following flags\r\n * because those flags need to be set before `zone.js` being loaded, and webpack\r\n * will put import in the top of bundle, so user need to create a separate file\r\n * in this directory (for example: zone-flags.ts), and put the following flags\r\n * into that file, and then add the following code before importing zone.js.\r\n * import './zone-flags';\r\n *\r\n * The flags allowed in zone-flags.ts are listed here.\r\n *\r\n * The following flags will work for all browsers.\r\n *\r\n * (window as any).__Zone_disable_requestAnimationFrame = true; // disable patch requestAnimationFrame\r\n * (window as any).__Zone_disable_on_property = true; // disable patch onProperty such as onclick\r\n * (window as any).__zone_symbol__UNPATCHED_EVENTS = ['scroll', 'mousemove']; // disable patch specified eventNames\r\n *\r\n *  in IE/Edge developer tools, the addEventListener will also be wrapped by zone.js\r\n *  with the following flag, it will bypass `zone.js` patch for IE/Edge\r\n *\r\n *  (window as any).__Zone_enable_cross_context_check = true;\r\n *\r\n */\r\n\r\n/***************************************************************************************************\r\n * Zone JS is required by default for Angular itself.\r\n */\r\nimport 'zone.js';  // Included with Angular CLI.\r\n\r\n\r\n/***************************************************************************************************\r\n * APPLICATION IMPORTS\r\n */\r\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "f32404ed7bf994b805b07bdae5fe080ebb74b9a7"
+    "hash": "beaf4aa18fbcc2de4519ad2e2829b2dc59d8d400"
   },
-  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\services\\session.service.ts": {
-    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\services\\session.service.ts",
+  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\services\\session.service.ts": {
+    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\services\\session.service.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -385,35 +385,35 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 255,
-      "4": 1,
-      "5": 1,
-      "6": 1,
-      "7": 0,
-      "8": 0,
-      "9": 0,
-      "10": 1,
-      "11": 1,
-      "12": 1,
-      "13": 1,
-      "14": 1
+      "0": 4,
+      "1": 4,
+      "2": 4,
+      "3": 575,
+      "4": 3,
+      "5": 3,
+      "6": 3,
+      "7": 2,
+      "8": 2,
+      "9": 2,
+      "10": 5,
+      "11": 4,
+      "12": 4,
+      "13": 4,
+      "14": 4
     },
     "f": {
-      "0": 1,
-      "1": 1,
-      "2": 255,
-      "3": 1,
-      "4": 0,
-      "5": 1,
-      "6": 1
+      "0": 4,
+      "1": 4,
+      "2": 575,
+      "3": 3,
+      "4": 2,
+      "5": 5,
+      "6": 4
     },
     "b": {
       "0": [
-        1,
-        1
+        4,
+        4
       ]
     },
     "inputSourceMap": {
@@ -438,17 +438,17 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\services\\session.service.ts"
+        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\services\\session.service.ts"
       ],
       "sourcesContent": [
         "import { Injectable } from '@angular/core';\r\nimport { BehaviorSubject, Observable } from 'rxjs';\r\nimport { SessionInformation } from '../interfaces/sessionInformation.interface';\r\n\r\n@Injectable({\r\n  providedIn: 'root'\r\n})\r\nexport class SessionService {\r\n\r\n  public isLogged = false;\r\n  public sessionInformation: SessionInformation | undefined;\r\n\r\n  private isLoggedSubject = new BehaviorSubject<boolean>(this.isLogged);\r\n\r\n  public $isLogged(): Observable<boolean> {\r\n    return this.isLoggedSubject.asObservable();\r\n  }\r\n\r\n  public logIn(user: SessionInformation): void {\r\n    this.sessionInformation = user;\r\n    this.isLogged = true;\r\n    this.next();\r\n  }\r\n\r\n  public logOut(): void {\r\n    this.sessionInformation = undefined;\r\n    this.isLogged = false;\r\n    this.next();\r\n  }\r\n\r\n  private next(): void {\r\n    this.isLoggedSubject.next(this.isLogged);\r\n  }\r\n}\r\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "720a5ca16e9c2382eb7d3e27186374f3666e8062"
+    "hash": "63013ced92e89b24d782299e748a1a67380b2617"
   },
-  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\services\\user.service.ts": {
-    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\services\\user.service.ts",
+  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\services\\user.service.ts": {
+    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\services\\user.service.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -702,27 +702,27 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 0,
-      "2": 0,
-      "3": 0,
-      "4": 0,
-      "5": 1,
-      "6": 0,
-      "7": 1,
-      "8": 1
+      "0": 4,
+      "1": 2,
+      "2": 2,
+      "3": 2,
+      "4": 2,
+      "5": 4,
+      "6": 2,
+      "7": 4,
+      "8": 4
     },
     "f": {
-      "0": 1,
-      "1": 0,
-      "2": 0,
-      "3": 0,
-      "4": 0
+      "0": 4,
+      "1": 2,
+      "2": 2,
+      "3": 2,
+      "4": 2
     },
     "b": {
       "0": [
-        0,
-        0
+        2,
+        2
       ]
     },
     "inputSourceMap": {
@@ -743,17 +743,17 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\services\\user.service.ts"
+        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\services\\user.service.ts"
       ],
       "sourcesContent": [
         "import { HttpClient } from '@angular/common/http';\r\nimport { Injectable } from '@angular/core';\r\nimport { Observable } from 'rxjs';\r\nimport { User } from '../interfaces/user.interface';\r\n\r\n@Injectable({\r\n  providedIn: 'root'\r\n})\r\nexport class UserService {\r\n\r\n  private pathService = 'api/user';\r\n\r\n  constructor(private httpClient: HttpClient) { }\r\n\r\n  public getById(id: string): Observable<User> {\r\n    return this.httpClient.get<User>(`${this.pathService}/${id}`);\r\n  }\r\n\r\n  public delete(id: string): Observable<any> {\r\n    return this.httpClient.delete(`${this.pathService}/${id}`);\r\n  }\r\n}\r\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "767df856057a4dca9bf90c89594fc1ce00b2ed3c"
+    "hash": "d8d653a52ffa9ac5db26e63a748a0177de1fc8da"
   },
-  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\components\\me\\me.component.ts": {
-    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\components\\me\\me.component.ts",
+  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\components\\me\\me.component.ts": {
+    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\components\\me\\me.component.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -2233,105 +2233,105 @@
       "1": 0,
       "2": 0,
       "3": 0,
-      "4": 0,
-      "5": 0,
-      "6": 0,
-      "7": 0,
-      "8": 0,
-      "9": 0,
-      "10": 0,
-      "11": 0,
-      "12": 0,
-      "13": 0,
-      "14": 0,
-      "15": 0,
-      "16": 0,
-      "17": 0,
-      "18": 0,
-      "19": 0,
-      "20": 0,
-      "21": 0,
-      "22": 0,
-      "23": 0,
-      "24": 0,
-      "25": 0,
-      "26": 0,
-      "27": 0,
-      "28": 0,
-      "29": 0,
-      "30": 0,
-      "31": 0,
-      "32": 0,
-      "33": 0,
-      "34": 0,
-      "35": 0,
-      "36": 0,
-      "37": 0,
-      "38": 0,
-      "39": 0,
-      "40": 0,
-      "41": 0,
-      "42": 0,
-      "43": 0,
-      "44": 0,
-      "45": 0,
-      "46": 0,
-      "47": 0,
-      "48": 0,
-      "49": 0,
-      "50": 0,
-      "51": 0,
-      "52": 0,
-      "53": 0,
-      "54": 0,
-      "55": 0,
-      "56": 1,
-      "57": 0,
-      "58": 0,
-      "59": 0,
-      "60": 0,
-      "61": 0,
-      "62": 0,
+      "4": 14,
+      "5": 2,
+      "6": 2,
+      "7": 2,
+      "8": 2,
+      "9": 2,
+      "10": 2,
+      "11": 2,
+      "12": 2,
+      "13": 2,
+      "14": 2,
+      "15": 2,
+      "16": 2,
+      "17": 2,
+      "18": 2,
+      "19": 2,
+      "20": 14,
+      "21": 2,
+      "22": 2,
+      "23": 2,
+      "24": 2,
+      "25": 2,
+      "26": 2,
+      "27": 2,
+      "28": 2,
+      "29": 2,
+      "30": 2,
+      "31": 2,
+      "32": 2,
+      "33": 2,
+      "34": 2,
+      "35": 2,
+      "36": 2,
+      "37": 2,
+      "38": 2,
+      "39": 2,
+      "40": 2,
+      "41": 2,
+      "42": 14,
+      "43": 12,
+      "44": 12,
+      "45": 12,
+      "46": 12,
+      "47": 12,
+      "48": 12,
+      "49": 12,
+      "50": 12,
+      "51": 12,
+      "52": 12,
+      "53": 12,
+      "54": 12,
+      "55": 12,
+      "56": 4,
+      "57": 2,
+      "58": 2,
+      "59": 2,
+      "60": 2,
+      "61": 2,
+      "62": 2,
       "63": 0,
-      "64": 0,
-      "65": 0,
-      "66": 0,
-      "67": 0,
-      "68": 1,
-      "69": 0,
-      "70": 1,
-      "71": 0,
-      "72": 0,
-      "73": 0,
+      "64": 2,
+      "65": 2,
+      "66": 2,
+      "67": 2,
+      "68": 4,
+      "69": 2,
+      "70": 4,
+      "71": 24,
+      "72": 2,
+      "73": 2,
       "74": 0,
-      "75": 0,
-      "76": 0,
-      "77": 0,
-      "78": 0,
-      "79": 0,
-      "80": 0,
-      "81": 0,
-      "82": 0,
-      "83": 0,
-      "84": 0,
-      "85": 0,
-      "86": 0,
-      "87": 1
+      "75": 2,
+      "76": 2,
+      "77": 2,
+      "78": 2,
+      "79": 2,
+      "80": 2,
+      "81": 2,
+      "82": 2,
+      "83": 2,
+      "84": 24,
+      "85": 22,
+      "86": 22,
+      "87": 4
     },
     "f": {
       "0": 0,
-      "1": 0,
-      "2": 0,
-      "3": 0,
-      "4": 1,
-      "5": 0,
-      "6": 0,
-      "7": 0,
+      "1": 14,
+      "2": 2,
+      "3": 14,
+      "4": 4,
+      "5": 2,
+      "6": 2,
+      "7": 2,
       "8": 0,
-      "9": 0,
-      "10": 0,
-      "11": 0,
-      "12": 0,
+      "9": 2,
+      "10": 2,
+      "11": 2,
+      "12": 24,
       "13": 0
     },
     "b": {
@@ -2340,28 +2340,28 @@
         0
       ],
       "1": [
-        0,
-        0
+        2,
+        12
       ],
       "2": [
-        0,
-        0
+        2,
+        12
       ],
       "3": [
-        0,
-        0
+        12,
+        2
       ],
       "4": [
-        0,
-        0
+        2,
+        2
       ],
       "5": [
-        0,
-        0
+        2,
+        22
       ],
       "6": [
-        0,
-        0
+        22,
+        2
       ]
     },
     "inputSourceMap": {
@@ -2400,8 +2400,8 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\components\\me\\me.component.html",
-        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\components\\me\\me.component.ts"
+        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\components\\me\\me.component.html",
+        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\components\\me\\me.component.ts"
       ],
       "sourcesContent": [
         "<div class=\"m3\">\r\n  <mat-card>\r\n    <mat-card-title>\r\n      <div fxLayout=\"row\" fxLayoutAlign=\"start center\">\r\n        <button data-testid=\"back-button\" mat-icon-button (click)=\"back()\">\r\n          <mat-icon>arrow_back</mat-icon>\r\n        </button>\r\n        <h1>User information</h1>\r\n      </div>\r\n    </mat-card-title>\r\n    <mat-card-content>\r\n      <div *ngIf=\"user\" fxLayout=\"column\" fxLayoutAlign=\"start center\">\r\n        <p data-testid=\"user-name\">Name: {{ user.firstName }} {{ user.lastName | uppercase }}</p>\r\n        <p data-testid=\"user-email\">Email: {{ user.email }}</p>\r\n        <p *ngIf=\"user.admin\" class=\"my2\" data-testid=\"user-admin\">You are admin</p>\r\n        <div *ngIf=\"!user.admin\" fxLayout=\"column\" class=\"my2\" fxLayoutAlign=\"center center\">\r\n          <p>Delete my account:</p>\r\n          <button data-testid=\"delete-account\" mat-raised-button color=\"warn\" (click)=\"delete()\">\r\n            <mat-icon>delete</mat-icon>\r\n            <span class=\"ml1\">Detail</span>\r\n          </button>\r\n        </div>\r\n        <div fxLayoutAlign=\"space-between center\" class=\"p2 w100\">\r\n\r\n          <p><i>Create at: </i> {{ user.createdAt | date: 'longDate'}}</p>\r\n          <p><i>Last update: </i> {{ user.updatedAt| date: 'longDate'}}</p>\r\n        </div>\r\n      </div>\r\n    </mat-card-content>\r\n  </mat-card>\r\n</div>\r\n",
@@ -2409,10 +2409,10 @@
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "9f2dc2ab66635857bb81b1420913352d7fbee1de"
+    "hash": "4ddd3f2a4085d9588b7abbfe1c3428d15d5cf6d8"
   },
-  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\components\\not-found\\not-found.component.ts": {
-    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\components\\not-found\\not-found.component.ts",
+  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\components\\not-found\\not-found.component.ts": {
+    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\components\\not-found\\not-found.component.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -2654,18 +2654,18 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
+      "0": 4,
+      "1": 4,
       "2": 0,
-      "3": 1,
+      "3": 4,
       "4": 0,
       "5": 0,
       "6": 0,
       "7": 0,
-      "8": 1
+      "8": 4
     },
     "f": {
-      "0": 1,
+      "0": 4,
       "1": 0,
       "2": 0
     },
@@ -2693,8 +2693,8 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\components\\not-found\\not-found.component.ts",
-        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\components\\not-found\\not-found.component.html"
+        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\components\\not-found\\not-found.component.ts",
+        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\components\\not-found\\not-found.component.html"
       ],
       "sourcesContent": [
         "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-not-found',\r\n  templateUrl: './not-found.component.html',\r\n  styleUrls: ['./not-found.component.scss']\r\n})\r\nexport class NotFoundComponent {\r\n}\r\n",
@@ -2702,10 +2702,10 @@
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "677d5670bbe74b4c974850553cb414158ce9b489"
+    "hash": "363747c204cf3c329a56d4c92259763d6e525249"
   },
-  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\guards\\auth.guard.ts": {
-    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\guards\\auth.guard.ts",
+  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\guards\\auth.guard.ts": {
+    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\guards\\auth.guard.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -2991,32 +2991,32 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1,
+      "0": 4,
+      "1": 3,
+      "2": 3,
+      "3": 5,
       "4": 0,
       "5": 0,
-      "6": 1,
-      "7": 1,
-      "8": 1,
-      "9": 1,
-      "10": 1
+      "6": 5,
+      "7": 4,
+      "8": 3,
+      "9": 4,
+      "10": 4
     },
     "f": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1
+      "0": 4,
+      "1": 3,
+      "2": 5,
+      "3": 3
     },
     "b": {
       "0": [
         0,
-        1
+        5
       ],
       "1": [
-        1,
-        1
+        3,
+        3
       ]
     },
     "inputSourceMap": {
@@ -3037,17 +3037,17 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\guards\\auth.guard.ts"
+        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\guards\\auth.guard.ts"
       ],
       "sourcesContent": [
         "import {Injectable} from \"@angular/core\";\r\nimport {CanActivate, Router} from \"@angular/router\"; \r\nimport { SessionService } from \"../services/session.service\";\r\n\r\n@Injectable({providedIn: 'root'})\r\nexport class AuthGuard implements CanActivate {\r\n\r\n  constructor( \r\n    private router: Router,\r\n    private sessionService: SessionService,\r\n  ) {\r\n  }\r\n\r\n  public canActivate(): boolean {\r\n    if (!this.sessionService.isLogged) {\r\n      this.router.navigate(['login']);\r\n      return false;\r\n    }\r\n    return true;\r\n  }\r\n}"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "105dbc5d768f8f2922bb3000d8842243dd21ce64"
+    "hash": "ee3fa7da754ec2fdda0707a8143c5e1ae869272c"
   },
-  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\guards\\unauth.guard.ts": {
-    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\guards\\unauth.guard.ts",
+  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\guards\\unauth.guard.ts": {
+    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\guards\\unauth.guard.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -3333,32 +3333,32 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1,
+      "0": 4,
+      "1": 4,
+      "2": 4,
+      "3": 6,
       "4": 0,
       "5": 0,
-      "6": 1,
-      "7": 1,
-      "8": 1,
-      "9": 1,
-      "10": 1
+      "6": 6,
+      "7": 4,
+      "8": 4,
+      "9": 4,
+      "10": 4
     },
     "f": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1
+      "0": 4,
+      "1": 4,
+      "2": 6,
+      "3": 4
     },
     "b": {
       "0": [
         0,
-        1
+        6
       ],
       "1": [
-        1,
-        1
+        4,
+        4
       ]
     },
     "inputSourceMap": {
@@ -3379,17 +3379,17 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\guards\\unauth.guard.ts"
+        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\guards\\unauth.guard.ts"
       ],
       "sourcesContent": [
         "import {Injectable} from \"@angular/core\";\r\nimport {CanActivate, Router} from \"@angular/router\"; \r\nimport { SessionService } from \"../services/session.service\";\r\n\r\n@Injectable({providedIn: 'root'})\r\nexport class UnauthGuard implements CanActivate {\r\n\r\n  constructor( \r\n    private router: Router,\r\n    private sessionService: SessionService,\r\n  ) {\r\n  }\r\n\r\n  public canActivate(): boolean {\r\n    if (this.sessionService.isLogged) {\r\n      this.router.navigate(['rentals']);\r\n      return false;\r\n    }\r\n    return true;\r\n  }\r\n}"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "8a5cd9faf083dd0fba411976925830dcaec4de0b"
+    "hash": "eb1805bb21c742fe0e5a971fec1b5f56a2664a04"
   },
-  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\app-routing.module.ts": {
-    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\app-routing.module.ts",
+  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\app-routing.module.ts": {
+    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\app-routing.module.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -3687,30 +3687,30 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1,
-      "4": 1,
-      "5": 1,
-      "6": 1,
-      "7": 1,
-      "8": 1,
-      "9": 1,
-      "10": 1
+      "0": 4,
+      "1": 4,
+      "2": 4,
+      "3": 3,
+      "4": 3,
+      "5": 4,
+      "6": 4,
+      "7": 4,
+      "8": 4,
+      "9": 4,
+      "10": 4
     },
     "f": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1,
-      "4": 1,
-      "5": 1
+      "0": 4,
+      "1": 4,
+      "2": 3,
+      "3": 3,
+      "4": 4,
+      "5": 4
     },
     "b": {
       "0": [
-        1,
-        1
+        4,
+        4
       ]
     },
     "inputSourceMap": {
@@ -3737,17 +3737,17 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\app-routing.module.ts"
+        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\app-routing.module.ts"
       ],
       "sourcesContent": [
         "import { NgModule } from '@angular/core';\r\nimport { RouterModule, Routes } from '@angular/router';\r\nimport { MeComponent } from './components/me/me.component';\r\nimport { NotFoundComponent } from './components/not-found/not-found.component';\r\nimport { AuthGuard } from './guards/auth.guard';\r\nimport { UnauthGuard } from './guards/unauth.guard';\r\n\r\nconst routes: Routes = [\r\n  {\r\n    path: '',\r\n    canActivate: [UnauthGuard],\r\n    loadChildren: () => import('./features/auth/auth.module').then(m => m.AuthModule)\r\n  },\r\n  {\r\n    path: 'sessions',\r\n    canActivate: [AuthGuard],\r\n    loadChildren: () => import('./features/sessions/sessions.module').then(m => m.SessionsModule)\r\n  },\r\n  {\r\n    path: 'me',\r\n    canActivate: [AuthGuard],\r\n    component: MeComponent\r\n  },\r\n  { path: '404', component: NotFoundComponent },\r\n  { path: '**', redirectTo: '404' }\r\n];\r\n\r\n@NgModule({\r\n  imports: [RouterModule.forRoot(routes)],\r\n  exports: [RouterModule]\r\n})\r\nexport class AppRoutingModule {\r\n}\r\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "46f506babca8fc7c8053bcb046dff2857f7ce4ca"
+    "hash": "2ad02ab9ea3e7177d34ab3e58ed014ec2d398be9"
   },
-  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\auth\\services\\auth.service.ts": {
-    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\auth\\services\\auth.service.ts",
+  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\auth\\services\\auth.service.ts": {
+    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\auth\\services\\auth.service.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -4001,27 +4001,27 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 0,
-      "4": 1,
-      "5": 1,
-      "6": 1,
-      "7": 1,
-      "8": 1
+      "0": 4,
+      "1": 4,
+      "2": 4,
+      "3": 1,
+      "4": 3,
+      "5": 4,
+      "6": 4,
+      "7": 4,
+      "8": 4
     },
     "f": {
-      "0": 1,
-      "1": 1,
-      "2": 0,
-      "3": 1,
-      "4": 1
+      "0": 4,
+      "1": 4,
+      "2": 1,
+      "3": 3,
+      "4": 4
     },
     "b": {
       "0": [
-        1,
-        1
+        4,
+        4
       ]
     },
     "inputSourceMap": {
@@ -4043,17 +4043,17 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\auth\\services\\auth.service.ts"
+        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\auth\\services\\auth.service.ts"
       ],
       "sourcesContent": [
         "import { HttpClient } from '@angular/common/http';\r\nimport { Injectable } from '@angular/core';\r\nimport { Observable } from 'rxjs';\r\nimport { LoginRequest } from '../interfaces/loginRequest.interface';\r\nimport { RegisterRequest } from '../interfaces/registerRequest.interface';\r\nimport { SessionInformation } from 'src/app/interfaces/sessionInformation.interface';\r\n\r\n@Injectable({\r\n  providedIn: 'root'\r\n})\r\nexport class AuthService {\r\n\r\n  private pathService = 'api/auth';\r\n\r\n  constructor(private httpClient: HttpClient) { }\r\n\r\n  public register(registerRequest: RegisterRequest): Observable<void> {\r\n    return this.httpClient.post<void>(`${this.pathService}/register`, registerRequest);\r\n  }\r\n\r\n  public login(loginRequest: LoginRequest): Observable<SessionInformation> {\r\n    return this.httpClient.post<SessionInformation>(`${this.pathService}/login`, loginRequest);\r\n  }\r\n}\r\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "8334e26f791b2de27f29d3667dd8a6a311259808"
+    "hash": "1fb0ea7a4bd081ccb41f443490dc574edb9823af"
   },
-  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\app.component.ts": {
-    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\app.component.ts",
+  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\app.component.ts": {
+    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\app.component.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -4937,86 +4937,86 @@
       }
     },
     "s": {
-      "0": 213,
-      "1": 1,
-      "2": 1,
-      "3": 1,
-      "4": 1,
-      "5": 1,
-      "6": 1,
-      "7": 1,
-      "8": 1,
-      "9": 1,
+      "0": 373,
+      "1": 3,
+      "2": 3,
+      "3": 3,
+      "4": 3,
+      "5": 3,
+      "6": 3,
+      "7": 3,
+      "8": 3,
+      "9": 3,
       "10": 0,
       "11": 0,
       "12": 0,
-      "13": 1,
-      "14": 1,
-      "15": 44,
-      "16": 1,
-      "17": 1,
-      "18": 1,
-      "19": 1,
-      "20": 1,
-      "21": 1,
-      "22": 1,
-      "23": 1,
-      "24": 1,
-      "25": 1,
-      "26": 255,
+      "13": 3,
+      "14": 3,
+      "15": 211,
+      "16": 6,
+      "17": 6,
+      "18": 6,
+      "19": 6,
+      "20": 6,
+      "21": 6,
+      "22": 4,
+      "23": 4,
+      "24": 4,
+      "25": 4,
+      "26": 575,
       "27": 0,
       "28": 0,
-      "29": 1,
-      "30": 1,
-      "31": 1,
-      "32": 256,
-      "33": 1,
-      "34": 1,
-      "35": 1,
-      "36": 1,
-      "37": 1,
-      "38": 1,
-      "39": 1,
-      "40": 1,
-      "41": 1,
-      "42": 1,
-      "43": 256,
-      "44": 255,
-      "45": 255,
-      "46": 255,
-      "47": 1
+      "29": 4,
+      "30": 4,
+      "31": 4,
+      "32": 579,
+      "33": 4,
+      "34": 4,
+      "35": 4,
+      "36": 4,
+      "37": 4,
+      "38": 4,
+      "39": 4,
+      "40": 4,
+      "41": 4,
+      "42": 4,
+      "43": 579,
+      "44": 575,
+      "45": 575,
+      "46": 575,
+      "47": 4
     },
     "f": {
-      "0": 213,
+      "0": 373,
       "1": 0,
-      "2": 44,
-      "3": 1,
-      "4": 1,
-      "5": 255,
+      "2": 211,
+      "3": 4,
+      "4": 4,
+      "5": 575,
       "6": 0,
-      "7": 1,
-      "8": 256
+      "7": 4,
+      "8": 579
     },
     "b": {
       "0": [
-        1,
-        212
+        3,
+        370
       ],
       "1": [
-        1,
-        43
+        6,
+        205
       ],
       "2": [
-        1,
-        1
+        4,
+        4
       ],
       "3": [
-        1,
-        255
+        4,
+        575
       ],
       "4": [
-        255,
-        1
+        575,
+        4
       ]
     },
     "inputSourceMap": {
@@ -5042,8 +5042,8 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\app.component.html",
-        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\app.component.ts"
+        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\app.component.html",
+        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\app.component.ts"
       ],
       "sourcesContent": [
         "<div class=\"app\">\r\n  <mat-toolbar color=\"primary\" fxLayout=\"row\" fxLayoutAlign=\"space-between center\">\r\n    <span>Yoga app</span>\r\n    <div *ngIf=\"$isLogged() | async; else notLogged\">\r\n      <span routerLink=\"sessions\" class=\"link\">Sessions</span>\r\n      <span routerLink=\"me\" class=\"link\">Account</span>\r\n      <span (click)=\"logout()\" class=\"link\">Logout</span>\r\n    </div>\r\n    <ng-template #notLogged>\r\n      <div>\r\n        <span routerLink=\"login\" class=\"link\">Login</span>\r\n        <span routerLink=\"register\" class=\"link\">Register</span>\r\n      </div>\r\n    </ng-template>\r\n  </mat-toolbar>\r\n  <div>\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n</div>\r\n",
@@ -5051,10 +5051,10 @@
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "c480f53fe1e3349ec124a54222501f45eae1f275"
+    "hash": "a5c39029c89ca74276d8d18c0f79f8726a31726e"
   },
-  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\interceptors\\jwt.interceptor.ts": {
-    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\interceptors\\jwt.interceptor.ts",
+  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\interceptors\\jwt.interceptor.ts": {
+    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\interceptors\\jwt.interceptor.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -5320,30 +5320,30 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 13,
-      "3": 12,
-      "4": 13,
-      "5": 1,
-      "6": 1,
-      "7": 1,
-      "8": 1
+      "0": 4,
+      "1": 4,
+      "2": 40,
+      "3": 36,
+      "4": 40,
+      "5": 4,
+      "6": 4,
+      "7": 4,
+      "8": 4
     },
     "f": {
-      "0": 1,
-      "1": 1,
-      "2": 13,
-      "3": 1
+      "0": 4,
+      "1": 4,
+      "2": 40,
+      "3": 4
     },
     "b": {
       "0": [
-        12,
-        1
+        36,
+        4
       ],
       "1": [
-        1,
-        1
+        4,
+        4
       ]
     },
     "inputSourceMap": {
@@ -5371,17 +5371,17 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\interceptors\\jwt.interceptor.ts"
+        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\interceptors\\jwt.interceptor.ts"
       ],
       "sourcesContent": [
         "import { HttpHandler, HttpInterceptor, HttpRequest } from \"@angular/common/http\";\r\nimport { Injectable } from \"@angular/core\";\r\nimport { SessionService } from '../services/session.service';\r\n\r\n@Injectable({ providedIn: 'root' })\r\nexport class JwtInterceptor implements HttpInterceptor {\r\n  constructor(private sessionService: SessionService) {}\r\n\r\n  public intercept(request: HttpRequest<any>, next: HttpHandler) {\r\n    if (this.sessionService.isLogged) {\r\n      request = request.clone({\r\n        setHeaders: {\r\n          Authorization: `Bearer ${this.sessionService.sessionInformation!.token}`,\r\n        },\r\n      });\r\n    }\r\n    return next.handle(request);\r\n  }\r\n}\r\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "34b4c56f2743398cffcfa4329e65859588921ed0"
+    "hash": "eeb3e6f20a2fb54f8b182088c23b6512c4816ddd"
   },
-  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\app.module.ts": {
-    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\app.module.ts",
+  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\app.module.ts": {
+    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\app.module.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -5543,22 +5543,22 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1,
-      "4": 1,
-      "5": 1,
-      "6": 1
+      "0": 4,
+      "1": 4,
+      "2": 4,
+      "3": 4,
+      "4": 4,
+      "5": 4,
+      "6": 4
     },
     "f": {
-      "0": 1,
-      "1": 1
+      "0": 4,
+      "1": 4
     },
     "b": {
       "0": [
-        1,
-        1
+        4,
+        4
       ]
     },
     "inputSourceMap": {
@@ -5588,17 +5588,17 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\app.module.ts"
+        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\app.module.ts"
       ],
       "sourcesContent": [
         "import { NgModule } from '@angular/core';\r\nimport { MatSnackBarModule } from '@angular/material/snack-bar';\r\nimport { BrowserModule } from '@angular/platform-browser';\r\n\r\nimport { AppRoutingModule } from './app-routing.module';\r\nimport { AppComponent } from './app.component';\r\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\r\nimport { NotFoundComponent } from './components/not-found/not-found.component';\r\nimport { MatButtonModule } from '@angular/material/button';\r\nimport { MatIconModule } from '@angular/material/icon';\r\nimport { MatToolbarModule } from '@angular/material/toolbar';\r\nimport { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';\r\nimport { JwtInterceptor } from './interceptors/jwt.interceptor';\r\nimport { MatCardModule } from '@angular/material/card';\r\nimport { FlexLayoutModule } from '@angular/flex-layout';\r\nimport { MeComponent } from './components/me/me.component';\r\n\r\nconst materialModule = [\r\n  MatButtonModule,\r\n  MatCardModule,\r\n  MatIconModule,\r\n  MatSnackBarModule,\r\n  MatToolbarModule,\r\n]\r\n\r\n@NgModule({\r\n  declarations: [\r\n    AppComponent,\r\n    NotFoundComponent,\r\n    MeComponent,\r\n  ],\r\n  imports: [\r\n    BrowserModule,\r\n    AppRoutingModule,\r\n    BrowserAnimationsModule, \r\n    FlexLayoutModule,\r\n    HttpClientModule,\r\n    ...materialModule\r\n  ],\r\n  providers: [\r\n    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },\r\n  ],\r\n  bootstrap: [AppComponent]\r\n})\r\nexport class AppModule { }\r\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "a49c3f9f598ba8093e4aae88f0a65b2cd633f82b"
+    "hash": "f25f75f39f7aeffc15e68c689604d4c8968c8fce"
   },
-  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\environments\\environment.ts": {
-    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\environments\\environment.ts",
+  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\environments\\environment.ts": {
+    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\environments\\environment.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -5614,7 +5614,7 @@
     "fnMap": {},
     "branchMap": {},
     "s": {
-      "0": 1
+      "0": 4
     },
     "f": {},
     "b": {},
@@ -5628,17 +5628,17 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\environments\\environment.ts"
+        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\environments\\environment.ts"
       ],
       "sourcesContent": [
         "export const environment = {\r\n  baseUrl: 'localhost:8080/api/',\r\n  production: false\r\n};\r\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "c26c84097284a1f827bf5951adc34d21694ab637"
+    "hash": "0810f50213795d8e4009706270271b66060acec6"
   },
-  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\main.ts": {
-    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\main.ts",
+  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\main.ts": {
+    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\main.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -5746,9 +5746,9 @@
       }
     },
     "s": {
-      "0": 1,
+      "0": 4,
       "1": 0,
-      "2": 1,
+      "2": 4,
       "3": 0
     },
     "f": {
@@ -5757,7 +5757,7 @@
     "b": {
       "0": [
         0,
-        1
+        4
       ]
     },
     "inputSourceMap": {
@@ -5777,17 +5777,17 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\main.ts"
+        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\main.ts"
       ],
       "sourcesContent": [
         "import { enableProdMode } from '@angular/core';\r\nimport { platformBrowserDynamic } from '@angular/platform-browser-dynamic';\r\n\r\nimport { AppModule } from './app/app.module';\r\nimport { environment } from './environments/environment';\r\n\r\nif (environment.production) {\r\n  enableProdMode();\r\n}\r\n\r\nplatformBrowserDynamic().bootstrapModule(AppModule)\r\n  .catch(err => console.error(err));\r\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "827089856728d992f59ee053e218e35adee841cb"
+    "hash": "d3c36a7ce1035fa129d2e5954213abfbce487a1d"
   },
-  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\auth\\components\\login\\login.component.ts": {
-    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\auth\\components\\login\\login.component.ts",
+  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\auth\\components\\login\\login.component.ts": {
+    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\auth\\components\\login\\login.component.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -6825,70 +6825,70 @@
       "1": 0,
       "2": 0,
       "3": 0,
-      "4": 1,
-      "5": 1,
-      "6": 1,
-      "7": 1,
-      "8": 1,
-      "9": 1,
-      "10": 1,
-      "11": 1,
-      "12": 1,
-      "13": 1,
-      "14": 1,
-      "15": 1,
+      "4": 4,
+      "5": 4,
+      "6": 4,
+      "7": 4,
+      "8": 4,
+      "9": 4,
+      "10": 4,
+      "11": 4,
+      "12": 3,
+      "13": 3,
+      "14": 3,
+      "15": 3,
       "16": 0,
-      "17": 1,
-      "18": 1,
-      "19": 1,
-      "20": 42,
-      "21": 1,
-      "22": 1,
-      "23": 1,
-      "24": 1,
-      "25": 1,
-      "26": 1,
-      "27": 1,
-      "28": 1,
-      "29": 1,
-      "30": 1,
-      "31": 1,
-      "32": 1,
-      "33": 1,
+      "17": 4,
+      "18": 4,
+      "19": 4,
+      "20": 139,
+      "21": 4,
+      "22": 4,
+      "23": 4,
+      "24": 4,
+      "25": 4,
+      "26": 3,
+      "27": 4,
+      "28": 4,
+      "29": 4,
+      "30": 4,
+      "31": 4,
+      "32": 4,
+      "33": 4,
       "34": 0,
-      "35": 1,
-      "36": 1,
-      "37": 1,
-      "38": 1,
-      "39": 1,
-      "40": 1,
-      "41": 1,
-      "42": 1,
-      "43": 42,
-      "44": 41,
-      "45": 41,
-      "46": 41,
-      "47": 41,
-      "48": 41,
-      "49": 41,
-      "50": 41,
-      "51": 41,
-      "52": 41,
-      "53": 41,
-      "54": 41,
-      "55": 41,
-      "56": 1
+      "35": 4,
+      "36": 4,
+      "37": 4,
+      "38": 4,
+      "39": 4,
+      "40": 4,
+      "41": 4,
+      "42": 4,
+      "43": 139,
+      "44": 135,
+      "45": 135,
+      "46": 135,
+      "47": 135,
+      "48": 135,
+      "49": 135,
+      "50": 135,
+      "51": 135,
+      "52": 135,
+      "53": 135,
+      "54": 135,
+      "55": 135,
+      "56": 4
     },
     "f": {
       "0": 0,
-      "1": 1,
-      "2": 1,
-      "3": 1,
-      "4": 1,
+      "1": 4,
+      "2": 4,
+      "3": 3,
+      "4": 3,
       "5": 0,
-      "6": 1,
-      "7": 42,
-      "8": 1,
+      "6": 4,
+      "7": 139,
+      "8": 3,
       "9": 0
     },
     "b": {
@@ -6897,23 +6897,23 @@
         0
       ],
       "1": [
-        1,
-        1
+        4,
+        4
       ],
       "2": [
-        1,
-        41
+        4,
+        135
       ],
       "3": [
-        41,
-        1
+        135,
+        4
       ],
       "4": [
-        41,
+        135,
         0
       ],
       "5": [
-        41,
+        135,
         0
       ]
     },
@@ -6955,8 +6955,8 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\auth\\components\\login\\login.component.ts",
-        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\auth\\components\\login\\login.component.html"
+        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\auth\\components\\login\\login.component.ts",
+        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\auth\\components\\login\\login.component.html"
       ],
       "sourcesContent": [
         "import { Component } from '@angular/core';\r\nimport { FormBuilder, Validators } from '@angular/forms';\r\nimport { Router } from '@angular/router';\r\nimport { SessionInformation } from 'src/app/interfaces/sessionInformation.interface';\r\nimport { SessionService } from 'src/app/services/session.service';\r\nimport { LoginRequest } from '../../interfaces/loginRequest.interface';\r\nimport { AuthService } from '../../services/auth.service';\r\n\r\n@Component({\r\n  selector: 'app-login',\r\n  templateUrl: './login.component.html',\r\n  styleUrls: ['./login.component.scss']\r\n})\r\nexport class LoginComponent {\r\n  public hide = true;\r\n  public onError = false;\r\n\r\n  public form = this.fb.group({\r\n    email: [\r\n      '',\r\n      [\r\n        Validators.required,\r\n        Validators.email\r\n      ]\r\n    ],\r\n    password: [\r\n      '',\r\n      [\r\n        Validators.required,\r\n        Validators.minLength(3)\r\n      ]\r\n    ]\r\n  });\r\n\r\n  constructor(private authService: AuthService,\r\n              private fb: FormBuilder,\r\n              private router: Router,\r\n              private sessionService: SessionService) {\r\n  }\r\n\r\n  public submit(): void {\r\n    const loginRequest = this.form.value as LoginRequest;\r\n    this.authService.login(loginRequest).subscribe({\r\n      next: (response: SessionInformation) => {\r\n        this.sessionService.logIn(response);\r\n        this.router.navigate(['/sessions']);\r\n      },\r\n      error: error => this.onError = true,\r\n    });\r\n  }\r\n}\r\n",
@@ -6964,10 +6964,10 @@
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "eee171a7e3119bf83f11143ee9d07fc2c8f3bc70"
+    "hash": "a3ed4f22ec1db865f6cdc3f53519993fb0da548a"
   },
-  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\auth\\components\\register\\register.component.ts": {
-    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\auth\\components\\register\\register.component.ts",
+  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\auth\\components\\register\\register.component.ts": {
+    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\auth\\components\\register\\register.component.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -7829,62 +7829,62 @@
       "1": 0,
       "2": 0,
       "3": 0,
-      "4": 1,
-      "5": 0,
-      "6": 0,
-      "7": 0,
-      "8": 0,
-      "9": 0,
-      "10": 0,
-      "11": 0,
-      "12": 0,
+      "4": 4,
+      "5": 1,
+      "6": 1,
+      "7": 1,
+      "8": 1,
+      "9": 1,
+      "10": 1,
+      "11": 1,
+      "12": 1,
       "13": 0,
-      "14": 1,
-      "15": 0,
-      "16": 1,
-      "17": 0,
-      "18": 0,
-      "19": 0,
-      "20": 0,
-      "21": 0,
-      "22": 0,
-      "23": 0,
-      "24": 0,
-      "25": 0,
-      "26": 0,
-      "27": 0,
-      "28": 0,
-      "29": 0,
-      "30": 0,
-      "31": 0,
-      "32": 0,
-      "33": 0,
-      "34": 0,
-      "35": 0,
-      "36": 0,
-      "37": 0,
-      "38": 0,
-      "39": 0,
-      "40": 0,
-      "41": 0,
-      "42": 0,
-      "43": 0,
-      "44": 0,
-      "45": 0,
-      "46": 0,
-      "47": 0,
-      "48": 1
+      "14": 4,
+      "15": 1,
+      "16": 4,
+      "17": 57,
+      "18": 1,
+      "19": 1,
+      "20": 1,
+      "21": 1,
+      "22": 1,
+      "23": 1,
+      "24": 1,
+      "25": 1,
+      "26": 1,
+      "27": 1,
+      "28": 1,
+      "29": 1,
+      "30": 1,
+      "31": 1,
+      "32": 1,
+      "33": 1,
+      "34": 1,
+      "35": 1,
+      "36": 1,
+      "37": 1,
+      "38": 1,
+      "39": 1,
+      "40": 1,
+      "41": 57,
+      "42": 56,
+      "43": 56,
+      "44": 56,
+      "45": 56,
+      "46": 56,
+      "47": 56,
+      "48": 4
     },
     "f": {
       "0": 0,
-      "1": 1,
-      "2": 0,
-      "3": 0,
-      "4": 0,
+      "1": 4,
+      "2": 1,
+      "3": 1,
+      "4": 1,
       "5": 0,
-      "6": 0,
-      "7": 0,
-      "8": 0
+      "6": 1,
+      "7": 57,
+      "8": 1
     },
     "b": {
       "0": [
@@ -7892,16 +7892,16 @@
         0
       ],
       "1": [
-        0,
-        0
+        1,
+        1
       ],
       "2": [
-        0,
-        0
+        1,
+        56
       ],
       "3": [
-        0,
-        0
+        56,
+        1
       ]
     },
     "inputSourceMap": {
@@ -7943,8 +7943,8 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\auth\\components\\register\\register.component.ts",
-        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\auth\\components\\register\\register.component.html"
+        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\auth\\components\\register\\register.component.ts",
+        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\auth\\components\\register\\register.component.html"
       ],
       "sourcesContent": [
         "import { Component } from '@angular/core';\r\nimport { FormBuilder, Validators } from '@angular/forms';\r\nimport { Router } from '@angular/router';\r\nimport { AuthService } from '../../services/auth.service';\r\nimport { RegisterRequest } from '../../interfaces/registerRequest.interface';\r\n\r\n@Component({\r\n  selector: 'app-register',\r\n  templateUrl: './register.component.html',\r\n  styleUrls: ['./register.component.scss']\r\n})\r\nexport class RegisterComponent {\r\n\r\n  public onError = false;\r\n\r\n  public form = this.fb.group({\r\n    email: [\r\n      '',\r\n      [\r\n        Validators.required,\r\n        Validators.email\r\n      ]\r\n    ],\r\n    firstName: [\r\n      '',\r\n      [\r\n        Validators.required,\r\n        Validators.minLength(3),\r\n        Validators.maxLength(20)\r\n      ]\r\n    ],\r\n    lastName: [\r\n      '',\r\n      [\r\n        Validators.required,\r\n        Validators.minLength(3),\r\n        Validators.maxLength(20)\r\n      ]\r\n    ],\r\n    password: [\r\n      '',\r\n      [\r\n        Validators.required,\r\n        Validators.minLength(3),\r\n        Validators.maxLength(40)\r\n      ]\r\n    ]\r\n  });\r\n\r\n  constructor(private authService: AuthService,\r\n              private fb: FormBuilder,\r\n              private router: Router) {\r\n  }\r\n\r\n  public submit(): void {\r\n    const registerRequest = this.form.value as RegisterRequest;\r\n    this.authService.register(registerRequest).subscribe({\r\n        next: (_: void) => this.router.navigate(['/login']),\r\n        error: _ => this.onError = true,\r\n      }\r\n    );\r\n  }\r\n\r\n}\r\n",
@@ -7952,10 +7952,10 @@
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "78a9e52997fdf1e533a5a571943cd85857104c36"
+    "hash": "db9557d9daa8c56989cb287571ad66b250ebfc7e"
   },
-  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\auth\\auth-routing.module.ts": {
-    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\auth\\auth-routing.module.ts",
+  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\auth\\auth-routing.module.ts": {
+    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\auth\\auth-routing.module.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -8117,22 +8117,22 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1,
-      "4": 1,
-      "5": 1,
-      "6": 1
+      "0": 4,
+      "1": 4,
+      "2": 4,
+      "3": 4,
+      "4": 4,
+      "5": 4,
+      "6": 4
     },
     "f": {
-      "0": 1,
-      "1": 1
+      "0": 4,
+      "1": 4
     },
     "b": {
       "0": [
-        1,
-        1
+        4,
+        4
       ]
     },
     "inputSourceMap": {
@@ -8151,17 +8151,17 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\auth\\auth-routing.module.ts"
+        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\auth\\auth-routing.module.ts"
       ],
       "sourcesContent": [
         "import { NgModule } from '@angular/core';\r\nimport { RouterModule, Routes } from '@angular/router';\r\nimport { LoginComponent } from './components/login/login.component';\r\nimport { RegisterComponent } from './components/register/register.component';\r\n\r\n\r\nconst routes: Routes = [\r\n  { title: 'Login', path: 'login', component: LoginComponent },\r\n  { title: 'Register', path: 'register', component: RegisterComponent }\r\n];\r\n\r\n@NgModule({\r\n  imports: [RouterModule.forChild(routes)],\r\n  exports: [RouterModule]\r\n})\r\nexport class AuthRoutingModule { }\r\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "7aa2bb12bdbc53a4f2a9b951a8f7c63fa21b803f"
+    "hash": "090b5ff7d460d12638e904773de057f8b0575fd9"
   },
-  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\auth\\auth.module.ts": {
-    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\auth\\auth.module.ts",
+  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\auth\\auth.module.ts": {
+    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\auth\\auth.module.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -8323,22 +8323,22 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1,
-      "4": 1,
-      "5": 1,
-      "6": 1
+      "0": 4,
+      "1": 4,
+      "2": 4,
+      "3": 4,
+      "4": 4,
+      "5": 4,
+      "6": 4
     },
     "f": {
-      "0": 1,
-      "1": 1
+      "0": 4,
+      "1": 4
     },
     "b": {
       "0": [
-        1,
-        1
+        4,
+        4
       ]
     },
     "inputSourceMap": {
@@ -8360,17 +8360,17 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\auth\\auth.module.ts"
+        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\auth\\auth.module.ts"
       ],
       "sourcesContent": [
         "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { AuthRoutingModule } from './auth-routing.module';\r\nimport { RegisterComponent } from './components/register/register.component';\r\nimport { LoginComponent } from './components/login/login.component';\r\nimport { MatCardModule } from '@angular/material/card';\r\nimport { MatFormFieldModule } from '@angular/material/form-field';\r\nimport { MatButtonModule } from '@angular/material/button';\r\nimport { MatInputModule } from '@angular/material/input';\r\nimport { FlexLayoutModule } from '@angular/flex-layout';\r\nimport { FormsModule, ReactiveFormsModule } from '@angular/forms';\r\nimport { MatIconModule } from '@angular/material/icon';\r\n\r\nconst materialModules = [\r\n  MatButtonModule,\r\n  MatCardModule,\r\n  MatFormFieldModule,\r\n  MatIconModule,\r\n  MatInputModule\r\n]\r\n\r\n@NgModule({\r\n  declarations: [\r\n    RegisterComponent,\r\n    LoginComponent\r\n  ],\r\n  imports: [\r\n    AuthRoutingModule,\r\n    CommonModule,\r\n    FlexLayoutModule,\r\n    FormsModule,\r\n    ReactiveFormsModule,\r\n    ...materialModules\r\n  ]\r\n})\r\nexport class AuthModule { }\r\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "f29692f7f7fe691ef2f6343cef538ddff2ee836d"
+    "hash": "62ea8bdce8df12f4af79537da848e8eab8782cd4"
   },
-  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\sessions\\services\\session-api.service.ts": {
-    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\sessions\\services\\session-api.service.ts",
+  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\sessions\\services\\session-api.service.ts": {
+    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\sessions\\services\\session-api.service.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -8794,37 +8794,37 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 4,
-      "4": 2,
+      "0": 3,
+      "1": 3,
+      "2": 3,
+      "3": 8,
+      "4": 8,
       "5": 1,
       "6": 1,
       "7": 1,
-      "8": 0,
-      "9": 0,
-      "10": 1,
-      "11": 1,
-      "12": 1,
-      "13": 1
+      "8": 2,
+      "9": 2,
+      "10": 3,
+      "11": 3,
+      "12": 3,
+      "13": 3
     },
     "f": {
-      "0": 1,
-      "1": 1,
-      "2": 4,
-      "3": 2,
+      "0": 3,
+      "1": 3,
+      "2": 8,
+      "3": 8,
       "4": 1,
       "5": 1,
       "6": 1,
-      "7": 0,
-      "8": 0,
-      "9": 1
+      "7": 2,
+      "8": 2,
+      "9": 3
     },
     "b": {
       "0": [
-        1,
-        1
+        3,
+        3
       ]
     },
     "inputSourceMap": {
@@ -8854,17 +8854,17 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\sessions\\services\\session-api.service.ts"
+        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\sessions\\services\\session-api.service.ts"
       ],
       "sourcesContent": [
         "import { HttpClient } from '@angular/common/http';\r\nimport { Injectable } from '@angular/core';\r\nimport { Observable } from 'rxjs';\r\nimport { Session } from '../interfaces/session.interface';\r\n\r\n@Injectable({\r\n  providedIn: 'root'\r\n})\r\nexport class SessionApiService {\r\n\r\n  private pathService = 'api/session';\r\n\r\n  constructor(private httpClient: HttpClient) {\r\n  }\r\n\r\n  public all(): Observable<Session[]> {\r\n    return this.httpClient.get<Session[]>(this.pathService);\r\n  }\r\n\r\n  public detail(id: string): Observable<Session> {\r\n    return this.httpClient.get<Session>(`${this.pathService}/${id}`);\r\n  }\r\n\r\n  public delete(id: string): Observable<any> {\r\n    return this.httpClient.delete(`${this.pathService}/${id}`);\r\n  }\r\n\r\n  public create(session: Session): Observable<Session> {\r\n    return this.httpClient.post<Session>(this.pathService, session);\r\n  }\r\n\r\n  public update(id: string, session: Session): Observable<Session> {\r\n    return this.httpClient.put<Session>(`${this.pathService}/${id}`, session);\r\n  }\r\n\r\n  public participate(id: string, userId: string): Observable<void> {\r\n    return this.httpClient.post<void>(`${this.pathService}/${id}/participate/${userId}`, null);\r\n  }\r\n\r\n  public unParticipate(id: string, userId: string): Observable<void> {\r\n    return this.httpClient.delete<void>(`${this.pathService}/${id}/participate/${userId}`);\r\n  }\r\n\r\n}\r\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "50947549fe1f68c85269c278af1efcb704383aba"
+    "hash": "e5bd6d3594273ade90b62d43bae03c1787d511d0"
   },
-  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\services\\teacher.service.ts": {
-    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\services\\teacher.service.ts",
+  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\services\\teacher.service.ts": {
+    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\services\\teacher.service.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -9118,27 +9118,27 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
+      "0": 3,
+      "1": 3,
+      "2": 3,
       "3": 2,
-      "4": 1,
-      "5": 1,
-      "6": 1,
-      "7": 1,
-      "8": 1
+      "4": 7,
+      "5": 3,
+      "6": 3,
+      "7": 3,
+      "8": 3
     },
     "f": {
-      "0": 1,
-      "1": 1,
+      "0": 3,
+      "1": 3,
       "2": 2,
-      "3": 1,
-      "4": 1
+      "3": 7,
+      "4": 3
     },
     "b": {
       "0": [
-        1,
-        1
+        3,
+        3
       ]
     },
     "inputSourceMap": {
@@ -9159,17 +9159,17 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\services\\teacher.service.ts"
+        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\services\\teacher.service.ts"
       ],
       "sourcesContent": [
         "import { HttpClient } from '@angular/common/http';\r\nimport { Injectable } from '@angular/core';\r\nimport { Observable } from 'rxjs';\r\nimport { Teacher } from '../interfaces/teacher.interface';\r\n\r\n@Injectable({\r\n  providedIn: 'root'\r\n})\r\nexport class TeacherService {\r\n\r\n  private pathService = 'api/teacher';\r\n\r\n  constructor(private httpClient: HttpClient) { }\r\n\r\n  public all(): Observable<Teacher[]> {\r\n    return this.httpClient.get<Teacher[]>(this.pathService);\r\n  }\r\n\r\n  public detail(id: string): Observable<Teacher> {\r\n    return this.httpClient.get<Teacher>(`${this.pathService}/${id}`);\r\n  }\r\n}\r\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "1db92197e9ec5cebae03b76f1c5243df216f142b"
+    "hash": "db374129e3a66254fc3d7e6c9c4a0933a463afc3"
   },
-  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\sessions\\components\\detail\\detail.component.ts": {
-    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\sessions\\components\\detail\\detail.component.ts",
+  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\sessions\\components\\detail\\detail.component.ts": {
+    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\sessions\\components\\detail\\detail.component.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -11986,195 +11986,195 @@
       "10": 1,
       "11": 1,
       "12": 1,
-      "13": 0,
-      "14": 0,
-      "15": 0,
-      "16": 0,
-      "17": 0,
-      "18": 0,
-      "19": 0,
-      "20": 0,
-      "21": 0,
-      "22": 0,
-      "23": 0,
-      "24": 0,
-      "25": 0,
-      "26": 0,
-      "27": 0,
-      "28": 0,
-      "29": 0,
-      "30": 0,
-      "31": 0,
-      "32": 0,
-      "33": 0,
-      "34": 0,
-      "35": 0,
-      "36": 0,
-      "37": 0,
-      "38": 0,
-      "39": 0,
-      "40": 0,
-      "41": 0,
-      "42": 0,
-      "43": 0,
-      "44": 0,
-      "45": 0,
-      "46": 0,
-      "47": 0,
-      "48": 0,
-      "49": 0,
-      "50": 0,
-      "51": 0,
-      "52": 0,
-      "53": 0,
-      "54": 0,
-      "55": 0,
-      "56": 0,
-      "57": 0,
-      "58": 0,
-      "59": 0,
-      "60": 0,
-      "61": 0,
-      "62": 15,
-      "63": 1,
-      "64": 1,
-      "65": 1,
-      "66": 0,
-      "67": 0,
-      "68": 0,
-      "69": 1,
-      "70": 1,
-      "71": 1,
-      "72": 1,
-      "73": 1,
-      "74": 1,
-      "75": 1,
-      "76": 1,
-      "77": 1,
-      "78": 1,
-      "79": 1,
-      "80": 1,
-      "81": 1,
-      "82": 1,
-      "83": 1,
-      "84": 1,
-      "85": 1,
-      "86": 1,
-      "87": 1,
-      "88": 1,
-      "89": 1,
-      "90": 1,
-      "91": 1,
-      "92": 1,
-      "93": 1,
-      "94": 1,
-      "95": 1,
-      "96": 1,
-      "97": 1,
-      "98": 1,
-      "99": 1,
-      "100": 1,
-      "101": 1,
-      "102": 1,
-      "103": 1,
-      "104": 1,
-      "105": 1,
-      "106": 1,
-      "107": 1,
-      "108": 1,
-      "109": 1,
-      "110": 1,
-      "111": 1,
-      "112": 1,
-      "113": 1,
-      "114": 1,
-      "115": 15,
-      "116": 14,
-      "117": 14,
-      "118": 14,
-      "119": 14,
-      "120": 14,
-      "121": 14,
-      "122": 14,
-      "123": 14,
-      "124": 14,
-      "125": 14,
-      "126": 14,
-      "127": 14,
-      "128": 14,
-      "129": 14,
-      "130": 14,
-      "131": 14,
-      "132": 14,
-      "133": 14,
-      "134": 14,
-      "135": 1,
-      "136": 1,
-      "137": 1,
-      "138": 1,
-      "139": 1,
-      "140": 1,
-      "141": 1,
-      "142": 1,
-      "143": 1,
-      "144": 1,
-      "145": 1,
-      "146": 1,
-      "147": 1,
-      "148": 1,
-      "149": 0,
+      "13": 60,
+      "14": 4,
+      "15": 4,
+      "16": 4,
+      "17": 2,
+      "18": 2,
+      "19": 2,
+      "20": 4,
+      "21": 4,
+      "22": 4,
+      "23": 4,
+      "24": 4,
+      "25": 4,
+      "26": 38,
+      "27": 2,
+      "28": 2,
+      "29": 2,
+      "30": 2,
+      "31": 2,
+      "32": 2,
+      "33": 2,
+      "34": 2,
+      "35": 2,
+      "36": 2,
+      "37": 2,
+      "38": 2,
+      "39": 94,
+      "40": 2,
+      "41": 2,
+      "42": 2,
+      "43": 2,
+      "44": 94,
+      "45": 92,
+      "46": 92,
+      "47": 92,
+      "48": 92,
+      "49": 92,
+      "50": 82,
+      "51": 2,
+      "52": 2,
+      "53": 2,
+      "54": 2,
+      "55": 2,
+      "56": 2,
+      "57": 2,
+      "58": 82,
+      "59": 80,
+      "60": 80,
+      "61": 80,
+      "62": 109,
+      "63": 3,
+      "64": 3,
+      "65": 3,
+      "66": 2,
+      "67": 2,
+      "68": 2,
+      "69": 3,
+      "70": 3,
+      "71": 3,
+      "72": 3,
+      "73": 3,
+      "74": 3,
+      "75": 3,
+      "76": 3,
+      "77": 3,
+      "78": 3,
+      "79": 3,
+      "80": 3,
+      "81": 3,
+      "82": 3,
+      "83": 3,
+      "84": 3,
+      "85": 3,
+      "86": 3,
+      "87": 3,
+      "88": 3,
+      "89": 3,
+      "90": 3,
+      "91": 3,
+      "92": 3,
+      "93": 3,
+      "94": 3,
+      "95": 3,
+      "96": 3,
+      "97": 3,
+      "98": 3,
+      "99": 3,
+      "100": 3,
+      "101": 3,
+      "102": 3,
+      "103": 3,
+      "104": 3,
+      "105": 3,
+      "106": 3,
+      "107": 3,
+      "108": 3,
+      "109": 3,
+      "110": 3,
+      "111": 3,
+      "112": 3,
+      "113": 3,
+      "114": 3,
+      "115": 109,
+      "116": 106,
+      "117": 106,
+      "118": 106,
+      "119": 106,
+      "120": 106,
+      "121": 106,
+      "122": 106,
+      "123": 106,
+      "124": 106,
+      "125": 106,
+      "126": 106,
+      "127": 106,
+      "128": 106,
+      "129": 106,
+      "130": 106,
+      "131": 106,
+      "132": 106,
+      "133": 106,
+      "134": 106,
+      "135": 3,
+      "136": 3,
+      "137": 3,
+      "138": 3,
+      "139": 3,
+      "140": 3,
+      "141": 3,
+      "142": 3,
+      "143": 3,
+      "144": 3,
+      "145": 3,
+      "146": 3,
+      "147": 3,
+      "148": 3,
+      "149": 2,
       "150": 1,
       "151": 1,
       "152": 1,
-      "153": 0,
-      "154": 0,
-      "155": 0,
-      "156": 0,
-      "157": 1,
-      "158": 1,
-      "159": 1,
-      "160": 0,
-      "161": 1,
-      "162": 0,
-      "163": 1,
-      "164": 1,
-      "165": 1,
-      "166": 20,
-      "167": 1,
-      "168": 1,
-      "169": 1,
-      "170": 20,
-      "171": 19,
-      "172": 19,
-      "173": 1
+      "153": 2,
+      "154": 2,
+      "155": 2,
+      "156": 2,
+      "157": 7,
+      "158": 7,
+      "159": 7,
+      "160": 2,
+      "161": 7,
+      "162": 6,
+      "163": 3,
+      "164": 3,
+      "165": 3,
+      "166": 124,
+      "167": 3,
+      "168": 3,
+      "169": 3,
+      "170": 124,
+      "171": 121,
+      "172": 121,
+      "173": 3
     },
     "f": {
       "0": 15,
       "1": 1,
-      "2": 0,
-      "3": 0,
-      "4": 0,
-      "5": 0,
-      "6": 0,
-      "7": 0,
-      "8": 15,
-      "9": 0,
-      "10": 1,
-      "11": 1,
-      "12": 1,
-      "13": 0,
+      "2": 60,
+      "3": 2,
+      "4": 38,
+      "5": 2,
+      "6": 94,
+      "7": 82,
+      "8": 109,
+      "9": 2,
+      "10": 3,
+      "11": 3,
+      "12": 3,
+      "13": 2,
       "14": 1,
       "15": 1,
-      "16": 0,
-      "17": 0,
-      "18": 0,
-      "19": 0,
-      "20": 1,
-      "21": 1,
-      "22": 0,
-      "23": 0,
-      "24": 1,
-      "25": 20
+      "16": 2,
+      "17": 2,
+      "18": 2,
+      "19": 2,
+      "20": 7,
+      "21": 7,
+      "22": 2,
+      "23": 6,
+      "24": 3,
+      "25": 124
     },
     "b": {
       "0": [
@@ -12182,48 +12182,48 @@
         14
       ],
       "1": [
-        0,
-        0
+        4,
+        56
       ],
       "2": [
-        0,
-        0
+        2,
+        36
       ],
       "3": [
-        0,
-        0
+        2,
+        92
       ],
       "4": [
-        0,
-        0
+        92,
+        2
       ],
       "5": [
-        0,
-        0
+        2,
+        80
       ],
       "6": [
-        0,
-        0
+        80,
+        2
       ],
       "7": [
-        1,
-        14
+        3,
+        106
       ],
       "8": [
-        14,
-        1
+        106,
+        3
       ],
       "9": [
-        1,
-        1
+        3,
+        3
       ],
       "10": [
-        1,
-        19
+        3,
+        121
       ],
       "11": [
-        19,
-        1
+        121,
+        3
       ]
     },
     "inputSourceMap": {
@@ -12279,8 +12279,8 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\sessions\\components\\detail\\detail.component.html",
-        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\sessions\\components\\detail\\detail.component.ts"
+        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\sessions\\components\\detail\\detail.component.html",
+        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\sessions\\components\\detail\\detail.component.ts"
       ],
       "sourcesContent": [
         "<div class=\"m3\">\r\n  <mat-card *ngIf=\"session\">\r\n    <mat-card-title>\r\n      <div fxLayout=\"row\" fxLayoutAlign=\"space-between center\">\r\n        <div fxLayout=\"row\" fxLayoutAlign=\"start center\">\r\n          <button class=\"back-button\" mat-icon-button (click)=\"back()\">\r\n            <mat-icon>arrow_back</mat-icon>\r\n          </button>\r\n          <h1 class=\"session-name\">{{session.name | titlecase}}</h1>\r\n        </div>\r\n        <div>\r\n          <button class=\"delete-button\" *ngIf=\"isAdmin\" mat-raised-button color=\"warn\" (click)=\"delete()\">\r\n            <mat-icon>delete</mat-icon>\r\n            <span class=\"ml1\">Delete</span>\r\n          </button>\r\n          <div *ngIf=\"!isAdmin\">\r\n            <button class=\"participate-button\" *ngIf=\"!isParticipate\" mat-raised-button color=\"primary\" (click)=\"participate()\">\r\n              <mat-icon>person_add</mat-icon>\r\n              <span class=\"ml1\">Participate</span>\r\n            </button>\r\n            <button class=\"unparticipate-button\" *ngIf=\"isParticipate\" mat-raised-button color=\"warn\" (click)=\"unParticipate()\">\r\n              <mat-icon>person_remove</mat-icon>\r\n              <span class=\"ml1\">Do not participate</span>\r\n            </button>\r\n\r\n          </div>\r\n\r\n\r\n        </div>\r\n      </div>\r\n    </mat-card-title>\r\n    <mat-card-subtitle *ngIf=\"teacher\">\r\n      <div fxLayoutAlign=\"start center\" class=\"ml3\">\r\n        <mat-icon>\r\n          people\r\n        </mat-icon>\r\n        <span class=\"ml1 teacher-name\">{{ teacher.firstName }} {{ teacher.lastName | uppercase }}</span>\r\n      </div>\r\n    </mat-card-subtitle>\r\n    <div mat-card-image fxLayoutAlign=\"center center\">\r\n      <img class=\"picture\" src=\"assets/sessions.png\" alt=\"Yoga session\">\r\n    </div>\r\n    <mat-card-content>\r\n      <div class=\"my2\" fxLayout=\"row\" fxLayoutAlign=\"space-between center\">\r\n        <div fxLayoutAlign=\"start center\">\r\n          <mat-icon>\r\n            group\r\n          </mat-icon>\r\n          <span class=\"ml1 session-users-number\">{{ session.users.length }} attendees</span>\r\n        </div>\r\n        <div fxLayoutAlign=\"start center\">\r\n          <mat-icon>\r\n            calendar_month\r\n          </mat-icon>\r\n          <span class=\"ml1 session-date\">{{ session.date | date: 'longDate'}}</span>\r\n        </div>\r\n      </div>\r\n      <div class=\"description\">\r\n        <p>Description:</p>\r\n        {{ session.description }}\r\n        <br>\r\n      </div>\r\n      <div class=\"date\" class=\"my2\" fxLayout=\"row\" fxLayoutAlign=\"space-between center\">\r\n        <div class=\"created\"><i>Create at: </i> {{ session.createdAt| date: 'longDate'}}</div>\r\n        <div class=\"updated\"><i>Last update: </i> {{ session.updatedAt| date: 'longDate'}}</div>\r\n      </div>\r\n    </mat-card-content>\r\n  </mat-card>\r\n</div>\r\n",
@@ -12288,10 +12288,10 @@
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "6b2ce362656f2d9cdb28027185e37f376deaa422"
+    "hash": "f05c22f772ce80967957272670bc34d62024f703"
   },
-  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\sessions\\components\\form\\form.component.ts": {
-    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\sessions\\components\\form\\form.component.ts",
+  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\sessions\\components\\form\\form.component.ts": {
+    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\sessions\\components\\form\\form.component.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -14313,20 +14313,20 @@
       "1": 1,
       "2": 1,
       "3": 1,
-      "4": 77,
+      "4": 78,
       "5": 1,
       "6": 1,
       "7": 1,
-      "8": 282,
+      "8": 284,
       "9": 4,
       "10": 4,
       "11": 4,
-      "12": 282,
-      "13": 278,
-      "14": 278,
-      "15": 278,
-      "16": 278,
-      "17": 154,
+      "12": 284,
+      "13": 280,
+      "14": 280,
+      "15": 280,
+      "16": 280,
+      "17": 155,
       "18": 2,
       "19": 2,
       "20": 2,
@@ -14358,15 +14358,15 @@
       "46": 2,
       "47": 2,
       "48": 2,
-      "49": 154,
-      "50": 152,
-      "51": 152,
-      "52": 152,
-      "53": 152,
-      "54": 152,
-      "55": 152,
-      "56": 152,
-      "57": 1,
+      "49": 155,
+      "50": 153,
+      "51": 153,
+      "52": 153,
+      "53": 153,
+      "54": 153,
+      "55": 153,
+      "56": 153,
+      "57": 3,
       "58": 2,
       "59": 2,
       "60": 2,
@@ -14394,10 +14394,10 @@
       "82": 2,
       "83": 2,
       "84": 2,
-      "85": 1,
+      "85": 3,
       "86": 2,
-      "87": 1,
-      "88": 159,
+      "87": 3,
+      "88": 160,
       "89": 2,
       "90": 2,
       "91": 2,
@@ -14406,22 +14406,22 @@
       "94": 2,
       "95": 2,
       "96": 2,
-      "97": 159,
-      "98": 157,
-      "99": 157,
-      "100": 157,
-      "101": 157,
-      "102": 157,
-      "103": 157,
-      "104": 1
+      "97": 160,
+      "98": 158,
+      "99": 158,
+      "100": 158,
+      "101": 158,
+      "102": 158,
+      "103": 158,
+      "104": 3
     },
     "f": {
       "0": 82,
-      "1": 77,
-      "2": 282,
-      "3": 154,
+      "1": 78,
+      "2": 284,
+      "3": 155,
       "4": 2,
-      "5": 1,
+      "5": 3,
       "6": 2,
       "7": 2,
       "8": 1,
@@ -14431,7 +14431,7 @@
       "12": 2,
       "13": 2,
       "14": 2,
-      "15": 159
+      "15": 160
     },
     "b": {
       "0": [
@@ -14440,22 +14440,22 @@
       ],
       "1": [
         1,
-        76
+        77
       ],
       "2": [
         4,
-        278
+        280
       ],
       "3": [
-        278,
+        280,
         4
       ],
       "4": [
         2,
-        152
+        153
       ],
       "5": [
-        152,
+        153,
         2
       ],
       "6": [
@@ -14492,10 +14492,10 @@
       ],
       "14": [
         2,
-        157
+        158
       ],
       "15": [
-        157,
+        158,
         2
       ]
     },
@@ -14558,8 +14558,8 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\sessions\\components\\form\\form.component.ts",
-        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\sessions\\components\\form\\form.component.html"
+        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\sessions\\components\\form\\form.component.ts",
+        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\sessions\\components\\form\\form.component.html"
       ],
       "sourcesContent": [
         "import { Component, OnInit } from '@angular/core';\r\nimport { FormBuilder, FormGroup, Validators } from '@angular/forms';\r\nimport { MatSnackBar } from '@angular/material/snack-bar';\r\nimport { ActivatedRoute, Router } from '@angular/router';\r\nimport { SessionService } from '../../../../services/session.service';\r\nimport { TeacherService } from '../../../../services/teacher.service';\r\nimport { Session } from '../../interfaces/session.interface';\r\nimport { SessionApiService } from '../../services/session-api.service';\r\n\r\n@Component({\r\n  selector: 'app-form',\r\n  templateUrl: './form.component.html',\r\n  styleUrls: ['./form.component.scss']\r\n})\r\nexport class FormComponent implements OnInit {\r\n\r\n  public onUpdate: boolean = false;\r\n  public sessionForm: FormGroup | undefined;\r\n  public teachers$ = this.teacherService.all();\r\n  private id: string | undefined;\r\n\r\n  constructor(\r\n    private route: ActivatedRoute,\r\n    private fb: FormBuilder,\r\n    private matSnackBar: MatSnackBar,\r\n    private sessionApiService: SessionApiService,\r\n    private sessionService: SessionService,\r\n    private teacherService: TeacherService,\r\n    private router: Router\r\n  ) {\r\n  }\r\n\r\n  public ngOnInit(): void {\r\n    if (!this.sessionService.sessionInformation!.admin) {\r\n      this.router.navigate(['/sessions']);\r\n    }\r\n    const url = this.router.url;\r\n    if (url.includes('update')) {\r\n      this.onUpdate = true;\r\n      this.id = this.route.snapshot.paramMap.get('id')!;\r\n      this.sessionApiService\r\n        .detail(this.id)\r\n        .subscribe((session: Session) => this.initForm(session));\r\n    } else {\r\n      this.initForm();\r\n    }\r\n  }\r\n\r\n  public submit(): void {\r\n    const session = this.sessionForm?.value as Session;\r\n\r\n    if (!this.onUpdate) {\r\n      this.sessionApiService\r\n        .create(session)\r\n        .subscribe((_: Session) => this.exitPage('Session created !'));\r\n    } else {\r\n      this.sessionApiService\r\n        .update(this.id!, session)\r\n        .subscribe((_: Session) => this.exitPage('Session updated !'));\r\n    }\r\n  }\r\n\r\n  public initForm(session?: Session): void {\r\n    this.sessionForm = this.fb.group({\r\n      name: [\r\n        session ? session.name : '',\r\n        [Validators.required]\r\n      ],\r\n      date: [\r\n        session ? new Date(session.date).toISOString().split('T')[0] : '',\r\n        [Validators.required]\r\n      ],\r\n      teacher_id: [\r\n        session ? session.teacher_id : '',\r\n        [Validators.required]\r\n      ],\r\n      description: [\r\n        session ? session.description : '',\r\n        [\r\n          Validators.required,\r\n          Validators.max(2000)\r\n        ]\r\n      ],\r\n    });\r\n  }\r\n\r\n  public exitPage(message: string): void {\r\n    this.matSnackBar.open(message, 'Close', { duration: 3000 });\r\n    this.router.navigate(['sessions']);\r\n  }\r\n}\r\n",
@@ -14567,10 +14567,10 @@
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "78afe971b00dcb50920d672d8d51a836d898e63a"
+    "hash": "f75f9a779e74995f29f061123a4594dbae5c7c46"
   },
-  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\sessions\\components\\list\\list.component.ts": {
-    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\sessions\\components\\list\\list.component.ts",
+  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\sessions\\components\\list\\list.component.ts": {
+    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\sessions\\components\\list\\list.component.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -15906,131 +15906,131 @@
       }
     },
     "s": {
-      "0": 38,
+      "0": 37,
       "1": 4,
       "2": 4,
       "3": 4,
       "4": 4,
       "5": 4,
       "6": 4,
-      "7": 1,
+      "7": 3,
       "8": 10,
-      "9": 36,
+      "9": 33,
       "10": 10,
       "11": 10,
       "12": 10,
       "13": 10,
       "14": 10,
       "15": 10,
-      "16": 36,
-      "17": 26,
-      "18": 26,
-      "19": 1,
-      "20": 10,
-      "21": 36,
-      "22": 10,
-      "23": 10,
-      "24": 10,
-      "25": 10,
-      "26": 10,
-      "27": 10,
-      "28": 10,
-      "29": 10,
-      "30": 10,
-      "31": 10,
-      "32": 10,
-      "33": 10,
-      "34": 10,
-      "35": 10,
-      "36": 10,
-      "37": 10,
-      "38": 10,
-      "39": 10,
-      "40": 10,
-      "41": 10,
-      "42": 10,
-      "43": 36,
-      "44": 26,
-      "45": 26,
-      "46": 26,
-      "47": 26,
-      "48": 26,
-      "49": 26,
-      "50": 26,
-      "51": 26,
-      "52": 26,
-      "53": 26,
-      "54": 26,
-      "55": 26,
-      "56": 1,
-      "57": 4,
-      "58": 4,
-      "59": 4,
-      "60": 60,
-      "61": 1,
-      "62": 4,
-      "63": 1,
-      "64": 38,
-      "65": 4,
-      "66": 4,
-      "67": 4,
-      "68": 4,
-      "69": 4,
-      "70": 4,
-      "71": 4,
-      "72": 4,
-      "73": 4,
-      "74": 38,
-      "75": 34,
-      "76": 34,
-      "77": 34,
-      "78": 34,
-      "79": 1
+      "16": 33,
+      "17": 23,
+      "18": 23,
+      "19": 3,
+      "20": 18,
+      "21": 57,
+      "22": 18,
+      "23": 18,
+      "24": 18,
+      "25": 18,
+      "26": 18,
+      "27": 18,
+      "28": 18,
+      "29": 18,
+      "30": 18,
+      "31": 18,
+      "32": 18,
+      "33": 18,
+      "34": 18,
+      "35": 18,
+      "36": 18,
+      "37": 18,
+      "38": 18,
+      "39": 18,
+      "40": 18,
+      "41": 18,
+      "42": 18,
+      "43": 57,
+      "44": 39,
+      "45": 39,
+      "46": 39,
+      "47": 39,
+      "48": 39,
+      "49": 39,
+      "50": 39,
+      "51": 39,
+      "52": 39,
+      "53": 39,
+      "54": 39,
+      "55": 39,
+      "56": 3,
+      "57": 8,
+      "58": 8,
+      "59": 8,
+      "60": 102,
+      "61": 3,
+      "62": 8,
+      "63": 3,
+      "64": 71,
+      "65": 8,
+      "66": 8,
+      "67": 8,
+      "68": 8,
+      "69": 8,
+      "70": 8,
+      "71": 8,
+      "72": 8,
+      "73": 8,
+      "74": 71,
+      "75": 63,
+      "76": 63,
+      "77": 63,
+      "78": 63,
+      "79": 3
     },
     "f": {
-      "0": 38,
+      "0": 37,
       "1": 10,
-      "2": 36,
-      "3": 10,
-      "4": 36,
-      "5": 1,
-      "6": 4,
-      "7": 60,
-      "8": 4,
-      "9": 38
+      "2": 33,
+      "3": 18,
+      "4": 57,
+      "5": 3,
+      "6": 8,
+      "7": 102,
+      "8": 8,
+      "9": 71
     },
     "b": {
       "0": [
         4,
-        34
+        33
       ],
       "1": [
         10,
-        26
+        23
       ],
       "2": [
-        26,
+        23,
         10
       ],
       "3": [
-        10,
-        26
+        18,
+        39
       ],
       "4": [
-        26,
-        10
+        39,
+        18
       ],
       "5": [
-        4,
-        4
+        8,
+        8
       ],
       "6": [
-        4,
-        34
+        8,
+        63
       ],
       "7": [
-        34,
-        4
+        63,
+        8
       ]
     },
     "inputSourceMap": {
@@ -16053,8 +16053,8 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\sessions\\components\\list\\list.component.html",
-        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\sessions\\components\\list\\list.component.ts"
+        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\sessions\\components\\list\\list.component.html",
+        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\sessions\\components\\list\\list.component.ts"
       ],
       "sourcesContent": [
         "<div class=\"list\">\r\n  <mat-card>\r\n    <mat-card-header fxLayout=\"row\" fxLayoutAlign=\"space-between center\">\r\n      <mat-card-title class=\"m0\">Rentals available</mat-card-title>\r\n      <button *ngIf=\"user!.admin\" mat-raised-button color=\"primary\" routerLink=\"create\">\r\n        <mat-icon>add</mat-icon>\r\n        <span class=\"ml1\">Create</span>\r\n      </button>\r\n    </mat-card-header>\r\n    <div class=\"items mt2\" fxLayout=\"row wrap\" fxLayout.lt-md=\"column\">\r\n      <mat-card class=\"item\" *ngFor=\"let session of (sessions$ | async)\" fxFlex>\r\n        <mat-card-header>\r\n          <mat-card-title class=\"session-name\">{{ session.name }}</mat-card-title>\r\n          <mat-card-subtitle class=\"session-date\">\r\n            Session on {{ session.date | date: 'longDate'}}\r\n          </mat-card-subtitle>\r\n        </mat-card-header>\r\n        <div mat-card-image fxLayoutAlign=\"center center\">\r\n          <img class=\"picture\" src=\"assets/sessions.png\" alt=\"Yoga session\">\r\n        </div>\r\n        <mat-card-content>\r\n          <p class=\"session-description\">\r\n            {{ session.description }}\r\n          </p>\r\n        </mat-card-content>\r\n        <mat-card-actions>\r\n          <button mat-raised-button color=\"primary\" \r\n              [routerLink]=\"['detail',session.id]\" class=\"detail-button\">\r\n            <mat-icon>search</mat-icon>\r\n            <span class=\"ml1\">Detail</span>\r\n          </button>\r\n          <button *ngIf=\"user!.admin\" mat-raised-button color=\"primary\"\r\n                [routerLink]=\"['update',session.id]\" class=\"edit-button\">\r\n          <mat-icon>edit</mat-icon>\r\n          <span class=\"ml1\">Edit</span>\r\n        </button>\r\n        </mat-card-actions>\r\n      </mat-card>\r\n    </div>\r\n  </mat-card>\r\n</div>\r\n",
@@ -16062,10 +16062,10 @@
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "6fed8282468993d601cdb14ea36a08809bef294d"
+    "hash": "492db87fbc86abb1c5a2f34f325cf86d7459743e"
   },
-  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\sessions\\sessions-routing.module.ts": {
-    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\sessions\\sessions-routing.module.ts",
+  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\sessions\\sessions-routing.module.ts": {
+    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\sessions\\sessions-routing.module.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -16227,22 +16227,22 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1,
-      "4": 1,
-      "5": 1,
-      "6": 1
+      "0": 3,
+      "1": 3,
+      "2": 3,
+      "3": 3,
+      "4": 3,
+      "5": 3,
+      "6": 3
     },
     "f": {
-      "0": 1,
-      "1": 1
+      "0": 3,
+      "1": 3
     },
     "b": {
       "0": [
-        1,
-        1
+        3,
+        3
       ]
     },
     "inputSourceMap": {
@@ -16262,17 +16262,17 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\sessions\\sessions-routing.module.ts"
+        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\sessions\\sessions-routing.module.ts"
       ],
       "sourcesContent": [
         "import { NgModule } from '@angular/core';\r\nimport { RouterModule, Routes } from '@angular/router';\r\nimport { DetailComponent } from './components/detail/detail.component';\r\nimport { FormComponent } from './components/form/form.component';\r\nimport { ListComponent } from './components/list/list.component';\r\n\r\nconst routes: Routes = [\r\n  { path: '', title: 'Sessions', component: ListComponent },\r\n  { path: 'detail/:id', title: 'Sessions - detail', component: DetailComponent },\r\n  { path: 'create', title: 'Sessions - create', component: FormComponent },\r\n  { path: 'update/:id', title: 'Sessions - update', component: FormComponent }\r\n];\r\n\r\n@NgModule({\r\n  imports: [RouterModule.forChild(routes)],\r\n  exports: [RouterModule]\r\n})\r\nexport class SessionsRoutingModule {\r\n}\r\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "a074a0eec44f9992b2be619fb19991573d93dc16"
+    "hash": "a7874abd561c60a0a0e97adad93463ffe2241131"
   },
-  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\sessions\\sessions.module.ts": {
-    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\sessions\\sessions.module.ts",
+  "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\sessions\\sessions.module.ts": {
+    "path": "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\sessions\\sessions.module.ts",
     "statementMap": {
       "0": {
         "start": {
@@ -16444,23 +16444,23 @@
       }
     },
     "s": {
-      "0": 1,
-      "1": 1,
-      "2": 1,
-      "3": 1,
-      "4": 1,
-      "5": 1,
-      "6": 1,
-      "7": 1
+      "0": 3,
+      "1": 3,
+      "2": 3,
+      "3": 3,
+      "4": 3,
+      "5": 3,
+      "6": 3,
+      "7": 3
     },
     "f": {
-      "0": 1,
-      "1": 1
+      "0": 3,
+      "1": 3
     },
     "b": {
       "0": [
-        1,
-        1
+        3,
+        3
       ]
     },
     "inputSourceMap": {
@@ -16485,13 +16485,13 @@
       ],
       "sourceRoot": "",
       "sources": [
-        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\Testez-une-application-full-stack-test2\\front\\src\\app\\features\\sessions\\sessions.module.ts"
+        "C:\\Users\\Utilisateur\\Desktop\\Formation_Openclassrooms_Java-Angular\\P5-TESTEZ-UNE-APP-FULL-STACK\\yoga-app\\front\\src\\app\\features\\sessions\\sessions.module.ts"
       ],
       "sourcesContent": [
         "import { NgModule } from '@angular/core';\r\nimport { CommonModule, registerLocaleData } from '@angular/common';\r\nimport { FlexLayoutModule } from '@angular/flex-layout';\r\nimport { ReactiveFormsModule } from '@angular/forms';\r\nimport { MatButtonModule } from '@angular/material/button';\r\nimport { MatCardModule } from '@angular/material/card';\r\nimport { MatFormFieldModule } from '@angular/material/form-field';\r\nimport { MatIconModule } from '@angular/material/icon';\r\nimport { MatInputModule } from '@angular/material/input';\r\nimport { MatSelectModule } from '@angular/material/select';\r\nimport { MatSnackBarModule } from '@angular/material/snack-bar';\r\nimport { ListComponent } from './components/list/list.component';\r\nimport { FormComponent } from './components/form/form.component';\r\nimport { DetailComponent } from './components/detail/detail.component';\r\nimport { SessionsRoutingModule } from './sessions-routing.module';\r\nimport localeFr from '@angular/common/locales/fr';\r\nregisterLocaleData(localeFr);\r\n\r\nconst materialModules = [\r\n  MatButtonModule,\r\n  MatCardModule,\r\n  MatFormFieldModule,\r\n  MatIconModule,\r\n  MatInputModule,\r\n  MatSnackBarModule,\r\n  MatSelectModule\r\n];\r\n\r\n@NgModule({\r\n  declarations: [\r\n    ListComponent,\r\n    FormComponent,\r\n    DetailComponent\r\n  ],\r\n  imports: [\r\n    CommonModule,\r\n    FlexLayoutModule,\r\n    ReactiveFormsModule,\r\n    SessionsRoutingModule,\r\n    ...materialModules\r\n  ]\r\n})\r\nexport class SessionsModule { }\r\n"
       ]
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "5460a3f015c39f17b77c6042b98e48e00e3ee4c9"
+    "hash": "19a110ef7c939ccb6f43de51fffe8525c30bfa22"
   }
 }
