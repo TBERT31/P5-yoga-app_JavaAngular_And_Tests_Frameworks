@@ -85,6 +85,23 @@ public class TeacherControllerTest {
                 .andExpect(jsonPath("$.lastName", is(teacher.getLastName())))
                 .andExpect(jsonPath("$.firstName", is(teacher.getFirstName())));
 
+//        mvc.perform(get("/api/teacher/" + teacher.getId())
+//                        .contentType(MediaType.APPLICATION_JSON))
+//                .andExpect(status().isOk())
+//                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+//                .andExpect(result -> {
+//                    String json = result.getResponse().getContentAsString();
+//                    Map<String, Object> teacherResponse = new ObjectMapper().readValue(json, Map.class);
+//
+//                    assertThat(teacherResponse)
+//                            .extracting("id", "lastName", "firstName")
+//                            .containsExactly(
+//                                    teacher.getId().intValue(),
+//                                    teacher.getLastName(),
+//                                    teacher.getFirstName()
+//                            );
+//                });
+
     }
 
     @Test
@@ -108,39 +125,39 @@ public class TeacherControllerTest {
 
         teacherRepository.saveAll(Arrays.asList(teacher1, teacher2));
 
-//        mvc.perform(get("/api/teacher/")
-//                        .contentType(MediaType.APPLICATION_JSON))
-//                .andExpect(status().isOk())
-//                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-//                .andExpect(jsonPath("$.length()", is(2)))
-//                .andExpect(jsonPath("$[*].id", containsInAnyOrder(teacher1.getId().intValue(), teacher2.getId().intValue())))
-//                .andExpect(jsonPath("$[*].lastName", containsInAnyOrder(teacher1.getLastName(), teacher2.getLastName())))
-//                .andExpect(jsonPath("$[*].firstName", containsInAnyOrder(teacher1.getFirstName(), teacher2.getFirstName())));
-
         mvc.perform(get("/api/teacher/")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(result -> {
-                    String json = result.getResponse().getContentAsString();
-                    List<Map<String, Object>> teachers = new ObjectMapper().readValue(json, List.class);
+                .andExpect(jsonPath("$.length()", is(2)))
+                .andExpect(jsonPath("$[*].id", containsInAnyOrder(teacher1.getId().intValue(), teacher2.getId().intValue())))
+                .andExpect(jsonPath("$[*].lastName", containsInAnyOrder(teacher1.getLastName(), teacher2.getLastName())))
+                .andExpect(jsonPath("$[*].firstName", containsInAnyOrder(teacher1.getFirstName(), teacher2.getFirstName())));
 
-                    assertThat(teachers)
-                            .hasSize(2)
-                            .extracting("id", "lastName", "firstName")
-                            .containsExactlyInAnyOrder(
-                                    Tuple.tuple(
-                                            teacher1.getId().intValue(),
-                                            teacher1.getLastName(),
-                                            teacher1.getFirstName()
-                                    ),
-                                    Tuple.tuple(
-                                            teacher2.getId().intValue(),
-                                            teacher2.getLastName(),
-                                            teacher2.getFirstName()
-                                    )
-                            );
-                });
+//        mvc.perform(get("/api/teacher/")
+//                        .contentType(MediaType.APPLICATION_JSON))
+//                .andExpect(status().isOk())
+//                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+//                .andExpect(result -> {
+//                    String json = result.getResponse().getContentAsString();
+//                    List<Map<String, Object>> teachers = new ObjectMapper().readValue(json, List.class);
+//
+//                    assertThat(teachers)
+//                            .hasSize(2)
+//                            .extracting("id", "lastName", "firstName")
+//                            .containsExactlyInAnyOrder(
+//                                    Tuple.tuple(
+//                                            teacher1.getId().intValue(),
+//                                            teacher1.getLastName(),
+//                                            teacher1.getFirstName()
+//                                    ),
+//                                    Tuple.tuple(
+//                                            teacher2.getId().intValue(),
+//                                            teacher2.getLastName(),
+//                                            teacher2.getFirstName()
+//                                    )
+//                            );
+//                });
     }
 
     @Test

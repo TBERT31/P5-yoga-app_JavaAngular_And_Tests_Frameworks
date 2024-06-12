@@ -17,7 +17,7 @@ import { LoginComponent } from './login.component';
 import { SessionInformation } from 'src/app/interfaces/sessionInformation.interface';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
-describe('LoginComponent', () => {
+fdescribe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
   let authService: AuthService;
@@ -66,7 +66,10 @@ describe('LoginComponent', () => {
     const loginSpy = jest.spyOn(authService, 'login').mockReturnValue(of({} as SessionInformation));
     const formValues = { email: 'test@test.com', password: 'password' };
     component.form.setValue(formValues);
-    component.submit();
+    ngZone.run(() => { 
+      component.submit();
+    });
+    fixture.detectChanges();
     expect(loginSpy).toHaveBeenCalledWith(formValues);
   });
 
@@ -120,6 +123,7 @@ describe('LoginComponent', () => {
      ngZone.run(() => { 
       component.submit();
     });
+    fixture.detectChanges();
     expect(sessionSpy).toHaveBeenCalledWith(mockSession);
     expect(routerSpy).toHaveBeenCalledWith(['/sessions']);
   });

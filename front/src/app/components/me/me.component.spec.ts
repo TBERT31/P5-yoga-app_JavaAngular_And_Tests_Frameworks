@@ -12,6 +12,10 @@ import { User } from '../../interfaces/user.interface';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { SessionInformation } from '../../interfaces/sessionInformation.interface';
 import { Router } from '@angular/router';
+import { NgZone } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
 
 describe('MeComponent', () => {
   let component: MeComponent;
@@ -20,6 +24,7 @@ describe('MeComponent', () => {
   let sessionService: SessionService;
   let router: Router;
   let matSnackBar: MatSnackBar;
+  let ngZone: NgZone;
 
   const mockUser: User = {
     id: 1,
@@ -62,7 +67,15 @@ describe('MeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule, MatSnackBarModule, RouterTestingModule, NoopAnimationsModule],
+      imports: [
+        HttpClientTestingModule, 
+        MatSnackBarModule, 
+        RouterTestingModule, 
+        NoopAnimationsModule,
+        ReactiveFormsModule,
+        MatCardModule,
+        MatIconModule
+      ],
       declarations: [ MeComponent ],
       providers: [
         UserService, 
@@ -76,6 +89,7 @@ describe('MeComponent', () => {
     userService = TestBed.inject(UserService);
     sessionService = TestBed.inject(SessionService);
     router = TestBed.inject(Router);
+    ngZone = TestBed.inject(NgZone);
     matSnackBar = TestBed.inject(MatSnackBar);
   });
 
@@ -97,8 +111,9 @@ describe('MeComponent', () => {
     jest.spyOn(userService, 'delete').mockReturnValue(of(null));
     const navigateSpy = jest.spyOn(router, 'navigate');
     const snackBarSpy = jest.spyOn(matSnackBar, 'open');
-  
-    component.delete();
+    ngZone.run(() => {
+      component.delete();
+    });
     fixture.detectChanges();
   
     expect(userService.delete).toHaveBeenCalledWith(mockSessionInformation.id.toString());
@@ -122,6 +137,7 @@ describe('MeComponent', () => {
   it('should display basic user information correctly', () => {
     jest.spyOn(userService, 'getById').mockReturnValue(of(mockUser));
     
+
     component.ngOnInit();
     fixture.detectChanges();
     

@@ -11,11 +11,11 @@ import { DetailComponent } from './detail.component';
 import { Session } from '../../interfaces/session.interface';
 import { Teacher } from '../../../../interfaces/teacher.interface';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { MatToolbarModule } from '@angular/material/toolbar';
 
-fdescribe('DetailComponent user already participate to session', () => {
+
+describe('DetailComponent user already participate to session', () => {
   let component: DetailComponent;
   let fixture: ComponentFixture<DetailComponent>;
   let sessionApiService: SessionApiService;
@@ -23,7 +23,6 @@ fdescribe('DetailComponent user already participate to session', () => {
   let sessionService: SessionService;
   let router: Router;
   let matSnackBar: MatSnackBar;
-  
 
   beforeEach(async () => {
     const mockSessionService = {
@@ -69,7 +68,8 @@ fdescribe('DetailComponent user already participate to session', () => {
       imports: [
         MatSnackBarModule,
         ReactiveFormsModule,
-        MatIconModule
+        MatCardModule,
+        MatIconModule,
       ],
       providers: [
         FormBuilder,
@@ -88,7 +88,7 @@ fdescribe('DetailComponent user already participate to session', () => {
             },
           },
         },
-      ],
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(DetailComponent);
@@ -264,6 +264,12 @@ describe('DetailComponent user do not participate to session yet', () => {
 
     await TestBed.configureTestingModule({
       declarations: [DetailComponent],
+      imports: [
+        MatSnackBarModule,
+        ReactiveFormsModule,
+        MatCardModule,
+        MatIconModule,
+      ],
       providers: [
         FormBuilder,
         { provide: SessionApiService, useValue: mockSessionApiService },
