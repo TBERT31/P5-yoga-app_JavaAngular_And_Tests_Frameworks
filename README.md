@@ -1,3 +1,10 @@
+[![forthebadge](https://forthebadge.com/images/badges/cc-0.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/uses-css.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-java.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
+
+
 # Yoga
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
@@ -6,7 +13,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Git clone:
 
-> git clone https://github.com/OpenClassrooms-Student-Center/P5-Full-Stack-testing
+> git clone https://github.com/TBERT31/P5-yoga-app
 
 Go inside folder:
 
@@ -71,10 +78,25 @@ for following change:
 
 > npm run test:watch
 
+Generate coverage report :
+
+> npm run test -- --coverage
+
+Report is available here:
+
+> front/coverage/jest/lcov-report/index.html
+
 #### Jacoco code coverage
 
 
-For launch and generate the jacoco code coverage:
+For launch test with maven :
+
 > mvn clean test
 
-GL
+Then generate the code coverage with Jacoco :
+
+> mvn jacoco:report
+
+Report is available here:
+
+> back/target/site/jacoco/index.html
