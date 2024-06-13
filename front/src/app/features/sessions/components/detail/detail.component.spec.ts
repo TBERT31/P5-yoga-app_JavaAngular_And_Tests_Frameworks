@@ -14,8 +14,7 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 
-
-describe('DetailComponent user already participate to session', () => {
+describe('DetailComponent', () => {
   let component: DetailComponent;
   let fixture: ComponentFixture<DetailComponent>;
   let sessionApiService: SessionApiService;
@@ -24,45 +23,45 @@ describe('DetailComponent user already participate to session', () => {
   let router: Router;
   let matSnackBar: MatSnackBar;
 
+  const mockSessionService = {
+    sessionInformation: { admin: true, id: 1 }
+  };
+
+  const mockSessionApiService = {
+    detail: jest.fn().mockReturnValue(of({
+      id: 1,
+      name: 'Test Session',
+      description: 'Test Description',
+      date: new Date(),
+      teacher_id: 1,
+      users: [1, 2, 3],
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    })),
+    delete: jest.fn().mockReturnValue(of(null)),
+    participate: jest.fn().mockReturnValue(of(undefined)),
+    unParticipate: jest.fn().mockReturnValue(of(undefined))
+  };
+
+  const mockTeacherService = {
+    detail: jest.fn().mockReturnValue(of({
+      id: 1,
+      lastName: 'Doe',
+      firstName: 'John',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    }))
+  };
+
+  const mockRouter = {
+    navigate: jest.fn()
+  };
+
+  const mockMatSnackBar = {
+    open: jest.fn()
+  };
+
   beforeEach(async () => {
-    const mockSessionService = {
-      sessionInformation: { admin: true, id: 1 }
-    };
-
-    const mockSessionApiService = {
-      detail: jest.fn().mockReturnValue(of({
-        id: 1,
-        name: 'Test Session',
-        description: 'Test Description',
-        date: new Date(),
-        teacher_id: 1,
-        users: [1,2,3],
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      })),
-      delete: jest.fn().mockReturnValue(of(null)),
-      participate: jest.fn(),
-      unParticipate: jest.fn()
-    };
-
-    const mockTeacherService = {
-      detail: jest.fn().mockReturnValue(of({
-        id: 1,
-        lastName: 'Doe',
-        firstName: 'John',
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      }))
-    };
-
-    const mockRouter = {
-      navigate: jest.fn()
-    };
-
-    const mockMatSnackBar = {
-      open: jest.fn()
-    };
-
     await TestBed.configureTestingModule({
       declarations: [DetailComponent],
       imports: [
@@ -112,7 +111,7 @@ describe('DetailComponent user already participate to session', () => {
       description: 'Test Description',
       date: new Date(),
       teacher_id: 1,
-      users: [1,2,3],
+      users: [1, 2, 3],
       createdAt: new Date(),
       updatedAt: new Date(),
     };
@@ -166,14 +165,13 @@ describe('DetailComponent user already participate to session', () => {
 
   it('should go back when back button is clicked', () => {
     fixture.detectChanges();
-  
+
     const backButton = fixture.debugElement.query(By.css('.back-button'));
     expect(backButton).toBeTruthy();
-  
 
     const historySpy = jest.spyOn(window.history, 'back');
     backButton.triggerEventHandler('click', null);
-  
+
     expect(historySpy).toHaveBeenCalled();
   });
 
@@ -184,14 +182,6 @@ describe('DetailComponent user already participate to session', () => {
     const deleteButton = fixture.debugElement.query(By.css('.delete-button'));
     expect(deleteButton).toBeTruthy();
   });
-
-  // it('should show participate button only if user is not admin and user do not participate', async () => {
-  //   component.isAdmin = false;
-  //   component.isParticipate = false;
-  //   fixture.detectChanges();
-  //   const participateButton = fixture.debugElement.nativeElement.querySelector('.participate-button');
-  //   expect(participateButton).toBeTruthy();
-  // });
 
   it('should show unparticipate button only if user is not admin and user already participate', () => {
     component.isAdmin = false;
@@ -216,93 +206,32 @@ describe('DetailComponent user already participate to session', () => {
     const sessionName = fixture.debugElement.query(By.css('.session-name'));
     expect(sessionName.nativeElement.textContent).toContain(session.name);
   });
-  
-});
 
-describe('DetailComponent user do not participate to session yet', () => {
-  let component: DetailComponent;
-  let fixture: ComponentFixture<DetailComponent>;
-  let sessionApiService: SessionApiService;
-  let teacherService: TeacherService;
-  let sessionService: SessionService;
-  let matSnackBar: MatSnackBar;
+  it('should show participate button only if user is not admin and user does not participate', async () => {
+    mockSessionService.sessionInformation.admin = false;
+    mockSessionApiService.detail.mockReturnValue(of({
+      id: 1,
+      name: 'Test Session',
+      description: 'Test Description',
+      date: new Date(),
+      teacher_id: 1,
+      users: [],
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    }));
+    mockTeacherService.detail.mockReturnValue(of({
+      id: 1,
+      lastName: 'Doe',
+      firstName: 'John',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    }));
 
-  beforeEach(async () => {
-    const mockSessionService = {
-      sessionInformation: { admin: false, id: 1 }
-    };
-
-    const mockSessionApiService = {
-      detail: jest.fn().mockReturnValue(of({
-        id: 1,
-        name: 'Test Session',
-        description: 'Test Description',
-        date: new Date(),
-        teacher_id: 1,
-        users: [],
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      })),
-      delete: jest.fn().mockReturnValue(of(null)),
-      participate: jest.fn(),
-      unParticipate: jest.fn()
-    };
-
-    const mockTeacherService = {
-      detail: jest.fn().mockReturnValue(of({
-        id: 1,
-        lastName: 'Doe',
-        firstName: 'John',
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      }))
-    };
-
-    const mockMatSnackBar = {
-      open: jest.fn()
-    };
-
-    await TestBed.configureTestingModule({
-      declarations: [DetailComponent],
-      imports: [
-        MatSnackBarModule,
-        ReactiveFormsModule,
-        MatCardModule,
-        MatIconModule,
-      ],
-      providers: [
-        FormBuilder,
-        { provide: SessionApiService, useValue: mockSessionApiService },
-        { provide: TeacherService, useValue: mockTeacherService },
-        { provide: SessionService, useValue: mockSessionService },
-        { provide: MatSnackBar, useValue: mockMatSnackBar },
-        {
-          provide: ActivatedRoute,
-          useValue: {
-            snapshot: {
-              paramMap: {
-                get: () => '1', 
-              },
-            },
-          },
-        },
-      ],
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(DetailComponent);
-    component = fixture.componentInstance;
-    sessionApiService = TestBed.inject(SessionApiService);
-    teacherService = TestBed.inject(TeacherService);
-    sessionService = TestBed.inject(SessionService);
-    matSnackBar = TestBed.inject(MatSnackBar);
-  });
-
-  it('should show participate button only if user is not admin and user do not participate', async () => {
     component.isAdmin = false;
     component.isParticipate = false;
+
     fixture.detectChanges();
     const participateButton = fixture.debugElement.nativeElement.querySelector('.participate-button');
     expect(participateButton).toBeTruthy();
   });
-  
 });
