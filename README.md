@@ -111,7 +111,7 @@ Report is available here:
 
 > front/coverage/lcov-report/index.html
 
-#### Unitary test
+#### Unitary frontend test
 
 Launching test:
 
@@ -129,7 +129,7 @@ Report is available here:
 
 > front/coverage/jest/lcov-report/index.html
 
-#### Jacoco code coverage
+#### Unitary backend test
 
 
 For launch test with maven :
