@@ -17,7 +17,13 @@ Git clone:
 
 Go inside folder:
 
-> cd yoga
+> cd yoga-app
+
+### Launch Frontend
+
+Go inside folder:
+
+> cd front
 
 Install dependencies:
 
@@ -27,10 +33,45 @@ Launch Front-end:
 
 > npm run start;
 
+Frontend development server is available, Navigate to `http://localhost:4200/`. 
+The application will automatically reload if you change any of the source files.
+
+### Launch Backend
+
+The backend of this project is built with Java version 1.8 and Spring Boot version 2.6.1.
+
+#### Prerequisites
+
+Before starting with the backend setup, ensure you have the following installed:
+
+- **Java JDK 1.8** or later: You can download it from [Oracle's website](https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html).
+- **Maven**: Maven is used for building and managing dependencies. You can download it from the [official Maven website](https://maven.apache.org/download.cgi).
+- **MySQL**: This project uses MySQL as the database. You can download it from the [official MySQL website](https://dev.mysql.com/downloads/installer/).
+
+Navigate to the backend directory :
+> cd ../back
+
+Database Setup : 
+Import the SQL schema script available at ressources/sql/script.sql into your MySQL instance. This script sets up the initial database schema required for the application. 
+
+Environment Configuration : 
+Main directory :
+Modify any necessary environment variables or configurations in the application.properties file located in back/src/main/resources.
+Personaly I created a database named yoga in MySQL, you can do the same.
+
+Test directory :
+Modify any necessary environment variables or configurations in the application-integrationtest.properties file located in back/src/test/resources.
+Personaly I created a database named yoga_test in MySQL, you can do the same.
+
+Build and Run : 
+
+> mvn clean install
+> mvn spring-boot:run
+
+This will compile the application, run all tests, and start the backend server on http://localhost:8080/.
+You will need to recompile the code for changes made in any of the source files to take effect.
 
 ## Ressources
-
-### Mockoon env 
 
 ### Postman collection
 
