@@ -67,6 +67,7 @@ Personaly I created a database named yoga_test in MySQL, you can do the same.
 Build and Run : 
 
 > mvn clean install
+
 > mvn spring-boot:run
 
 This will compile the application, run all tests, and start the backend server on http://localhost:8080/.
