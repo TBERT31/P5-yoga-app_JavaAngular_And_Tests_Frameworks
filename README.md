@@ -111,7 +111,7 @@ Report is available here:
 
 > front/coverage/lcov-report/index.html
 
-#### Unitary frontend test
+#### Frontend unit test
 
 Launching test:
 
@@ -129,7 +129,7 @@ Report is available here:
 
 > front/coverage/jest/lcov-report/index.html
 
-#### Unitary backend test
+#### Backend unit test
 
 
 For launch test with maven :
