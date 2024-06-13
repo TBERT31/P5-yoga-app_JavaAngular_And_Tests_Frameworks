@@ -55,6 +55,7 @@ Database Setup :
 Import the SQL schema script available at ressources/sql/script.sql into your MySQL instance. This script sets up the initial database schema required for the application. 
 
 Environment Configuration : 
+
 Main directory :
 Modify any necessary environment variables or configurations in the application.properties file located in back/src/main/resources.
 Personaly I created a database named yoga in MySQL, you can do the same.
