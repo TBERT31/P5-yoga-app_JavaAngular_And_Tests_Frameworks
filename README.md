@@ -17,7 +17,7 @@ Git clone:
 
 Go inside folder:
 
-> cd yoga-app
+> cd P5-yoga-app
 
 ### Launch Frontend
 
@@ -117,7 +117,7 @@ Launching test:
 
 > npm run test
 
-for following change:
+For following change:
 
 > npm run test:watch
 
