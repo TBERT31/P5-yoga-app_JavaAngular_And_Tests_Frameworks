@@ -164,12 +164,9 @@
 				<configuration>
 					<excludes>
 						<exclude>com/openclassrooms/starterjwt/dto/**</exclude>
-						<exclude>com/openclassrooms/starterjwt//payload/**</exclude>
-						<exclude>com/openclassrooms/starterjwt/security/**</exclude>
-						<exclude>com/openclassrooms/starterjwt/models/**</exclude>
-						<exclude>com/openclassrooms/starterjwt/mapper/**</exclude>
-						<exclude>com/openclassrooms/starterjwt/exception/**</exclude>
-						<exclude>com/openclassrooms/starterjwt/SpringBootSecurityJwtApplication.class</exclude>
+						<exclude>com/openclassrooms/starterjwt/payload/**</exclude>
+<!--						<exclude>com/openclassrooms/starterjwt/models/**</exclude>-->
+<!--						<exclude>com/openclassrooms/starterjwt/security/**</exclude>-->
 					</excludes>
 				</configuration>
 				<executions>

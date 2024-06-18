@@ -154,4 +154,28 @@ class SessionMapperTest {
         assertThat(sessionDtos.get(1).getTeacher_id()).isEqualTo(session2.getTeacher().getId());
         assertThat(sessionDtos.get(1).getUsers()).hasSize(session2.getUsers().size());
     }
+
+    @Test
+    void testToEntity_NullDtoList() {
+        List<Session> sessions = sessionMapper.toEntity((List<SessionDto>) null);
+        assertThat(sessions).isNull();
+    }
+
+    @Test
+    void testToDto_NullEntityList() {
+        List<SessionDto> sessionDtos = sessionMapper.toDto((List<Session>) null);
+        assertThat(sessionDtos).isNull();
+    }
+
+    @Test
+    void testToEntity_NullSessionDto() {
+        Session session = sessionMapper.toEntity((SessionDto) null);
+        assertThat(session).isNull();
+    }
+
+    @Test
+    void testToDto_NullSession() {
+        SessionDto sessionDto = sessionMapper.toDto((Session) null);
+        assertThat(sessionDto).isNull();
+    }
 }

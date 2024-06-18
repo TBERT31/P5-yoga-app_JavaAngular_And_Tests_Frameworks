@@ -1,6 +1,8 @@
 package com.openclassrooms.starterjwt.mapper;
 
+import com.openclassrooms.starterjwt.dto.SessionDto;
 import com.openclassrooms.starterjwt.dto.TeacherDto;
+import com.openclassrooms.starterjwt.models.Session;
 import com.openclassrooms.starterjwt.models.Teacher;
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;
@@ -103,5 +105,29 @@ class TeacherMapperTest {
         assertThat(teacherDtos).hasSize(2);
         assertThat(teacherDtos.get(0).getLastName()).isEqualTo("Doe");
         assertThat(teacherDtos.get(1).getLastName()).isEqualTo("Smith");
+    }
+
+    @Test
+    void testToEntity_NullDtoList() {
+        List<Teacher> teachers = teacherMapper.toEntity((List<TeacherDto>) null);
+        assertThat(teachers).isNull();
+    }
+
+    @Test
+    void testToDto_NullEntityList() {
+        List<TeacherDto> teacherDtos = teacherMapper.toDto((List<Teacher>) null);
+        assertThat(teacherDtos).isNull();
+    }
+
+    @Test
+    void testToEntity_NullTeacherDto() {
+        Teacher teacher = teacherMapper.toEntity((TeacherDto) null);
+        assertThat(teacher).isNull();
+    }
+
+    @Test
+    void testToDto_NullTeacher() {
+        TeacherDto teacherDto = teacherMapper.toDto((Teacher) null);
+        assertThat(teacherDto).isNull();
     }
 }

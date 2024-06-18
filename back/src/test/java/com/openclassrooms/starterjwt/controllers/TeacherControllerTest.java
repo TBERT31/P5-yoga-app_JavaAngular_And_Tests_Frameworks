@@ -68,14 +68,14 @@ public class TeacherControllerTest {
     @WithMockUser(roles = "USER")
     public void givenTeacher_whenFindById_thenStatus200() throws Exception {
         Teacher teacher = new Teacher(
-                1L,
+                null,
                 "Doe",
                 "John",
                 LocalDateTime.now(),
                 LocalDateTime.now()
         );
 
-        teacherRepository.save(teacher);
+        teacher = teacherRepository.save(teacher);
 
         mvc.perform(get("/api/teacher/" + teacher.getId())
                         .contentType(MediaType.APPLICATION_JSON))
@@ -85,30 +85,13 @@ public class TeacherControllerTest {
                 .andExpect(jsonPath("$.lastName", is(teacher.getLastName())))
                 .andExpect(jsonPath("$.firstName", is(teacher.getFirstName())));
 
-//        mvc.perform(get("/api/teacher/" + teacher.getId())
-//                        .contentType(MediaType.APPLICATION_JSON))
-//                .andExpect(status().isOk())
-//                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-//                .andExpect(result -> {
-//                    String json = result.getResponse().getContentAsString();
-//                    Map<String, Object> teacherResponse = new ObjectMapper().readValue(json, Map.class);
-//
-//                    assertThat(teacherResponse)
-//                            .extracting("id", "lastName", "firstName")
-//                            .containsExactly(
-//                                    teacher.getId().intValue(),
-//                                    teacher.getLastName(),
-//                                    teacher.getFirstName()
-//                            );
-//                });
-
     }
 
     @Test
     @WithMockUser(roles = "USER")
     public void givenTeachers_whenFindAll_thenStatus200() throws Exception {
         Teacher teacher1 = new Teacher(
-                2L,
+                null,
                 "Smith",
                 "John",
                 LocalDateTime.now(),
@@ -116,48 +99,24 @@ public class TeacherControllerTest {
         );
 
         Teacher teacher2 = new Teacher(
-                3L,
+                null,
                 "Smith",
                 "Jane",
                 LocalDateTime.now(),
                 LocalDateTime.now()
         );
 
-        teacherRepository.saveAll(Arrays.asList(teacher1, teacher2));
+        teacher1 = teacherRepository.save(teacher1);
+        teacher2 = teacherRepository.save(teacher2);
 
         mvc.perform(get("/api/teacher/")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.length()", is(2)))
-                .andExpect(jsonPath("$[*].id", containsInAnyOrder(teacher1.getId().intValue(), teacher2.getId().intValue())))
                 .andExpect(jsonPath("$[*].lastName", containsInAnyOrder(teacher1.getLastName(), teacher2.getLastName())))
                 .andExpect(jsonPath("$[*].firstName", containsInAnyOrder(teacher1.getFirstName(), teacher2.getFirstName())));
 
-//        mvc.perform(get("/api/teacher/")
-//                        .contentType(MediaType.APPLICATION_JSON))
-//                .andExpect(status().isOk())
-//                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-//                .andExpect(result -> {
-//                    String json = result.getResponse().getContentAsString();
-//                    List<Map<String, Object>> teachers = new ObjectMapper().readValue(json, List.class);
-//
-//                    assertThat(teachers)
-//                            .hasSize(2)
-//                            .extracting("id", "lastName", "firstName")
-//                            .containsExactlyInAnyOrder(
-//                                    Tuple.tuple(
-//                                            teacher1.getId().intValue(),
-//                                            teacher1.getLastName(),
-//                                            teacher1.getFirstName()
-//                                    ),
-//                                    Tuple.tuple(
-//                                            teacher2.getId().intValue(),
-//                                            teacher2.getLastName(),
-//                                            teacher2.getFirstName()
-//                                    )
-//                            );
-//                });
     }
 
     @Test

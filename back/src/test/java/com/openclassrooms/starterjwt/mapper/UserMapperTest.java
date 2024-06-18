@@ -1,6 +1,8 @@
 package com.openclassrooms.starterjwt.mapper;
 
+import com.openclassrooms.starterjwt.dto.TeacherDto;
 import com.openclassrooms.starterjwt.dto.UserDto;
+import com.openclassrooms.starterjwt.models.Teacher;
 import com.openclassrooms.starterjwt.models.User;
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;
@@ -127,5 +129,29 @@ class UserMapperTest {
         assertThat(userDtos).hasSize(2);
         assertThat(userDtos.get(0).getEmail()).isEqualTo("test1@example.com");
         assertThat(userDtos.get(1).getEmail()).isEqualTo("test2@example.com");
+    }
+
+    @Test
+    void testToEntity_NullDtoList() {
+        List<User> users = userMapper.toEntity((List<UserDto>) null);
+        assertThat(users).isNull();
+    }
+
+    @Test
+    void testToDto_NullEntityList() {
+        List<UserDto> userDtos = userMapper.toDto((List<User>) null);
+        assertThat(userDtos).isNull();
+    }
+
+    @Test
+    void testToEntity_NullUserDto() {
+        User user = userMapper.toEntity((UserDto) null);
+        assertThat(user).isNull();
+    }
+
+    @Test
+    void testToDto_NullUser() {
+        UserDto userDto = userMapper.toDto((User) null);
+        assertThat(userDto).isNull();
     }
 }

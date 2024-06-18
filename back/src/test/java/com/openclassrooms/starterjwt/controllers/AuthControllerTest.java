@@ -47,9 +47,6 @@ public class AuthControllerTest {
     private PasswordEncoder passwordEncoder;
 
     @Autowired
-    private JwtUtils jwtUtils;
-
-    @Autowired
     private WebApplicationContext context;
 
     private final ObjectMapper objectMapper = new ObjectMapper();
@@ -68,7 +65,6 @@ public class AuthControllerTest {
     }
 
     @Test
-    @WithMockUser(roles = "USER")
     public void givenValidUser_whenLogin_thenStatus200() throws Exception {
         User user = new User(
                 "user444@example.com",
@@ -86,12 +82,11 @@ public class AuthControllerTest {
 
         mvc.perform(post("/api/auth/login")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(jwtUtils.toJson(loginRequest)))
+                        .content(objectMapper.writeValueAsString(loginRequest)))
                 .andExpect(status().isOk());
     }
 
     @Test
-    @WithMockUser(roles = "USER")
     public void givenInvalidPassword_whenLogin_thenStatus401() throws Exception {
         User user = new User(
                 "user555@example.com",
@@ -114,7 +109,6 @@ public class AuthControllerTest {
     }
 
     @Test
-    @WithMockUser(roles = "USER")
     public void givenNonExistentUser_whenLogin_thenStatus401() throws Exception {
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setEmail("nonexistent@example.com");
@@ -127,7 +121,6 @@ public class AuthControllerTest {
     }
 
     @Test
-    @WithMockUser(roles = "USER")
     public void givenValidUser_whenRegister_thenStatus200() throws Exception {
         SignupRequest signupRequest = new SignupRequest();
         signupRequest.setEmail("user555@example.com");
@@ -135,16 +128,13 @@ public class AuthControllerTest {
         signupRequest.setLastName("Doey");
         signupRequest.setPassword("password123");
 
-        System.out.println(jwtUtils.toJson(signupRequest));
-
         mvc.perform(post("/api/auth/register")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(jwtUtils.toJson(signupRequest)))
+                        .content(objectMapper.writeValueAsString(signupRequest)))
                 .andExpect(status().isOk());
     }
 
     @Test
-    @WithMockUser(roles = "USER")
     public void givenExistingEmail_whenRegister_thenStatus400() throws Exception {
         User existingUser = new User(
                 "user555@example.com",

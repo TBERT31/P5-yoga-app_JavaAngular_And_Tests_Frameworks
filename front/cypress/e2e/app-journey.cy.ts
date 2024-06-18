@@ -266,6 +266,17 @@ describe('Admin Journey', () => {
 
         cy.wait('@loginRequest').its('response.statusCode').should('eq', 200);
 
+        cy.get('.session-name').each(($el) => {
+            const text = $el.text();
+            expect(['Yoga Session', 'Pilates Session']).to.include(text);
+        });
+
+        cy.get('.session-description').each(($el) => {
+            const text = $el.text().replace(/\s+/g, ' ').trim(); 
+            const regex = /A relaxing yoga session\.|A rejuvenating pilates session\./;
+            expect(text).to.match(regex);
+        });
+
         // Step 2: Create a new session
         cy.intercept('POST', '/api/session', {
             statusCode: 200,
