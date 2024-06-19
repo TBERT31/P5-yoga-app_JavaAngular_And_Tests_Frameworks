@@ -18,11 +18,11 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 public class UserServiceTest {
 
-    @Mock
-    private UserRepository userRepository;
-
     @InjectMocks
     private UserService userService;
+
+    @Mock
+    private UserRepository userRepository;
 
     private User user;
 

@@ -15,7 +15,7 @@ describe('SessionService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should log in a user', () => {
+  it('should log in a user', (done) => {
     const mockSession: SessionInformation = {
       token: 'token',
       type: 'type',
@@ -30,16 +30,18 @@ describe('SessionService', () => {
 
     service.$isLogged().subscribe(isLogged => {
       expect(isLogged).toBe(true);
+      done();
     });
 
     expect(service.sessionInformation).toEqual(mockSession);
   });
 
-  it('should log out a user', () => {
+  it('should log out a user', (done) => {
     service.logOut();
 
     service.$isLogged().subscribe(isLogged => {
       expect(isLogged).toBe(false);
+      done();
     });
 
     expect(service.sessionInformation).toBeUndefined();

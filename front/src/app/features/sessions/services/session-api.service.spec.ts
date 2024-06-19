@@ -27,7 +27,7 @@ describe('SessionApiService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should return all sessions', () => {
+  it('should return all sessions', (done) => {
     const mockSessions: Session[] = [
       {
         id: 1,
@@ -53,6 +53,7 @@ describe('SessionApiService', () => {
 
     service.all().subscribe(sessions => {
       expect(sessions).toEqual(mockSessions);
+      done();
     });
 
     const req = httpMock.expectOne('api/session');
@@ -60,7 +61,7 @@ describe('SessionApiService', () => {
     req.flush(mockSessions);
   });
 
-  it('should return a session detail', () => {
+  it('should return a session detail', (done) => {
     const mockSession: Session = {
       id: 1,
       name: 'Session 1',
@@ -74,6 +75,7 @@ describe('SessionApiService', () => {
 
     service.detail('1').subscribe(session => {
       expect(session).toEqual(mockSession);
+      done();
     });
 
     const req = httpMock.expectOne('api/session/1');
@@ -81,9 +83,10 @@ describe('SessionApiService', () => {
     req.flush(mockSession);
   });
 
-  it('should delete a session', () => {
+  it('should delete a session', (done) => {
     service.delete('1').subscribe(res => {
       expect(res).toEqual({});
+      done();
     });
 
     const req = httpMock.expectOne('api/session/1');
@@ -91,7 +94,7 @@ describe('SessionApiService', () => {
     req.flush({});
   });
 
-  it('should create a session', () => {
+  it('should create a session', (done) => {
     const mockSession: Session = {
       name: 'Session 1',
       description: 'Description 1',
@@ -102,6 +105,7 @@ describe('SessionApiService', () => {
 
     service.create(mockSession).subscribe(session => {
       expect(session).toEqual({ ...mockSession, id: 1 });
+      done();
     });
 
     const req = httpMock.expectOne('api/session');
@@ -109,7 +113,7 @@ describe('SessionApiService', () => {
     req.flush({ ...mockSession, id: 1 });
   });
 
-  it('should update a session', () => {
+  it('should update a session', (done) => {
     const mockSession: Session = {
       id: 1,
       name: 'Session 1',
@@ -123,6 +127,7 @@ describe('SessionApiService', () => {
 
     service.update('1', mockSession).subscribe(session => {
       expect(session).toEqual(mockSession);
+      done();
     });
 
     const req = httpMock.expectOne('api/session/1');
@@ -130,9 +135,10 @@ describe('SessionApiService', () => {
     req.flush(mockSession);
   });
 
-  it('should participate in a session', () => {
+  it('should participate in a session', (done) => {
     service.participate('1', '1').subscribe(res => {
       expect(res).toEqual({});
+      done();
     });
 
     const req = httpMock.expectOne('api/session/1/participate/1');
@@ -140,9 +146,10 @@ describe('SessionApiService', () => {
     req.flush({});
   });
 
-  it('should unparticipate in a session', () => {
+  it('should unparticipate in a session', (done) => {
     service.unParticipate('1', '1').subscribe(res => {
       expect(res).toEqual({});
+      done();
     });
 
     const req = httpMock.expectOne('api/session/1/participate/1');

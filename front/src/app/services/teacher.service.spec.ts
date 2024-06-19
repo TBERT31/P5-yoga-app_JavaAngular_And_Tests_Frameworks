@@ -28,7 +28,7 @@ describe('TeacherService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should return all teachers', () => {
+  it('should return all teachers', (done) => {
     const mockTeachers: Teacher[] = [
       {
         id: 1,
@@ -48,6 +48,7 @@ describe('TeacherService', () => {
 
     service.all().subscribe(teachers => {
       expect(teachers).toEqual(mockTeachers);
+      done();
     });
 
     const req = httpMock.expectOne('api/teacher');
@@ -55,7 +56,7 @@ describe('TeacherService', () => {
     req.flush(mockTeachers);
   });
 
-  it('should return a teacher detail', () => {
+  it('should return a teacher detail', (done) => {
     const mockTeacher: Teacher = {
       id: 1,
       lastName: 'Doe',
@@ -66,6 +67,7 @@ describe('TeacherService', () => {
 
     service.detail('1').subscribe(teacher => {
       expect(teacher).toEqual(mockTeacher);
+      done();
     });
 
     const req = httpMock.expectOne('api/teacher/1');

@@ -29,7 +29,7 @@ describe('AuthService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should register a user', () => {
+  it('should register a user', (done) => {
     const mockRegisterRequest: RegisterRequest = {
       email: 'test@test.com',
       firstName: 'Test',
@@ -39,6 +39,7 @@ describe('AuthService', () => {
 
     service.register(mockRegisterRequest).subscribe(res => {
       expect(res).toEqual({});
+      done();
     });
 
     const req = httpMock.expectOne('api/auth/register');
@@ -46,7 +47,7 @@ describe('AuthService', () => {
     req.flush({});
   });
 
-  it('should login a user', () => {
+  it('should login a user', (done) => {
     const mockLoginRequest: LoginRequest = {
       email: 'test@test.com',
       password: 'password'
@@ -64,6 +65,7 @@ describe('AuthService', () => {
   
     service.login(mockLoginRequest).subscribe(sessionInformation => {
       expect(sessionInformation).toEqual(mockSessionInformation);
+      done();
     });
   
     const req = httpMock.expectOne('api/auth/login');

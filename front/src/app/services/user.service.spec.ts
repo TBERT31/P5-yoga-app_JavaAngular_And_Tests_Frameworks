@@ -27,7 +27,7 @@ describe('UserService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should return a user', () => {
+  it('should return a user', (done) => {
     const mockUser: User = {
       id: 1,
       email: 'test@test.com',
@@ -40,6 +40,7 @@ describe('UserService', () => {
 
     service.getById('1').subscribe(user => {
       expect(user).toEqual(mockUser);
+      done(); 
     });
 
     const req = httpMock.expectOne('api/user/1');
@@ -47,9 +48,10 @@ describe('UserService', () => {
     req.flush(mockUser);
   });
 
-  it('should delete a user', () => {
+  it('should delete a user', (done) => {
     service.delete('1').subscribe(response => {
       expect(response).toBeNull();
+      done();
     });
 
     const req = httpMock.expectOne('api/user/1');
