@@ -60,11 +60,16 @@ public class TeacherTest {
         teacher.setCreatedAt(now);
         teacher.setUpdatedAt(now);
 
-        assertThat(teacher.getId()).isEqualTo(1L);
-        assertThat(teacher.getLastName()).isEqualTo("Doe");
-        assertThat(teacher.getFirstName()).isEqualTo("John");
-        assertThat(teacher.getCreatedAt()).isEqualTo(now);
-        assertThat(teacher.getUpdatedAt()).isEqualTo(now);
+        assertThat(teacher)
+                .isNotNull()
+                .extracting("id", "firstName", "lastName", "createdAt", "updatedAt")
+                .containsExactly(
+                        1L,
+                        "John",
+                        "Doe",
+                        now,
+                        now
+                );
     }
 
     @Test
@@ -90,11 +95,16 @@ public class TeacherTest {
                 .updatedAt(now)
                 .build();
 
-        assertThat(teacher.getId()).isEqualTo(1L);
-        assertThat(teacher.getLastName()).isEqualTo("Doe");
-        assertThat(teacher.getFirstName()).isEqualTo("John");
-        assertThat(teacher.getCreatedAt()).isEqualTo(now);
-        assertThat(teacher.getUpdatedAt()).isEqualTo(now);
+        assertThat(teacher)
+                .isNotNull()
+                .extracting("id", "firstName", "lastName", "createdAt", "updatedAt")
+                .containsExactly(
+                        1L,
+                        "John",
+                        "Doe",
+                        now,
+                        now
+                );
     }
 
     @Test

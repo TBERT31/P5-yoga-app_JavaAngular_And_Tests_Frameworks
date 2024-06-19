@@ -56,7 +56,12 @@ public class UserServiceTest {
         assertThat(foundUser)
                 .isNotNull()
                 .extracting("id", "email", "firstName", "lastName", "admin")
-                .containsExactly(user.getId(), user.getEmail(), user.getFirstName(), user.getLastName(), user.isAdmin());
+                .containsExactly(user.getId(),
+                        user.getEmail(),
+                        user.getFirstName(),
+                        user.getLastName(),
+                        user.isAdmin()
+                );
 
         verify(userRepository, times(1)).findById(user.getId());
     }

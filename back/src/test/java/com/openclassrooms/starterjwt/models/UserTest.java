@@ -66,14 +66,18 @@ public class UserTest {
         user.setCreatedAt(now);
         user.setUpdatedAt(now);
 
-        assertThat(user.getId()).isEqualTo(1L);
-        assertThat(user.getEmail()).isEqualTo("john.doe@example.com");
-        assertThat(user.getLastName()).isEqualTo("Doe");
-        assertThat(user.getFirstName()).isEqualTo("John");
-        assertThat(user.getPassword()).isEqualTo("password");
-        assertThat(user.isAdmin()).isTrue();
-        assertThat(user.getCreatedAt()).isEqualTo(now);
-        assertThat(user.getUpdatedAt()).isEqualTo(now);
+        assertThat(user).isNotNull()
+                .extracting("id", "email", "firstName", "lastName", "password", "admin", "createdAt", "updatedAt")
+                .containsExactly(
+                        1L,
+                        "john.doe@example.com",
+                        "John",
+                        "Doe",
+                        "password",
+                        true,
+                        now,
+                        now
+                );
     }
 
     @Test
@@ -103,14 +107,18 @@ public class UserTest {
                 .updatedAt(now)
                 .build();
 
-        assertThat(user.getId()).isEqualTo(1L);
-        assertThat(user.getEmail()).isEqualTo("john.doe@example.com");
-        assertThat(user.getLastName()).isEqualTo("Doe");
-        assertThat(user.getFirstName()).isEqualTo("John");
-        assertThat(user.getPassword()).isEqualTo("password");
-        assertThat(user.isAdmin()).isTrue();
-        assertThat(user.getCreatedAt()).isEqualTo(now);
-        assertThat(user.getUpdatedAt()).isEqualTo(now);
+        assertThat(user).isNotNull()
+                .extracting("id", "email", "firstName", "lastName", "password", "admin", "createdAt", "updatedAt")
+                .containsExactly(
+                        1L,
+                        "john.doe@example.com",
+                        "John",
+                        "Doe",
+                        "password",
+                        true,
+                        now,
+                        now
+                );
     }
 
     @Test

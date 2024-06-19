@@ -63,19 +63,31 @@ public class SessionTest {
         Date date = new Date();
         Teacher teacher = new Teacher();
 
+        User user1 = new User(1L, "user1@test.com", "lastName1", "firstName1", "password123", false, null, null);
+        User user2 = new User(2L, "user2@test.com", "lastName2", "firstName2", "password456", false, null, null);
+        List<User> users = Arrays.asList(user1, user2);
+
+        session.setId(1L);
         session.setName("Session1");
         session.setDate(date);
         session.setDescription("Description1");
         session.setTeacher(teacher);
+        session.setUsers(users);
         session.setCreatedAt(now);
         session.setUpdatedAt(now);
 
-        assertThat(session.getName()).isEqualTo("Session1");
-        assertThat(session.getDate()).isEqualTo(date);
-        assertThat(session.getDescription()).isEqualTo("Description1");
-        assertThat(session.getTeacher()).isEqualTo(teacher);
-        assertThat(session.getCreatedAt()).isEqualTo(now);
-        assertThat(session.getUpdatedAt()).isEqualTo(now);
+        assertThat(session)
+                .isNotNull()
+                .extracting("id", "name", "description", "teacher", "users", "createdAt", "updatedAt")
+                .containsExactly(
+                        1L,
+                        "Session1",
+                        "Description1",
+                        teacher,
+                        users,
+                        now,
+                        now
+                );
     }
 
     @Test
@@ -95,7 +107,10 @@ public class SessionTest {
         LocalDateTime now = LocalDateTime.now();
         Date date = new Date();
         Teacher teacher = new Teacher();
-        List<User> users = Arrays.asList(new User());
+
+        User user1 = new User(1L, "user1@test.com", "lastName1", "firstName1", "password123", false, null, null);
+        User user2 = new User(2L, "user2@test.com", "lastName2", "firstName2", "password456", false, null, null);
+        List<User> users = Arrays.asList(user1, user2);
 
         Session session = Session.builder()
                 .id(1L)
@@ -108,14 +123,18 @@ public class SessionTest {
                 .updatedAt(now)
                 .build();
 
-        assertThat(session.getId()).isEqualTo(1L);
-        assertThat(session.getName()).isEqualTo("Session1");
-        assertThat(session.getDate()).isEqualTo(date);
-        assertThat(session.getDescription()).isEqualTo("Description1");
-        assertThat(session.getTeacher()).isEqualTo(teacher);
-        assertThat(session.getUsers()).isEqualTo(users);
-        assertThat(session.getCreatedAt()).isEqualTo(now);
-        assertThat(session.getUpdatedAt()).isEqualTo(now);
+        assertThat(session)
+                .isNotNull()
+                .extracting("id", "name", "description", "teacher", "users", "createdAt", "updatedAt")
+                .containsExactly(
+                        1L,
+                        "Session1",
+                        "Description1",
+                        teacher,
+                        users,
+                        now,
+                        now
+                );
     }
 
     @Test
