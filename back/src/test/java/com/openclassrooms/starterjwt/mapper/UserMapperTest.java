@@ -10,15 +10,18 @@ import org.mapstruct.factory.Mappers;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.tuple;
 
 class UserMapperTest {
 
     private final UserMapper userMapper = Mappers.getMapper(UserMapper.class);
 
     @Test
-    void toEntity() {
+    void testToEntity() {
         UserDto userDto = new UserDto(
                 1L,
                 "test@example.com",
@@ -32,19 +35,22 @@ class UserMapperTest {
 
         User user = userMapper.toEntity(userDto);
 
-        assertThat(user).isNotNull();
-        assertThat(user.getId()).isEqualTo(userDto.getId());
-        assertThat(user.getEmail()).isEqualTo(userDto.getEmail());
-        assertThat(user.getLastName()).isEqualTo(userDto.getLastName());
-        assertThat(user.getFirstName()).isEqualTo(userDto.getFirstName());
-        assertThat(user.isAdmin()).isEqualTo(userDto.isAdmin());
-        assertThat(user.getPassword()).isEqualTo(userDto.getPassword());
-        assertThat(user.getCreatedAt()).isEqualTo(userDto.getCreatedAt());
-        assertThat(user.getUpdatedAt()).isEqualTo(userDto.getUpdatedAt());
+        assertThat(user)
+                .isNotNull()
+                .extracting("id", "email","firstName", "lastName", "password","createdAt", "updatedAt")
+                .containsExactlyInAnyOrder(
+                        userDto.getId(),
+                        userDto.getEmail(),
+                        userDto.getFirstName(),
+                        userDto.getLastName(),
+                        userDto.getPassword(),
+                        userDto.getCreatedAt(),
+                        userDto.getUpdatedAt()
+                );
     }
 
     @Test
-    void toDto() {
+    void testToDto() {
         User user = User.builder()
                 .id(1L)
                 .email("test@example.com")
@@ -58,19 +64,22 @@ class UserMapperTest {
 
         UserDto userDto = userMapper.toDto(user);
 
-        assertThat(userDto).isNotNull();
-        assertThat(userDto.getId()).isEqualTo(user.getId());
-        assertThat(userDto.getEmail()).isEqualTo(user.getEmail());
-        assertThat(userDto.getLastName()).isEqualTo(user.getLastName());
-        assertThat(userDto.getFirstName()).isEqualTo(user.getFirstName());
-        assertThat(userDto.isAdmin()).isEqualTo(user.isAdmin());
-        assertThat(userDto.getPassword()).isEqualTo(user.getPassword());
-        assertThat(userDto.getCreatedAt()).isEqualTo(user.getCreatedAt());
-        assertThat(userDto.getUpdatedAt()).isEqualTo(user.getUpdatedAt());
+        assertThat(userDto)
+                .isNotNull()
+                .extracting("id", "email","firstName", "lastName", "password","createdAt", "updatedAt")
+                .containsExactlyInAnyOrder(
+                        user.getId(),
+                        user.getEmail(),
+                        user.getFirstName(),
+                        user.getLastName(),
+                        user.getPassword(),
+                        user.getCreatedAt(),
+                        user.getUpdatedAt()
+                );
     }
 
     @Test
-    void toEntityList() {
+    void testToEntityList() {
         UserDto userDto1 = new UserDto(
                 1L,
                 "test1@example.com",
@@ -95,13 +104,26 @@ class UserMapperTest {
         List<UserDto> userDtos = Arrays.asList(userDto1, userDto2);
         List<User> users = userMapper.toEntity(userDtos);
 
-        assertThat(users).hasSize(2);
-        assertThat(users.get(0).getEmail()).isEqualTo("test1@example.com");
-        assertThat(users.get(1).getEmail()).isEqualTo("test2@example.com");
+        assertThat(users).isNotNull()
+                .hasSize(2)
+                .extracting("id", "email", "firstName", "lastName", "password","createdAt", "updatedAt")
+                .containsExactlyInAnyOrderElementsOf(
+                        Stream.of(userDto1, userDto2)
+                                .map(userDto -> tuple(
+                                        userDto.getId(),
+                                        userDto.getEmail(),
+                                        userDto.getFirstName(),
+                                        userDto.getLastName(),
+                                        userDto.getPassword(),
+                                        userDto.getCreatedAt(),
+                                        userDto.getUpdatedAt()
+                                ))
+                                .collect(Collectors.toList())
+                );
     }
 
     @Test
-    void toDtoList() {
+    void testToDtoList() {
         User user1 = User.builder()
                 .id(1L)
                 .email("test1@example.com")
@@ -126,9 +148,23 @@ class UserMapperTest {
         List<User> users = Arrays.asList(user1, user2);
         List<UserDto> userDtos = userMapper.toDto(users);
 
-        assertThat(userDtos).hasSize(2);
-        assertThat(userDtos.get(0).getEmail()).isEqualTo("test1@example.com");
-        assertThat(userDtos.get(1).getEmail()).isEqualTo("test2@example.com");
+        assertThat(userDtos)
+                .isNotNull()
+                .hasSize(2)
+                .extracting("id", "email", "firstName", "lastName", "password","createdAt", "updatedAt")
+                .containsExactlyInAnyOrderElementsOf(
+                        Stream.of(user1, user2)
+                                .map(user -> tuple(
+                                        user.getId(),
+                                        user.getEmail(),
+                                        user.getFirstName(),
+                                        user.getLastName(),
+                                        user.getPassword(),
+                                        user.getCreatedAt(),
+                                        user.getUpdatedAt()
+                                ))
+                                .collect(Collectors.toList())
+                );
     }
 
     @Test

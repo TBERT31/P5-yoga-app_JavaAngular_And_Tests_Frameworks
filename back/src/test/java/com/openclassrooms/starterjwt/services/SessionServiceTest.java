@@ -86,12 +86,13 @@ public class SessionServiceTest {
 
         assertThat(foundSessions)
                 .isNotEmpty()
-                .extracting("id", "name", "description", "users")
+                .extracting("id", "name", "description", "teacher", "users")
                 .containsExactlyInAnyOrder(
                         Tuple.tuple(
                                 session.getId(),
                                 session.getName(),
                                 session.getDescription(),
+                                session.getTeacher(),
                                 session.getUsers()
                         )
                         // ... We can add more tuples if we have more sessions
@@ -108,8 +109,8 @@ public class SessionServiceTest {
 
         assertThat(foundSession)
                 .isNotNull()
-                .extracting("id", "name", "description", "users")
-                .containsExactly(foundSession.getId(), foundSession.getName(), foundSession.getDescription(), foundSession.getUsers());
+                .extracting("id", "name", "description", "teacher", "users")
+                .containsExactly(foundSession.getId(), foundSession.getName(), foundSession.getDescription(), foundSession.getTeacher(), foundSession.getUsers());
 
         verify(sessionRepository, times(1)).findById(session.getId());
     }
@@ -132,8 +133,14 @@ public class SessionServiceTest {
 
         assertThat(updatedSession)
                 .isNotNull()
-                .extracting("id", "name", "description", "users")
-                .containsExactly(updatedSession.getId(), updatedSession.getName(), updatedSession.getDescription(), updatedSession.getUsers());
+                .extracting("id", "name", "description", "teacher", "users")
+                .containsExactly(
+                        updatedSession.getId(),
+                        updatedSession.getName(),
+                        updatedSession.getDescription(),
+                        updatedSession.getTeacher(),
+                        updatedSession.getUsers()
+                );
 
         verify(sessionRepository, times(1)).save(session);
     }
